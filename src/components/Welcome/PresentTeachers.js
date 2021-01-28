@@ -1,7 +1,5 @@
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { reduceEachLeadingCommentRange } from "typescript";
 import {PresentTeachersAction} from '../../redux/actionCreator/TeacherAction'
 
 function PresentTeachers(props) {
@@ -22,7 +20,7 @@ function PresentTeachers(props) {
         <div className="pt-6 text-center">
           <h5 className="text-xl font-bold">{teacher.user.name}</h5>
           <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
-            Web Developer
+            Admin
                     </p>
           <div className="mt-6">
             {teacher.user.contacts && teacher.user['contacts'].map((contact,id) => (

@@ -1,6 +1,38 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { connect } from "react-redux";
+import {FooterAction} from '../../redux/actionCreator/FooterAction'
 
-export default function Footer() {
+const Footer= props => {
+  const [footer, setFooter] = useState({
+    'footer_contact_title' : '',
+    'footer_contact_description' : '',
+    'footer_contact_twitter' : '',
+    'footer_contact_facebook' : '',
+    'footer_contact_github' : '',
+    'footer_contact_gmail' : '',
+    'footer_link_title' : '',
+    'footer_link_1' : '',
+    'footer_link_2' : '',
+    'footer_link_3' : '',
+    'footer_link_4' : '',
+    'footer_resources_title' : '',
+    'footer_resources_1' : '',
+    'footer_resources_2' : '',
+    'footer_resources_3' : '',
+    'footer_resources_4' : '',
+  })
+  useEffect(() => {
+    props.FooterActionDispatch();
+  }, [])
+  useEffect(() => {
+    if(props.footerData){
+    let footerCopy = {...footer}
+    props.footerData.forEach(element => {
+      footerCopy[element.key] = element.value
+      setFooter({...footerCopy})
+    });
+  }
+  }, [props.footerData])
   return (
     <>
       <footer className="relative bg-gray-300 pt-8 pb-6">
@@ -26,9 +58,9 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-3xl font-semibold">Let's keep in touch!</h4>
+              <h4 className="text-3xl font-semibold">{footer.footer_contact_title}</h4>
               <h5 className="text-lg mt-0 mb-2 text-gray-700">
-                Find us on any of these platforms, we respond 1-2 business days.
+              {footer.footer_contact_description}
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
                 <button
@@ -61,7 +93,7 @@ export default function Footer() {
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
                   <span className="block uppercase text-gray-600 text-sm font-semibold mb-2">
-                    Useful Links
+                  {footer.footer_link_title}
                   </span>
                   <ul className="list-unstyled">
                     <li>
@@ -69,7 +101,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://www.creative-tim.com/presentation?ref=nr-footer"
                       >
-                        About Us
+                        {footer.footer_link_1}
                       </a>
                     </li>
                     <li>
@@ -77,7 +109,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://blog.creative-tim.com?ref=nr-footer"
                       >
-                        Blog
+                        {footer.footer_link_2}
                       </a>
                     </li>
                     <li>
@@ -85,7 +117,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://www.github.com/creativetimofficial?ref=nr-footer"
                       >
-                        Github
+                        {footer.footer_link_3}
                       </a>
                     </li>
                     <li>
@@ -93,14 +125,14 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://www.creative-tim.com/bootstrap-themes/free?ref=nr-footer"
                       >
-                        Free Products
+                        {footer.footer_link_4}
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4">
                   <span className="block uppercase text-gray-600 text-sm font-semibold mb-2">
-                    Other Resources
+                    {footer.footer_resources_title}
                   </span>
                   <ul className="list-unstyled">
                     <li>
@@ -108,7 +140,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://github.com/creativetimofficial/notus-react/blob/master/LICENSE.md?ref=nr-footer"
                       >
-                        MIT License
+                        {footer.footer_resources_1}
                       </a>
                     </li>
                     <li>
@@ -116,7 +148,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/terms?ref=nr-footer"
                       >
-                        Terms & Conditions
+                        {footer.footer_resources_2}
                       </a>
                     </li>
                     <li>
@@ -124,7 +156,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/privacy?ref=nr-footer"
                       >
-                        Privacy Policy
+                        {footer.footer_resources_3}
                       </a>
                     </li>
                     <li>
@@ -132,7 +164,7 @@ export default function Footer() {
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/contact-us?ref=nr-footer"
                       >
-                        Contact Us
+                        {footer.footer_resources_4}
                       </a>
                     </li>
                   </ul>
@@ -160,3 +192,22 @@ export default function Footer() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  const Footer = state.FooterReducer;
+  console.log('footer **********',Footer.data)
+  return {
+    footerData : Footer.data
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    FooterActionDispatch: (state) => dispatch(FooterAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer)
