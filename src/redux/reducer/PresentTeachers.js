@@ -7,23 +7,29 @@ import {
   const initialState = {
     code : null,
     message : null,
-    user : null,
-    error : null
+    users : null,
+    error : null,
+    loading : false,
   }
   const PresentTeachers = (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
       case REQUEST_PRESENT_TEACHER:
-          console.log('REQUEST_PRESENT_TEACHER')
         return {
+          ...state,
+          loading : true
         }
       case RECEIVE_PRESENT_TEACHER:
-          console.log('RECEIVE_PRESENT_TEACHER',payload.token)
         return {
+          ...state,
+          loading : false,
+          user : action.payload.data.data
         }
       case FAILURE_PRESENT_TEACHER:
-          console.log('FAILURE_PRESENT_TEACHER',payload)
         return {
+          ...state,
+          loading : false,
+          error : payload.error
         }
       default:
         return {

@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
-import {useSelector, useDispatch} from 'react-redux'
+import { connect } from "react-redux";
 import {PresentTeachersAction} from '../../redux/actionCreator/TeacherAction'
-export default function PresentTeachers() {
-  const PresentTeacherReducer = useSelector(state => state.PresentTeacherReducer)
-  const dispatch = useDispatch()
+
+function PresentTeachers(props) {
   useEffect(() => {
-    dispatch(PresentTeachersAction())
+    console.log('in use Effect')
+    props.PresentTeacherActionDispatch();
   }, [])
 
   return (
@@ -48,3 +48,21 @@ export default function PresentTeachers() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  const PresentTeacherReducer = state.PresentTeacherReducer;
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    PresentTeacherActionDispatch: (state) => dispatch(PresentTeachersAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PresentTeachers)
