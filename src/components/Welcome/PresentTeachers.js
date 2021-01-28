@@ -1,16 +1,18 @@
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { reduceEachLeadingCommentRange } from "typescript";
 import {PresentTeachersAction} from '../../redux/actionCreator/TeacherAction'
 
 function PresentTeachers(props) {
   useEffect(() => {
-    console.log('in use Effect')
     props.PresentTeacherActionDispatch();
-  }, [])
+  },[])
 
   return (
     <>
-    <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+    {props.users && props.users.map((teacher,id) => (
+    <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" key={id}>
       <div className="px-6">
         <img
           alt="..."
@@ -18,41 +20,34 @@ function PresentTeachers(props) {
           className="shadow-lg rounded-full mx-auto max-w-120-px"
         />
         <div className="pt-6 text-center">
-          <h5 className="text-xl font-bold">Ryan Tompson</h5>
+          <h5 className="text-xl font-bold">{teacher.user.name}</h5>
           <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
             Web Developer
                     </p>
           <div className="mt-6">
-            <button
-              className="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+            {teacher.user.contacts && teacher.user['contacts'].map((contact,id) => (
+            <button key={id} title={`${contact.contacttype.type} : ${contact.contact}`}
+              className="w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
               type="button"
             >
-              <i className="fab fa-twitter"></i>
+              <a href={contact.contact}>
+              <img src={contact.contacttype.avatars[0].avatar}/>
+              </a>
             </button>
-            <button
-              className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-              type="button"
-            >
-              <i className="fab fa-facebook-f"></i>
-            </button>
-            <button
-              className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-              type="button"
-            >
-              <i className="fab fa-dribbble"></i>
-            </button>
+            ))}
           </div>
         </div>
       </div>
-    </div> 
+    </div> ))}
     </>
   );
 }
 
 const mapStateToProps = (state) => {
-  const PresentTeacherReducer = state.PresentTeacherReducer;
+  const PresentTeachers = state.PresentTeachersReducer;
+  console.log('users', PresentTeachers.users)
   return {
-
+    users : PresentTeachers.users
   };
 };
 

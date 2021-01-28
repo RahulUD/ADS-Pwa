@@ -23,7 +23,7 @@ import {
         return {
           ...state,
           loading : false,
-          user : action.payload.data.data
+          users : action.payload.data.data
         }
       case FAILURE_PRESENT_TEACHER:
         return {
