@@ -1,6 +1,13 @@
-import React from "react";
-
+import React, {useEffect} from "react";
+import {useSelector, useDispatch} from 'react-redux'
+import {PresentTeachersAction} from '../../redux/actionCreator/TeacherAction'
 export default function PresentTeachers() {
+  const PresentTeacherReducer = useSelector(state => state.PresentTeacherReducer)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(PresentTeachersAction())
+  }, [])
+
   return (
     <>
     <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">

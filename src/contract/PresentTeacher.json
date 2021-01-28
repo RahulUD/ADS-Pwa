@@ -1,0 +1,53 @@
+{
+    "id": 7,
+    "is_presentable": 1,
+    "created_at": "2021-01-28T08:55:46.000000Z",
+    "updated_at": "2021-01-28T08:55:46.000000Z",
+    "user": {
+        "id": 17,
+        "name": "Fredrick Lakin",
+        "email": "sbrekke@example.com",
+        "date_of_birth": "2021-01-28",
+        "gender_id": 2,
+        "email_verified_at": "2021-01-28T08:56:00.000000Z",
+        "userable_type": "App\\Models\\Teacher",
+        "userable_id": "7",
+        "created_at": "2021-01-28T08:56:00.000000Z",
+        "updated_at": "2021-01-28T08:56:02.000000Z",
+        "contacts": [
+            {
+                "id": 49,
+                "name": "Lysanne Brown",
+                "contact": "elta72@example.org",
+                "contacttype_id": 1,
+                "is_active": 1,
+                "created_at": "2021-01-28T08:56:01.000000Z",
+                "updated_at": "2021-01-28T08:56:01.000000Z",
+                "pivot": {
+                    "contactable_id": 17,
+                    "contact_id": 49,
+                    "contactable_type": "App\\Models\\User"
+                },
+                "contacttype": {
+                    "id": 1,
+                    "type": "Email",
+                    "created_at": null,
+                    "updated_at": null,
+                    "avatars": [
+                        {
+                            "id": 1,
+                            "avatar": "https://via.placeholder.com/640x480.png/00ffff?text=velit",
+                            "created_at": "2021-01-28T08:55:24.000000Z",
+                            "updated_at": "2021-01-28T08:55:24.000000Z",
+                            "pivot": {
+                                "avatarable_id": 1,
+                                "avatar_id": 1,
+                                "avatarable_type": "App\\Models\\Contacttype"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
