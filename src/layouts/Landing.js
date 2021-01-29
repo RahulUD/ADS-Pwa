@@ -14,9 +14,9 @@ export default function Landing() {
       <Navbar />
       <main className="mt-15">
       <Switch>
-        <Route path="/welcome" exact component={Contact} />
-        <Route path="/welcome/contactus" exact component={Welcome} />
-        <Redirect from="/welcome" to="/" />
+        <Route path="/welcome" exact component={Welcome} />
+        <Route path="/welcome/contactus" exact component={Contact} />
+        <Redirect from="/" to="/welcome" />
       </Switch>
       </main>
       <Footer />

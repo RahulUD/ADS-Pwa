@@ -21,10 +21,11 @@ ReactDOM.render(
         {/* add routes with layouts */}
         <Route path="/admin" component={Admin} />
         <Route path="/auth" component={Auth} />
-        <Route path="/welcome" component={Landing} />
+        <Route path="/" component={Landing} />
         <Route path="/profile" component={Profile} />
         <Route path="/index" exact component={Index} />
         {/* add redirect for first page */}
+        <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
     </Provider>,
