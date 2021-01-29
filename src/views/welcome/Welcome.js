@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PresentTeachers from "components/Welcome/PresentTeachers.js";
-
+import wallaper from "./../../assets/img/wallpaper.jpg"
+import sports from "./../../assets/img/sports.jpg"
 
 export default function Welcome() {
     return (
@@ -10,8 +11,7 @@ export default function Welcome() {
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')",
+              backgroundImage:`url(${wallaper})`,
             }}
           >
             <span
@@ -24,12 +24,11 @@ export default function Welcome() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Your story starts with us.
+                    ADS Public School
                   </h1>
                   <p className="mt-4 text-lg text-gray-300">
-                    This is a simple example of a Landing Page you can build
-                    using Notus React. It features multiple CSS components based
-                    on the Tailwind CSS design system.
+                  A.D.S. Public School is an independent co-education school offering quality education. Our school motto, “Real world ready” is based upon 6 core values: hard work, honesty, respect,
+discipline, trust and enthusiasm.
                   </p>
                 </div>
               </div>
@@ -65,7 +64,7 @@ export default function Welcome() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                    <h6 className="text-xl font-semibold">Awards</h6>
                     <p className="mt-2 mb-4 text-gray-600">
                       Divide details about your product or agency work into
                       parts. A paragraph describing a feature will be enough.
@@ -78,9 +77,9 @@ export default function Welcome() {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                      <i className="fas fa-retweet"></i>
+                      <i className="fas fa-user-graduate"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">100% Result</h6>
                     <p className="mt-2 mb-4 text-gray-600">
                       Keep you user engaged by providing meaningful information.
                       Remember that by this time, the user is curious.
@@ -93,9 +92,9 @@ export default function Welcome() {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
-                      <i className="fas fa-fingerprint"></i>
+                      <i className="fas fa-laptop"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <h6 className="text-xl font-semibold">Digitally Transformed</h6>
                     <p className="mt-2 mb-4 text-gray-600">
                       Write a few lines about each one. A paragraph describing a
                       feature will be enough. Keep you user engaged!
@@ -108,24 +107,16 @@ export default function Welcome() {
             <div className="flex flex-wrap items-center mt-32">
               <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
                 <div className="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
-                  <i className="fas fa-user-friends text-xl"></i>
+                  <i className="fas fa-school text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
+                Beyond the Classroom
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
-                </p>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+                Personal Development Programme /Life Orientation : School Trips, Circle Time, Discovery Hour, Reading Writing Club, Writers’ Workshop, Research & Referral, Reading Programme, Mindspark,
                 </p>
                 <Link to="/" className="font-bold text-gray-800 mt-8">
-                  Check Notus React!
+                  Check more ...
                 </Link>
               </div>
 
@@ -149,7 +140,7 @@ export default function Welcome() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Top Notch Services
+                    Alumni
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
                       The Arctic Ocean freezes every winter and much of the
@@ -190,7 +181,7 @@ export default function Welcome() {
                 <img
                   alt="..."
                   className="max-w-full rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  src={sports}
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
@@ -198,55 +189,15 @@ export default function Welcome() {
                   <div className="text-blue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">Culture & Sport</h3>
                   <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                  The culture & sport curriculum forms an essential part of our school programme. We have allocated
+cultural periods each week that will form part of our Personal Development Programme. We want to
+create a platform for all our students to enable them to express themselves in a creative way using
+different genres. The sporting mission of ADS is to provide coaching and sporting/practice facilities for
+the learners to enable them to play as true sportspersons in “the spirit of the game”.
                   </p>
-                  <ul className="list-none mt-6">
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                            <i className="fas fa-fingerprint"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">
-                            Carefully crafted components
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                            <i className="fab fa-html5"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">
-                            Amazing page examples
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                            <i className="far fa-paper-plane"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">Dynamic components</h4>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                 </div>
               </div>
             </div>
           </div>
@@ -255,12 +206,10 @@ export default function Welcome() {
         <section className="pt-20 pb-48">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
-              <div className="w-full lg:w-6/12 px-4">
+              <div className="w-full lg:w-12 px-4">
                 <h2 className="text-4xl font-semibold">Here are our heroes</h2>
                 <p className="text-lg leading-relaxed m-4 text-gray-600">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record maximum.
+                ‘Our Team’ consists of the key personnel of the school that works relentlessly to materialise innovative ideas related to the school’s curriculum and other activities. Being profoundly creative and intellectual, the team members and the school’s faculty endeavour to cater to the futuristic educational needs of Generation Z with utmost rigour and exactness. The school consciously understands the imperativeness of quality education and thus, has instituted a highly professional and collaborative teaching culture that enhances the student’s performance. Besides being tech-savvy and well-trained, each team member possesses a deep understanding of children’s behaviour, for above academic qualifications; a tender heart remains indispensable for righteous action.
                 </p>
               </div>
             </div>
@@ -295,12 +244,10 @@ export default function Welcome() {
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
-                  Build something
+                EXPLORE ADS Public School
                 </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-                  Put the potentially record low maximum sea ice extent tihs
-                  year down to low ice. According to the National Oceanic and
-                  Atmospheric Administration, Ted, Scambos.
+                ADS Public School follow all the rules and examination pattern provided by CBSE.
                 </p>
               </div>
             </div>
@@ -310,7 +257,7 @@ export default function Welcome() {
                   <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
+                  Curriculum Framwork
                 </h6>
                 <p className="mt-2 mb-4 text-gray-500">
                   Some quick example text to build on the card title and make up
@@ -322,7 +269,7 @@ export default function Welcome() {
                   <i className="fas fa-poll text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Grow your market
+                  School Campus
                 </h5>
                 <p className="mt-2 mb-4 text-gray-500">
                   Some quick example text to build on the card title and make up
@@ -334,7 +281,7 @@ export default function Welcome() {
                   <i className="fas fa-lightbulb text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Launch time
+                  Our Global Connect
                 </h5>
                 <p className="mt-2 mb-4 text-gray-500">
                   Some quick example text to build on the card title and make up
