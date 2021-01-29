@@ -5,6 +5,9 @@ import {
   REQUEST_FOOTER,
   RECEIVE_FOOTER,
   FAILURE_FOOTER,
+  REQUEST_LOGIN,
+  RECEIVE_LOGIN,
+  FAILURE_LOGIN,
 } from './ActionType'
 
 // present teacher
@@ -30,5 +33,18 @@ export const receiveFooter = payload => ({
 })
 export const failureFooter = payload => ({
   type: FAILURE_FOOTER,
+  payload
+})
+
+// LOGIN
+export const requestLogin = () => ({
+  type: REQUEST_LOGIN
+})
+export const receiveLogin = payload => ({
+  type: RECEIVE_LOGIN,
+  payload
+})
+export const failureLogin = payload => ({
+  type: FAILURE_LOGIN,
   payload
 })
