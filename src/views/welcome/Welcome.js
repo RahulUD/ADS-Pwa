@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PresentTeachers from "components/Welcome/PresentTeachers.js";
 import wallaper from "./../../assets/img/wallpaper.jpg"
 import sports from "./../../assets/img/sports.jpg"
+import Birthday from '../../components/Welcome/Birthday'
 
 export default function Welcome() {
     return (
@@ -240,7 +241,7 @@ the learners to enable them to play as true sportspersons in “the spirit of th
             </svg>
           </div>
 
-          <div className="container mx-auto px-4 lg:pt-24 lg:pb-64">
+          <div className="container mx-auto px-4 lg:pt-24">
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
@@ -291,7 +292,7 @@ the learners to enable them to play as true sportspersons in “the spirit of th
             </div>
           </div>
         </section>
-      
+        <Birthday/>
         </>
        )
 }
