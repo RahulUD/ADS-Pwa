@@ -1,6 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { isTokenAvilableInLocalStorage } from "utility/method/LocalStorageMethod";
+import { useHistory } from "react-router-dom";
 
 export default function Register() {
+const history = useHistory()
+  useEffect(() => {
+    if(isTokenAvilableInLocalStorage()){
+      history.push('/')
+    }
+   }, [])
   return (
     <>
       <div className="container mx-auto px-4 h-full">

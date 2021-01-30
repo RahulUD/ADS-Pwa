@@ -1,10 +1,11 @@
-import React, { useState} from 'react'
-import { Link } from "react-router-dom";
+import React, { useState, useEffect} from 'react'
+import { Link, useHistory } from "react-router-dom";
 import Validation from './../../utility/Validation'
 import { LoginAction } from './../../redux/actionCreator/AuthAction'
 import { connect } from "react-redux";
+import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
 
-const Login = (props) => {
+function Login(props) {
   const [formData, setFormData] = useState({
     email: {
       value: '',
@@ -20,13 +21,19 @@ const Login = (props) => {
       value: '',
       validation: {
         required: true,
-        password : true
+        minLength : 8
       },
       messages : null,
       valid: false,
       touched: false
     }
   })
+  useEffect(() => {
+   if(isTokenAvilableInLocalStorage()){
+     history.push('/')
+   }
+  }, [])
+  const history = useHistory()
   const [formValidity, setFormValidity] = useState(false)
   const handleChange = event => {
     let identifier = event.target.id
@@ -51,6 +58,10 @@ const Login = (props) => {
     }
   }
 
+  useEffect(() => {
+    if(props.isAuthSuccessful)
+    history.push('/admin')
+  }, [props.isAuthSuccessful])
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -147,7 +158,13 @@ const Login = (props) => {
   );
 }
 
-
+const mapStateToProps = (state) => {
+  const Auth = state.AuthReducer;
+  return {
+    user : Auth.user,
+    isAuthSuccessful : Auth.isAuthSuccessful
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -156,6 +173,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Login)

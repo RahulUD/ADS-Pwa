@@ -9,6 +9,7 @@ import {
     message : null,
     user : null,
     token : null,
+    isAuthSuccessful : false,
     error : null,
     loading : false,
   }
@@ -24,6 +25,7 @@ import {
         return {
           ...state,
           loading : false,
+          isAuthSuccessful : true,
           user : action.payload.data.data.user,
           token : action.payload.data.data.token
         }

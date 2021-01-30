@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { BASE_URL_GLOBAL, BASE_URL_LOCAL } from '../constant/EndPoints'
-import { AUTH } from '../constant/LocalStorage'
+import { TOKEN } from '../constant/LocalStorage'
 import { AUTHORIZATION, BEARER } from '../constant/Headers'
 let LOCAL = 1
 let BaseApi =
@@ -9,7 +9,7 @@ let BaseApi =
     : axios.create({ baseURL: BASE_URL_GLOBAL })
 
 let Api = function() {
-  let token = localStorage.getItem(AUTH)
+  let token = localStorage.getItem(TOKEN)
   if (token) {
     BaseApi.defaults.headers.common[AUTHORIZATION] = `${BEARER} ${token}`
   }
