@@ -23,8 +23,8 @@ const Dropdown = (props) => {
           <div className="relative inline-flex align-middle w-full">
             {props.isAuthSuccessful ?
               (<Link to="/auth/login"
-              className="text-white font-bold uppercase text-sm py-2 px-6 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-red-500 active:bg-red-600 ease-linear transition-all duration-150"
-            >Logout</Link>) : (<Link to="/auth/login"
+                className="text-white font-bold uppercase text-sm py-2 px-6 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-red-500 active:bg-red-600 ease-linear transition-all duration-150"
+              >Logout</Link>) : (<Link to="/auth/login"
                 className="text-white font-bold uppercase text-sm py-2 px-6 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-blue-500 active:bg-blue-600 ease-linear transition-all duration-150"
               >Login</Link>)
             }

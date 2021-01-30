@@ -13,6 +13,7 @@ import Index from "views/Index.js";
 import { Provider } from 'react-redux'
 
 import store from './redux/reducer/store'
+import Blog from "layouts/Blog";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,6 +22,7 @@ ReactDOM.render(
         {/* add routes with layouts */}
         <Route path="/admin" component={Admin} />
         <Route path="/auth" component={Auth} />
+        <Route path="/blog" component={Blog} />
         <Route path="/" component={Landing} />
         <Route path="/profile" component={Profile} />
         <Route path="/index" exact component={Index} />
