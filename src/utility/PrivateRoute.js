@@ -1,25 +1,14 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import {isTokenAvilableInLocalStorage} from './method/LocalStorageMethod'
+import { isTokenAvilableInLocalStorage } from './method/LocalStorageMethod'
 
-function PrivateRoute({ children }) {
-    const isAuthSucessful = isTokenAvilableInLocalStorage()
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
-    <Route
-      render={({ location }) =>
-        isAuthSucessful ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/',
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
-  )
-}
-
-export default PrivateRoute
+    <Route {...rest} render={props => (
+      isTokenAvilableInLocalStorage() ?
+        <Component {...props} />
+        : <Redirect to="/signin" />
+    )} />
+  );
+};
+export default PrivateRoute;

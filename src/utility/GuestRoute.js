@@ -1,22 +1,13 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import {isTokenAvilableInLocalStorage} from './method/LocalStorageMethod'
+import { isTokenAvilableInLocalStorage } from './method/LocalStorageMethod'
 
-function GuestRoute({ children }) {
-    const isAuthSucessful = isTokenAvilableInLocalStorage()
+const GuestRoute = ({ component: Component, restricted, ...rest }) => {
   return (
-    <Route
-      render={({ location }) =>
-      isAuthSucessful ? (children) :
-        (<Redirect
-            to={{
-              pathname: '/',
-              state: { from: location }
-            }}
-          />)
-      }
-    />
-  )
-}
-
-export default GuestRoute
+    <Route {...rest} render={props => (
+      isTokenAvilableInLocalStorage() ?<Redirect to="/admin/dashboard" /> :
+      <Component {...props} />
+    )} />
+  );
+};
+export default GuestRoute;
