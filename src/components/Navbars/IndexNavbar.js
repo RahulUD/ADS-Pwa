@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 import LoginDropdown from "components/Dropdowns/LoginDropdown.js";
 import logo from './../../assets/img/logo/ads70X56.png'
+import { loginFromSession } from "redux/actionCreator/AuthAction";
+import { connect } from "react-redux";
+import { isTokenAvilableInLocalStorage } from './../../utility/method/LocalStorageMethod'
 
-export default function Navbar(props) {
+ function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  useEffect(() => {
+    if(isTokenAvilableInLocalStorage() && !props.isAuthSuccessful){
+      props.loginFromSessionDispatch()
+    }
+  }, [])
   return (
     <>
       <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 pt-1 navbar-expand-lg bg-white shadow">
@@ -78,3 +86,21 @@ export default function Navbar(props) {
     </>
   );
 }
+const mapStateToProps = (state) => {
+  const Auth = state.AuthReducer;
+  return {
+    user : Auth.user,
+    isAuthSuccessful : Auth.isAuthSuccessful
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loginFromSessionDispatch: (state) => dispatch(loginFromSession(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar)

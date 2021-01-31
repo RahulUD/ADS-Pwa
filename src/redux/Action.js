@@ -8,6 +8,7 @@ import {
   REQUEST_LOGIN,
   RECEIVE_LOGIN,
   FAILURE_LOGIN,
+  RECEIVE_LOGIN_FROM_SESSION,
   REQUEST_BLOGS,
   RECEIVE_BLOGS,
   FAILURE_BLOGS,
@@ -62,5 +63,9 @@ export const receiveLogin = payload => ({
 })
 export const failureLogin = payload => ({
   type: FAILURE_LOGIN,
+  payload
+})
+export const receiveLoginFromSession = payload => ({
+  type: RECEIVE_LOGIN_FROM_SESSION,
   payload
 })
