@@ -1,12 +1,15 @@
 import { combineReducers } from "redux";
-import PresentTeachers from './PresentTeachers'
+import PresentTeachersReducer from './PresentTeachersReducer'
 import FooterReducer from './FooterReducer'
 import AuthReducer from './AuthReducer'
+import BlogReducer from './BlogReducer'
+
 
     const RootReducer = combineReducers({
-        PresentTeachersReducer: PresentTeachers,
+        PresentTeachersReducer,
         FooterReducer,
         AuthReducer,
+        BlogReducer
     });
 
 export default RootReducer;

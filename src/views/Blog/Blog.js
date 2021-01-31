@@ -1,34 +1,22 @@
 import BlogCard from "components/Cards/BlogCard";
-import React from "react";
-export default function Post() {
+import React, { useEffect, useState } from "react";
+
+import { BlogsAction } from '../../redux/actionCreator/BlogAction'
+import { connect } from "react-redux";
+
+function Post(props) {
+  useEffect(() => {
+    props.BlogsActionDispatch()
+  }, [])
   return (
     <>
-      <div classNameName=" pt-16 items-center justify-center min-h-screen-75">
-        <div className="px-16 py-16">
+      <div className=" py-10 items-center justify-center min-h-screen-75">
+        <div className="px-16 py-6">
           <div className="flex justify-between container mx-auto">
             <div className="w-full lg:w-8/12">
-              <BlogCard />
-             <div className="mt-8">
+              {props.Blogs.map((item,id) => (<BlogCard blog={item} key={id}/>))}
+              <div className="mt-8">
                 <div className="flex">
-                  <a href="#" className="mx-1 px-3 py-2 bg-white text-gray-500 font-medium rounded-md cursor-not-allowed">
-                    previous
-                        </a>
-
-                  <a href="#" className="mx-1 px-3 py-2 bg-white text-gray-700 font-medium hover:bg-blue-500 hover:text-white rounded-md">
-                    1
-                        </a>
-
-                  <a href="#" className="mx-1 px-3 py-2 bg-white text-gray-700 font-medium hover:bg-blue-500 hover:text-white rounded-md">
-                    2
-                        </a>
-
-                  <a href="#" className="mx-1 px-3 py-2 bg-white text-gray-700 font-medium hover:bg-blue-500 hover:text-white rounded-md">
-                    3
-                        </a>
-
-                  <a href="#" className="mx-1 px-3 py-2 bg-white text-gray-700 font-medium hover:bg-blue-500 hover:text-white rounded-md">
-                    Next
-                        </a>
                 </div>
               </div>
             </div>
@@ -95,10 +83,29 @@ export default function Post() {
                   </ul>
                 </div>
               </div>
-             </div>
+            </div>
           </div>
         </div>
       </div>
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  const Blog = state.BlogReducer;
+  console.log('blogs', Blog.data)
+    return {
+      Blogs : Blog.data
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    BlogsActionDispatch: (state) => dispatch(BlogsAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Post)

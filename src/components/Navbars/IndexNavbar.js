@@ -50,14 +50,11 @@ export default function Navbar(props) {
                 </a>
               </li>
 
-              <li className="flex items-center">
-                <a
-                  className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F"
-                  target="_blank"
-                >
-                  Blog
-                </a>
+              <li className="flex items-center" >
+                  <Link to='/blog'
+                  className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                    Blog
+                  </Link>
               </li>
 
               <li className="flex items-center" >

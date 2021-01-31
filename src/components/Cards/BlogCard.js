@@ -1,5 +1,5 @@
 import React from 'react'
-const BlogCard = () => {
+const BlogCard = (props) => {
     return (
         <>
             <div className="mt-6">
@@ -9,8 +9,7 @@ const BlogCard = () => {
                                 2020</span><a href="#"
                             className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500">Laravel</a>
                     </div>
-                    <div className="mt-2"><a href="#" className="text-2xl text-gray-700 font-bold hover:underline">Build
-                                Your New Idea with Laravel Freamwork.</a>
+                    <div className="mt-2"><a href="#" className="text-2xl text-gray-700 font-bold hover:underline">{props.blog.title}</a>
                         <p className="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
                                 reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>

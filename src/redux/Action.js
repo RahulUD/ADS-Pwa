@@ -8,7 +8,23 @@ import {
   REQUEST_LOGIN,
   RECEIVE_LOGIN,
   FAILURE_LOGIN,
+  REQUEST_BLOGS,
+  RECEIVE_BLOGS,
+  FAILURE_BLOGS,
 } from './ActionType'
+
+// blogs
+export const requestBlogs = () => ({
+  type: REQUEST_BLOGS
+})
+export const receiveBlogs = payload => ({
+  type: RECEIVE_BLOGS,
+  payload
+})
+export const failureBlogs = payload => ({
+  type: FAILURE_BLOGS,
+  payload
+})
 
 // present teacher
 export const requestPresentTeacher = () => ({

@@ -10,3 +10,7 @@ export const FAILURE_FOOTER = "FAILURE_FOOTER";
 export const REQUEST_LOGIN = "REQUEST_LOGIN";
 export const RECEIVE_LOGIN = "RECEIVE_LOGIN";
 export const FAILURE_LOGIN = "FAILURE_LOGIN";
+// blogs
+export const REQUEST_BLOGS ='REQUEST_BLOGS';
+export const RECEIVE_BLOGS ='RECEIVE_BLOGS';
+export const FAILURE_BLOGS ='FAILURE_BLOGS';
