@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
+import { connect } from "react-redux";
+import { LogoutAction } from "redux/actionCreator/AuthAction";
 
-const IndexDropdown = () => {
+const IndexDropdown = (props) => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -18,15 +20,14 @@ const IndexDropdown = () => {
   };
   return (
     <>
-      <a
-        className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-        href="#pablo"
+      <button
+        className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 whitespace-no-wrap flex items-center text-xs uppercase font-bold"
         ref={btnDropdownRef}
         onMouseEnter={() => openDropdownPopover()}
         onMouseLeave={() => closeDropdownPopover()}
       >
-        More+
-      </a>
+        {props.User}
+      </button>
       <div
       onMouseEnter={() => openDropdownPopover()}
       onMouseLeave={() => closeDropdownPopover()}
@@ -41,75 +42,46 @@ const IndexDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
           }
         >
-          Admin Layout
-        </span>
-        <Link
-          to="/admin/dashboard"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
-          Dashboard
-        </Link>
-        <Link
-          to="/admin/settings"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
-          Settings
-        </Link>
-        <Link
-          to="/admin/tables"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
-          Tables
-        </Link>
-        <Link
-          to="/admin/maps"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
-          Maps
-        </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
-          }
-        >
           Auth Layout
         </span>
         <Link
           to="/auth/login"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
         >
-          Login
-        </Link>
-        <Link
-          to="/auth/register"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
-          Register
-        </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
-          }
-        >
-          No Layout
-        </span>
-        <Link
-          to="/landing"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
-          Lading
-        </Link>
-        <Link
-          to="/profile"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-        >
           Profile
         </Link>
+        <Link
+          to="/admin/dashboard"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Dashboard
+        </Link>
+        <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
+        <button
+        onClick={props.LogoutActionDispatch}
+          className="text-sm py-2 px-4 bg-red-500 text-white font-normal justify-self-auto block w-full whitespace-no-wrap bg-transparent"
+        >
+          Logout
+        </button>
       </div>
     </>
   );
 };
 
-export default IndexDropdown;
+const mapStateToProps = (state) => {
+  const Auth = state.AuthReducer;
+  console.log('Auth', Auth.user)
+    return {
+      User : Auth.user
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LogoutActionDispatch: (state) => dispatch(LogoutAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(IndexDropdown)

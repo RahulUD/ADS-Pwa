@@ -12,7 +12,23 @@ import {
   REQUEST_BLOGS,
   RECEIVE_BLOGS,
   FAILURE_BLOGS,
+  REQUEST_LOGOUT,
+  RECEIVE_LOGOUT,
+  FAILURE_LOGOUT,
 } from './ActionType'
+
+// LOGOUT
+export const requestLogout = () => ({
+  type: REQUEST_LOGOUT
+})
+export const receiveLogout = payload => ({
+  type: RECEIVE_LOGOUT,
+  payload
+})
+export const failureLogout = payload => ({
+  type: FAILURE_LOGOUT,
+  payload
+})
 
 // blogs
 export const requestBlogs = () => ({

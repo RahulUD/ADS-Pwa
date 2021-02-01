@@ -2,10 +2,13 @@ import {
   requestLogin,
   receiveLogin,
   failureLogin,
+  requestLogout,
+  receiveLogout,
+  failureLogout,
   receiveLoginFromSession,
 } from '../Action';
 import Auth from '../../utility/api/Auth'
-import {setTokeninLocalStorage, setUserinLocalStorage} from './../../utility/method/LocalStorageMethod'
+import {setTokeninLocalStorage, setUserinLocalStorage, unsetTokeninLocalStorage, unsetUserinLocalStorage} from './../../utility/method/LocalStorageMethod'
 import { USER, TOKEN } from 'utility/constant/LocalStorage';
 
 
@@ -24,5 +27,17 @@ export const LoginAction = ($payload) => dispatch => {
     })
     .catch(error => {
       dispatch(failureLogin(error))
+    })
+}
+export const LogoutAction = () => dispatch => {
+  dispatch(requestLogout())
+  return Auth.Logout()
+    .then(response => {
+      unsetTokeninLocalStorage()
+      unsetUserinLocalStorage()
+      dispatch(receiveLogout(response))
+    })
+    .catch(error => {
+      dispatch(failureLogout(error))
     })
 }

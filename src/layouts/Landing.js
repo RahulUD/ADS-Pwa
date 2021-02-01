@@ -7,6 +7,7 @@ import Navbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import Welcome from "views/welcome/Welcome.js";
 import Contact from "views/welcome/Contactus.js";
+import Aboutus from "views/welcome/Aboutus.js";
 
 export default function Landing() {
   return (
@@ -16,6 +17,7 @@ export default function Landing() {
       <Switch>
         <Route path="/welcome" exact component={Welcome} />
         <Route path="/welcome/contactus" exact component={Contact} />
+        <Route path="/welcome/aboutus" exact component={Aboutus} />
         <Redirect from="/" to="/welcome" />
       </Switch>
       </main>

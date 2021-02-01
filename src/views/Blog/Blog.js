@@ -1,5 +1,5 @@
 import BlogCard from "components/Cards/BlogCard";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { BlogsAction } from '../../redux/actionCreator/BlogAction'
 import { connect } from "react-redux";

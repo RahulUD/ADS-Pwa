@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 import LoginDropdown from "components/Dropdowns/LoginDropdown.js";
@@ -7,10 +7,10 @@ import { loginFromSession } from "redux/actionCreator/AuthAction";
 import { connect } from "react-redux";
 import { isTokenAvilableInLocalStorage } from './../../utility/method/LocalStorageMethod'
 
- function Navbar(props) {
+function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   useEffect(() => {
-    if(isTokenAvilableInLocalStorage() && !props.isAuthSuccessful){
+    if (isTokenAvilableInLocalStorage() && !props.isAuthSuccessful) {
       props.loginFromSessionDispatch()
     }
   }, [])
@@ -23,7 +23,7 @@ import { isTokenAvilableInLocalStorage } from './../../utility/method/LocalStora
               to="/"
               className="inline-block mr-4"
             >
-              <img src={logo}/>
+              <img src={logo} />
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -41,43 +41,36 @@ import { isTokenAvilableInLocalStorage } from './../../utility/method/LocalStora
             id="example-navbar-warning"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <li className="flex items-center" >
-                  <Link to='/welcome'
+              <li className="flex items-center" >
+                <Link to='/welcome'
                   className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
-                    ADS
+                  ADS
                   </Link>
               </li>
 
               <li className="flex items-center">
-                <a
-                  className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F"
-                  target="_blank"
-                >
-                  About Us
-                </a>
-              </li>
-
-              <li className="flex items-center" >
-                  <Link to='/blog'
+                <Link to='/welcome/aboutus'
                   className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
-                    Blog
+                  About us
                   </Link>
               </li>
 
               <li className="flex items-center" >
-                  <Link to='/welcome/contactus'
+                <Link to='/blog'
                   className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
-                    Contact Us
+                  Blog
+                  </Link>
+              </li>
+
+              <li className="flex items-center" >
+                <Link to='/welcome/contactus'
+                  className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                  Contact Us
                   </Link>
               </li>
 
               <li className="flex items-center">
-                <IndexDropdown />
-              </li>
-          
-              <li className="flex items-center">
-               <LoginDropdown />
+                <LoginDropdown />
               </li>
             </ul>
           </div>
@@ -89,8 +82,8 @@ import { isTokenAvilableInLocalStorage } from './../../utility/method/LocalStora
 const mapStateToProps = (state) => {
   const Auth = state.AuthReducer;
   return {
-    user : Auth.user,
-    isAuthSuccessful : Auth.isAuthSuccessful
+    user: Auth.user,
+    isAuthSuccessful: Auth.isAuthSuccessful
   };
 };
 
@@ -104,3 +97,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Navbar)
+// 703385676518
+// 18001801961

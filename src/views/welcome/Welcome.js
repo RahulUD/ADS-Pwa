@@ -214,7 +214,7 @@ the learners to enable them to play as true sportspersons in “the spirit of th
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
               <PresentTeachers />
               </div>
           </div>
