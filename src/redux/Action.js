@@ -15,6 +15,9 @@ import {
   REQUEST_LOGOUT,
   RECEIVE_LOGOUT,
   FAILURE_LOGOUT,
+  REQUEST_CONTACTUS,
+  RECEIVE_CONTACTUS,
+  FAILURE_CONTACTUS
 } from './ActionType'
 
 // LOGOUT
@@ -83,5 +86,18 @@ export const failureLogin = payload => ({
 })
 export const receiveLoginFromSession = payload => ({
   type: RECEIVE_LOGIN_FROM_SESSION,
+  payload
+})
+
+//CONTACTUS
+export const requestContactUS = () => ({
+  type: REQUEST_CONTACTUS
+})
+export const receiveContactUS = payload => ({
+  type: RECEIVE_CONTACTUS,
+  payload
+})
+export const failureContactUs = payload => ({
+  type: FAILURE_CONTACTUS,
   payload
 })
