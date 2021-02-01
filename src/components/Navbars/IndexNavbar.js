@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 import LoginDropdown from "components/Dropdowns/LoginDropdown.js";
 import logo from './../../assets/img/logo/ads70X56.png'
 import { loginFromSession } from "redux/actionCreator/AuthAction";

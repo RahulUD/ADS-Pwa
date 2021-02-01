@@ -1,7 +1,11 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Logout from "./../Button/Logout";
 
-const UserDropdown = () => {
+
+const UserDropdown = (props) => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -21,10 +25,8 @@ const UserDropdown = () => {
         className="text-gray-600 block"
         href="#pablo"
         ref={btnDropdownRef}
-        onClick={(e) => {
-          e.preventDefault();
-          dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
-        }}
+        onMouseEnter={() => openDropdownPopover()}
+        onMouseLeave={() => closeDropdownPopover()}
       >
         <div className="items-center flex">
           <span className="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
@@ -37,6 +39,8 @@ const UserDropdown = () => {
         </div>
       </a>
       <div
+      onMouseEnter={() => openDropdownPopover()}
+      onMouseLeave={() => closeDropdownPopover()}
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
@@ -61,28 +65,29 @@ const UserDropdown = () => {
         >
           Another action
         </a>
-        <a
-          href="#pablo"
+        <Link
+          to="/admin/dashboard"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
           }
-          onClick={(e) => e.preventDefault()}
         >
-          Something else here
-        </a>
+          Dashboard
+        </Link>
         <div className="h-0 my-2 border border-solid border-gray-200" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Seprated link
-        </a>
+        <Logout />
       </div>
     </>
   );
 };
+const mapStateToProps = (state) => {
+  const Auth = state.AuthReducer;
+  console.log('Auth', Auth.user)
+    return {
+      User : Auth.user
+    };
+};
 
-export default UserDropdown;
+export default connect(
+  mapStateToProps,
+  null
+)(UserDropdown)
