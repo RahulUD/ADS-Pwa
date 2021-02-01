@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
 import { connect } from "react-redux";
 import { LogoutAction } from "redux/actionCreator/AuthAction";
+import Logout from "components/Button/Logout";
 
 const IndexDropdown = (props) => {
   // dropdown props
@@ -39,7 +40,7 @@ const IndexDropdown = (props) => {
       >
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
+            "text-sm py-2 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-800"
           }
         >
           Auth Layout
@@ -57,12 +58,7 @@ const IndexDropdown = (props) => {
           Dashboard
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
-        <button
-        onClick={props.LogoutActionDispatch}
-          className="text-sm py-2 px-4 bg-red-500 text-white font-normal justify-self-auto block w-full whitespace-no-wrap bg-transparent"
-        >
-          Logout
-        </button>
+       <Logout />
       </div>
     </>
   );

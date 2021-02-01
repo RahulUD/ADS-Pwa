@@ -6,6 +6,8 @@ import {
   receiveLogout,
   failureLogout,
   receiveLoginFromSession,
+  requestLoading,
+    receiveLoading,
 } from '../Action';
 import Auth from '../../utility/api/Auth'
 import {setTokeninLocalStorage, setUserinLocalStorage, unsetTokeninLocalStorage, unsetUserinLocalStorage} from './../../utility/method/LocalStorageMethod'
@@ -18,9 +20,11 @@ export const loginFromSession = () => dispatch => {
 }
 
 export const LoginAction = ($payload) => dispatch => {
+  dispatch(requestLoading())
   dispatch(requestLogin())
   return Auth.Login($payload)
     .then(response => {
+      dispatch(receiveLoading())
       setTokeninLocalStorage(response)
       setUserinLocalStorage(response)
       dispatch(receiveLogin(response))

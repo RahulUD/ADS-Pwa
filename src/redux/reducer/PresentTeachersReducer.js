@@ -9,7 +9,7 @@ import {
     message : null,
     users : null,
     error : null,
-    loading : false,
+    
   }
   const PresentTeachersReducer = (state = initialState, action) => {
     const { type, payload } = action
@@ -17,18 +17,18 @@ import {
       case REQUEST_PRESENT_TEACHER:
         return {
           ...state,
-          loading : true
+          
         }
       case RECEIVE_PRESENT_TEACHER:
         return {
           ...state,
-          loading : false,
+          
           users : action.payload.data.data
         }
       case FAILURE_PRESENT_TEACHER:
         return {
           ...state,
-          loading : false,
+          
           error : payload.error
         }
       default:

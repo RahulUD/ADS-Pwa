@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router';
 import { LogoutAction } from "redux/actionCreator/AuthAction";
 
 const Logout = (props) => {
+    const history = useHistory()
+    useEffect(() => {
+        if(!props.isAuthSuccessful){
+            history.push('/')
+        }
+    }, [props.isAuthSuccessful])
     return (
         <button
             onClick={props.LogoutActionDispatch}
@@ -17,9 +25,16 @@ const mapDispatchToProps = (dispatch) => {
       LogoutActionDispatch: (state) => dispatch(LogoutAction(state))
     };
   };
+  const mapStateToProps = (state) => {
+    const Auth = state.AuthReducer;
+    console.log('Auth', Auth.isAuthSuccessful)
+      return {
+        isAuthSuccessful : Auth.isAuthSuccessful
+      };
+  };
   
   export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Logout)
   

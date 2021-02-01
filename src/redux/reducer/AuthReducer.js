@@ -15,7 +15,6 @@ const initialState = {
   token: null,
   isAuthSuccessful: false,
   error: null,
-  loading: false,
 }
 export default (state = initialState, action) => {
   const { type, payload } = action
@@ -23,7 +22,7 @@ export default (state = initialState, action) => {
     case RECEIVE_LOGIN_FROM_SESSION:
       return {
         ...state,
-        loading: false,
+    
         isAuthSuccessful: true,
         user: action.payload.user,
         token: action.payload.token
@@ -31,12 +30,12 @@ export default (state = initialState, action) => {
     case REQUEST_LOGOUT:
       return {
         ...state,
-        loading: true
+    
       }
     case RECEIVE_LOGOUT:
       return {
         ...state,
-        loading: false,
+    
         isAuthSuccessful: false,
         user: null,
         token: null
@@ -44,18 +43,18 @@ export default (state = initialState, action) => {
     case FAILURE_LOGOUT:
       return {
         ...state,
-        loading: false,
+    
         error: payload.error
       }
     case REQUEST_LOGIN:
       return {
         ...state,
-        loading: true
+    
       }
     case RECEIVE_LOGIN:
       return {
         ...state,
-        loading: false,
+    
         isAuthSuccessful: true,
         user: action.payload.data.data.user.name,
         token: action.payload.data.data.token
@@ -63,7 +62,7 @@ export default (state = initialState, action) => {
     case FAILURE_LOGIN:
       return {
         ...state,
-        loading: false,
+    
         error: payload.error
       }
     default:

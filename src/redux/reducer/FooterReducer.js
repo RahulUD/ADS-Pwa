@@ -9,7 +9,7 @@ import {
     message : null,
     data : null,
     error : null,
-    loading : false,
+    
   }
   const PresentTeachers = (state = initialState, action) => {
     const { type, payload } = action
@@ -17,18 +17,18 @@ import {
       case REQUEST_FOOTER:
         return {
           ...state,
-          loading : true
+          
         }
       case RECEIVE_FOOTER:
         return {
           ...state,
-          loading : false,
+          
           data : action.payload.data.data
         }
       case FAILURE_FOOTER:
         return {
           ...state,
-          loading : false,
+          
           error : payload.error
         }
       default:

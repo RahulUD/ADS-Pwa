@@ -8,8 +8,10 @@ import Footer from "components/Footers/Footer.js";
 import Welcome from "views/welcome/Welcome.js";
 import Contact from "views/welcome/Contactus.js";
 import Aboutus from "views/welcome/Aboutus.js";
+import { connect } from "react-redux";
+import Fulloverlay from './../components/Overlay/Fulloverlay'
 
-export default function Landing() {
+function Landing(props) {
   return (
     <>
       <Navbar />
@@ -22,6 +24,8 @@ export default function Landing() {
       </Switch>
       </main>
       <Footer />
+      <Fulloverlay message="Loading ..."/>
     </>
   );
 }
+export default Landing

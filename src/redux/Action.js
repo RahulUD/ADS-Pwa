@@ -15,7 +15,17 @@ import {
   REQUEST_LOGOUT,
   RECEIVE_LOGOUT,
   FAILURE_LOGOUT,
+  REQUEST_LOADING,
+  RECEIVE_LOADING,
 } from './ActionType'
+
+// LOGOUT
+export const requestLoading = () => ({
+  type: REQUEST_LOADING
+})
+export const receiveLoading = () => ({
+  type: RECEIVE_LOADING
+})
 
 // LOGOUT
 export const requestLogout = () => ({
