@@ -1,6 +1,73 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
+import Validation from "../../utility/Validation";
+import {useHistory } from "react-router-dom";
+import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
 
- const ContactUs = () => {
+ const ContactUs = (props) => {
+  const [formContact, setFormContact] = useState({
+    name: {
+      value: '',
+      validation: {
+        required: true,
+        name: true
+      },
+      messages : null,
+      valid: false,
+      touched: false
+    },
+   
+    email: {
+      value: '',
+      validation: {
+        required: true,
+        email: true
+      },
+      messages : null,
+      valid: false,
+      touched: false
+    },
+    number: {
+      value: '',
+      validation: {
+        required: true,
+        minLength : 10
+      },
+      messages : null,
+      valid: false,
+      touched: false
+    }
+  })
+  useEffect(() => {
+   if(isTokenAvilableInLocalStorage()){
+     history.push('/')
+   }
+  }, []);
+  const history = useHistory()
+  const [formValidity, setFormValidity] = useState(false)
+  const handleChange = event => {
+    let identifier = event.target.id
+    let element = { ...formContact[identifier] }
+    element.value = event.target.value
+    element.touched = true
+    const {isValid, messages}  = Validation(event.target.value, formContact[identifier].validation)
+    element.valid = isValid
+    element.messages = messages
+    setFormContact({ ...formContact, [identifier]: element })
+    setFormValidity(handleValidation())
+  }
+
+  const handleValidation = ()=>{
+    return formContact.email.valid & formContact.name.valid & formContact.number.valid
+  }
+
+  const handleSubmit = () => {
+    if(formValidity){
+      let credential = {email : formContact.email.value, name : formContact.name.value, number: formContact.number.value}
+      props.LoginActionDispatch(credential);
+    }
+  }
+
+
     return (
         <div>
                    <section className="relative block py-24 lg:pt-0 bg-gray-900">
@@ -25,6 +92,9 @@ import React from 'react'
                       </label>
                       <input
                         type="text"
+                        onChange={handleChange}
+                        value={formContact.name.value}
+                       
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Full Name"
                       />
@@ -38,11 +108,32 @@ import React from 'react'
                         Email
                       </label>
                       <input
+                       onChange={handleChange}
+                       value={formContact.email.value}
+                      
                         type="email"
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Email"
                       />
                     </div>
+
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                        htmlFor="number"
+                      >
+                        Number
+                      </label>
+                      <input
+                       onChange={handleChange}
+                       value={formContact.number.value}
+                      
+                        type="number"
+                        className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+                        placeholder="Number"
+                      />
+                    </div>
+
 
                     <div className="relative w-full mb-3">
                       <label
@@ -62,6 +153,7 @@ import React from 'react'
                       <button
                         className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
+                        onClick ={handleSubmit}
                       >
                         Send Message
                       </button>

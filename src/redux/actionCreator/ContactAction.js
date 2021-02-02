@@ -1,22 +1,22 @@
 import {
-    requestBlogs,
-    receiveBlogs,
-    failureBlogs,
+    requestContactUS,
+    receiveContactUS,
+    failureContactUS,
     requestLoading,
     receiveLoading,
   } from '../Action';
-  import Blog from '../../utility/api/Blog'
+  import Contact from '../../utility/api/Blog'
   
   export const BlogsAction = (pageNo) => dispatch => {
     dispatch(requestLoading())
-    dispatch(requestBlogs())
-    return Blog.Blogs(pageNo)
+    dispatch(requestContactUS())
+    return Contact.Blogs(pageNo)
       .then(response => {
         dispatch(receiveLoading())
-        dispatch(receiveBlogs(response))
+        dispatch(receiveContactUS(response))
       })
       .catch(error => {
-        dispatch(failureBlogs(error))
+        dispatch(failureContactUS(error))
       })
   }
   

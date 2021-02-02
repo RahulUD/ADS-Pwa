@@ -6,9 +6,9 @@ import {REQUEST_CONTACTUS,
   const initialState ={
     code : null,
     message : null,
-    data : [
-      {name : 'a', email : 'b',message:"c"}
-    ],
+    data : null,
+      
+    
     error : null,
     loading : false,
   }
