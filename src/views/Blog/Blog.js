@@ -1,7 +1,7 @@
 import BlogCard from "components/Cards/BlogCard";
 import React, { useEffect } from "react";
 import {Pagination} from 'react-laravel-paginex'
-import './Blog.css'
+import 'commonCss/Blog.css'
 
 import { BlogsAction } from '../../redux/actionCreator/BlogAction'
 import { connect } from "react-redux";

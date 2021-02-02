@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import 'commonCss/Blog.css'
+import {Pagination} from 'react-laravel-paginex'
+import { BlogsAction } from 'redux/actionCreator/BlogAction'
 
-// components
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
+import { connect } from "react-redux";
 
-export default function EnqueryTable({ color }) {
+function EnqueryTable(props) {
   return (
     <>
       <div
         className={
           "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded " +
-          (color === "light" ? "bg-white" : "bg-blue-900 text-white")
+          (props.color === "light" ? "bg-white" : "bg-blue-900 text-white")
         }
       >
         <div className="rounded-t mb-0 px-4 py-3 border-0">
@@ -20,7 +23,7 @@ export default function EnqueryTable({ color }) {
               <h3
                 className={
                   "font-semibold text-lg " +
-                  (color === "light" ? "text-gray-800" : "text-white")
+                  (props.color === "light" ? "text-gray-800" : "text-white")
                 }
               >
                 Enqueries
@@ -36,7 +39,7 @@ export default function EnqueryTable({ color }) {
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left " +
-                    (color === "light"
+                    (props.color === "light"
                       ? "bg-gray-100 text-gray-600 border-gray-200"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
@@ -46,7 +49,7 @@ export default function EnqueryTable({ color }) {
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left " +
-                    (color === "light"
+                    (props.color === "light"
                       ? "bg-gray-100 text-gray-600 border-gray-200"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
@@ -56,7 +59,7 @@ export default function EnqueryTable({ color }) {
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left " +
-                    (color === "light"
+                    (props.color === "light"
                       ? "bg-gray-100 text-gray-600 border-gray-200"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
@@ -66,7 +69,7 @@ export default function EnqueryTable({ color }) {
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left " +
-                    (color === "light"
+                    (props.color === "light"
                       ? "bg-gray-100 text-gray-600 border-gray-200"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
@@ -76,7 +79,7 @@ export default function EnqueryTable({ color }) {
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left " +
-                    (color === "light"
+                    (props.color === "light"
                       ? "bg-gray-100 text-gray-600 border-gray-200"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
@@ -86,7 +89,7 @@ export default function EnqueryTable({ color }) {
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left " +
-                    (color === "light"
+                    (props.color === "light"
                       ? "bg-gray-100 text-gray-600 border-gray-200"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
@@ -104,7 +107,7 @@ export default function EnqueryTable({ color }) {
                   <span
                     className={
                       "ml-3 font-bold " +
-                      +(color === "light" ? "text-gray-700" : "text-white")
+                      +(props.color === "light" ? "text-gray-700" : "text-white")
                     }
                   >
                     Argon Design System
@@ -167,7 +170,7 @@ export default function EnqueryTable({ color }) {
                   <span
                     className={
                       "ml-3 font-bold " +
-                      +(color === "light" ? "text-gray-700" : "text-white")
+                      +(props.color === "light" ? "text-gray-700" : "text-white")
                     }
                   >
                     Angular Now UI Kit PRO
@@ -231,7 +234,7 @@ export default function EnqueryTable({ color }) {
                   <span
                     className={
                       "ml-3 font-bold " +
-                      +(color === "light" ? "text-gray-700" : "text-white")
+                      +(props.color === "light" ? "text-gray-700" : "text-white")
                     }
                   >
                     Black Dashboard Sketch
@@ -294,7 +297,7 @@ export default function EnqueryTable({ color }) {
                   <span
                     className={
                       "ml-3 font-bold " +
-                      +(color === "light" ? "text-gray-700" : "text-white")
+                      +(props.color === "light" ? "text-gray-700" : "text-white")
                     }
                   >
                     React Material Dashboard
@@ -358,7 +361,7 @@ export default function EnqueryTable({ color }) {
                   <span
                     className={
                       "ml-3 font-bold " +
-                      +(color === "light" ? "text-gray-700" : "text-white")
+                      +(props.color === "light" ? "text-gray-700" : "text-white")
                     }
                   >
                     React Material Dashboard
@@ -414,6 +417,10 @@ export default function EnqueryTable({ color }) {
               </tr>
             </tbody>
           </table>
+          <div id="pagination" className="my-16 mx-16">
+              <Pagination  changePage={(data)=>props.BlogsActionDispatch(data)} data={props.Blogs}/>
+          </div>
+
         </div>
       </div>
     </>
@@ -427,3 +434,21 @@ EnqueryTable.defaultProps = {
 EnqueryTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
 };
+const mapStateToProps = (state) => {
+  const Blog = state.BlogReducer;
+  console.log('blogs', Blog.data)
+    return {
+      Blogs : Blog.data
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    BlogsActionDispatch: (state) => dispatch(BlogsAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EnqueryTable)

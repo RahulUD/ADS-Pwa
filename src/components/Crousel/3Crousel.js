@@ -30,7 +30,6 @@ class AutoPlayCarousel extends React.Component {
   };
 
   componentDidMount() {
-    debugger
     this.props.BirthdayActionDispatch()
     this.interval = setInterval(this.tick, this.state.autoPlayDelay);
   }
