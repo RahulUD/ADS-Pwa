@@ -12,7 +12,7 @@ import Profile from "layouts/Profile.js";
 import Index from "views/Index.js";
 import { Provider } from 'react-redux'
 
-import store from './redux/reducer/store'
+import store from 'redux/reducer/store'
 import Blog from "layouts/Blog";
 
 ReactDOM.render(

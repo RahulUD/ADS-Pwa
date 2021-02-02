@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { BASE_URL_GLOBAL, BASE_URL_LOCAL } from '../constant/EndPoints'
-import { TOKEN } from '../constant/LocalStorage'
-import { AUTHORIZATION, BEARER } from '../constant/Headers'
+import { BASE_URL_GLOBAL, BASE_URL_LOCAL } from 'utility/constant/EndPoints'
+import { TOKEN } from 'utility/constant/LocalStorage'
+import { AUTHORIZATION, BEARER } from 'utility/constant/Headers'
 let LOCAL = 1
 let BaseApi =
   LOCAL === 2

@@ -1,4 +1,4 @@
-import {TOKEN, USER} from './../constant/LocalStorage'
+import {TOKEN, USER} from 'utility/constant/LocalStorage'
 export const setTokeninLocalStorage = (payload) =>{
     localStorage.setItem(TOKEN,payload.data.data.token )
 }

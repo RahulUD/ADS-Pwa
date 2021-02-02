@@ -2,7 +2,7 @@ import React from "react";
 import { createPopper } from "@popperjs/core";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Logout from "./../Button/Logout";
+import Logout from "components/Button/Logout";
 
 
 const UserDropdown = (props) => {

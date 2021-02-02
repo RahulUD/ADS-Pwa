@@ -1,5 +1,5 @@
-import { FOOTER } from '../constant/EndPoints'
-import Api from './Api'
+import { FOOTER } from 'utility/constant/EndPoints'
+import Api from 'utility/api/Api'
 
 export default {
   Footer() {

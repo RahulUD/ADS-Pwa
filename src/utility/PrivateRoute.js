@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { isTokenAvilableInLocalStorage } from './method/LocalStorageMethod'
+import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (

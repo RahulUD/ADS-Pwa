@@ -1,7 +1,7 @@
 import PresentTeachers from "components/Welcome/PresentTeachers";
 import React from "react";
 import HeaderStats from "components/Headers/HeaderStats.js";
-import sports from "./../../assets/img/sports.jpg"
+import sports from "assets/img/sports.jpg"
 
 
 export default function Aboutus() {

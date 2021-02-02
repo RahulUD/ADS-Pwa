@@ -4,8 +4,8 @@ import {
     failureBirthday,
     requestLoading,
     receiveLoading,
-  } from '../Action';
-  import User from '../../utility/api/User'
+  } from 'redux/Action';
+  import User from 'utility/api/User'
   
   export const BirthdayAction = () => dispatch => {
     dispatch(requestBirthday())

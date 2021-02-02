@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ItemsCarousel from 'react-items-carousel';
 import { connect } from 'react-redux';
-import { BirthdayAction } from '../../redux/actionCreator/UserAction'
+import { BirthdayAction } from 'redux/actionCreator/UserAction'
 
 const chevronWidth = 40;
 

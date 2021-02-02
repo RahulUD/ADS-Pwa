@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import PresentTeachersReducer from './reducer/PresentTeachersReducer'
-import FooterReducer from './reducer/FooterReducer'
-import AuthReducer from './reducer/AuthReducer'
-import BlogReducer from './reducer/BlogReducer'
-import LoadingReducer from './reducer/LoadingReducer'
-import BirthdayReducer from './reducer/BirthdayReducer'
+import PresentTeachersReducer from 'redux/reducer/PresentTeachersReducer'
+import FooterReducer from 'redux/reducer/FooterReducer'
+import AuthReducer from 'redux/reducer/AuthReducer'
+import BlogReducer from 'redux/reducer/BlogReducer'
+import LoadingReducer from 'redux/reducer/LoadingReducer'
+import BirthdayReducer from 'redux/reducer/BirthdayReducer'
 
 
 

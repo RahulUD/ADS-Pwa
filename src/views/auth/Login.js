@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { Link, useHistory } from "react-router-dom";
-import Validation from './../../utility/Validation'
-import { LoginAction } from './../../redux/actionCreator/AuthAction'
+import Validation from 'utility/Validation'
+import { LoginAction } from 'redux/actionCreator/AuthAction'
 import { connect } from "react-redux";
 import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
 

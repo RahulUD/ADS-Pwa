@@ -2,7 +2,7 @@ import {
     REQUEST_PRESENT_TEACHER,
     RECEIVE_PRESENT_TEACHER,
     FAILURE_PRESENT_TEACHER
-  } from '../ActionType'
+  } from 'redux/ActionType'
   
   const initialState = {
     code : null,

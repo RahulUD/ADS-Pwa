@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoginDropdown from "components/Dropdowns/LoginDropdown.js";
-import logo from './../../assets/img/logo/ads70X56.png'
+import logo from 'assets/img/logo/ads70X56.png'
 import { loginFromSession } from "redux/actionCreator/AuthAction";
 import { connect } from "react-redux";
-import { isTokenAvilableInLocalStorage } from './../../utility/method/LocalStorageMethod'
+import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod'
 
 function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);

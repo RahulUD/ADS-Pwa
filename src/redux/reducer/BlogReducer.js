@@ -2,7 +2,7 @@ import {
   REQUEST_BLOGS,
   RECEIVE_BLOGS,
   FAILURE_BLOGS,
-} from '../ActionType'
+} from 'redux/ActionType'
 
 const initialState = {
   code: null,

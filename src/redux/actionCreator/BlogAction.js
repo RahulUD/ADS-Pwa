@@ -4,8 +4,8 @@ import {
     failureBlogs,
     requestLoading,
     receiveLoading,
-  } from '../Action';
-  import Blog from '../../utility/api/Blog'
+  } from 'redux/Action';
+  import Blog from 'utility/api/Blog'
   
   export const BlogsAction = (data) => dispatch => {
     dispatch(requestLoading())

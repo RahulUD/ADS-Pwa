@@ -1,5 +1,5 @@
-import { BIRTHDAY } from '../constant/EndPoints'
-import Api from './Api'
+import { BIRTHDAY } from 'utility/constant/EndPoints'
+import Api from 'utility/api/Api'
 
 export default {
   Birthday() {

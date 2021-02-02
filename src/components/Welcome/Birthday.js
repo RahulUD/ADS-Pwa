@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import BirthdayWallpaper from './../../assets/img/birthday.jpg'
-import ThreeCrousel from './../../components/Crousel/3Crousel'
+import BirthdayWallpaper from 'assets/img/birthday.jpg'
+import ThreeCrousel from 'components/Crousel/3Crousel'
 
 export default () => {
   return (

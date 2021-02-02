@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import {Pagination} from 'react-laravel-paginex'
 import 'commonCss/Blog.css'
 
-import { BlogsAction } from '../../redux/actionCreator/BlogAction'
+import { BlogsAction } from 'redux/actionCreator/BlogAction'
 import { connect } from "react-redux";
 
 function Post(props) {

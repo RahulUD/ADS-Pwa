@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PresentTeachers from "components/Welcome/PresentTeachers.js";
-import wallaper from "./../../assets/img/wallpaper.jpg"
-import sports from "./../../assets/img/sports.jpg"
-import Birthday from '../../components/Welcome/Birthday'
+import wallaper from "assets/img/wallpaper.jpg"
+import sports from "assets/img/sports.jpg"
+import Birthday from 'components/Welcome/Birthday'
 
 export default function Welcome() {
     return (

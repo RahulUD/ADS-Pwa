@@ -4,8 +4,8 @@ import {
     failureFooter,
     requestLoading,
     receiveLoading,
-  } from '../Action';
-  import Ads from '../../utility/api/Ads'
+  } from 'redux/Action';
+  import Ads from 'utility/api/Ads'
   
   export const FooterAction = () => dispatch => {
     dispatch(requestFooter())

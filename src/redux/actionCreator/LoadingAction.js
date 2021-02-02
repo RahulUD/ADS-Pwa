@@ -1,7 +1,7 @@
 import {
     requestLoading,
     receiveLoading,
-} from '../Action';
+} from 'redux/Action';
 
 export const LoadingAction = (loading) => dispatch => {
     if (loading)

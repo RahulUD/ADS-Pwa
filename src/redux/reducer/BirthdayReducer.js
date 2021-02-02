@@ -2,7 +2,7 @@ import {
     REQUEST_BIRTHDAY,
     RECEIVE_BIRTHDAY,
     FAILURE_BIRTHDAY,
-  } from '../ActionType'
+  } from 'redux/ActionType'
   
   const initialState = {
     code : null,

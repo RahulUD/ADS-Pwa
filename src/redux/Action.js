@@ -21,7 +21,7 @@ import {
   RECEIVE_BIRTHDAY,
   FAILURE_BIRTHDAY,
   
-} from './ActionType'
+} from 'redux/ActionType'
 
 // BIRTHDAY
 export const requestBirthday = () => ({
