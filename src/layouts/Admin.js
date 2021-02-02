@@ -15,6 +15,7 @@ import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
+import Enquery from "views/admin/Enquery";
 import PrivateRoute from "utility/PrivateRoute";
 
 export default function Admin() {
@@ -28,6 +29,7 @@ export default function Admin() {
             <PrivateRoute path="/admin/maps" exact component={Maps} />
             <PrivateRoute path="/admin/settings" exact component={Settings} />
             <PrivateRoute path="/admin/tables" exact component={Tables} />
+            <PrivateRoute path="/admin/enqueries" exact component={Enquery} />
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
         </div>
