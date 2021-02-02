@@ -20,8 +20,23 @@ import {
   REQUEST_BIRTHDAY,
   RECEIVE_BIRTHDAY,
   FAILURE_BIRTHDAY,
-  
+  REQUEST_CONTACTUS,
+  RECEIVE_CONTACTUS,
+  FAILURE_CONTACTUS,
 } from 'redux/ActionType'
+
+// contactus
+export const requestContactus = () => ({
+  type: REQUEST_CONTACTUS
+})
+export const receiveContactus = payload => ({
+  type: RECEIVE_CONTACTUS,
+  payload
+})
+export const failureContactus = payload => ({
+  type: FAILURE_CONTACTUS,
+  payload
+})
 
 // BIRTHDAY
 export const requestBirthday = () => ({
