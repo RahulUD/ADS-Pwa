@@ -1,44 +1,38 @@
 import React from 'react';
-import range from 'lodash/range';
 import styled from 'styled-components';
 import ItemsCarousel from 'react-items-carousel';
+import { connect } from 'react-redux';
+import { BirthdayAction } from '../../redux/actionCreator/UserAction'
 
-const noOfItems = 12;
-const noOfCards = 3;
-const autoPlayDelay = 4000;
 const chevronWidth = 40;
 
 const Wrapper = styled.div`
+  padding: 0 ${chevronWidth}px;
   max-width: 1000px;
-  overflow: hidden;
-  margin: auto;
+  margin: 0 auto;
 `;
 
-const carouselItems = range(noOfItems).map(index => (
-  <>
-  <div className="px-6">
-        <img
-          alt="..."
-          src={require("assets/img/team-1-800x800.jpg")}
-          className="shadow-lg rounded-full mx-auto max-w-120-px"
-        />
-        <div className="pt-6 text-center">
-          <h5 className="text-xl font-bold">Name</h5>
-          <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
-            Admin
-                    </p>
-          </div>
-      </div>
-  </>
-));
+const SlideItem = styled.div`
+  height: 200px;
+  background: #EEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+`;
 
-export default class AutoPlayCarousel extends React.Component {
+class AutoPlayCarousel extends React.Component {
   state = {
     activeItemIndex: 0,
+    noOfCards: 3,
+    autoPlayDelay: 3000,
   };
 
   componentDidMount() {
-    this.interval = setInterval(this.tick, autoPlayDelay);
+    debugger
+    this.props.BirthdayActionDispatch()
+    this.interval = setInterval(this.tick, this.state.autoPlayDelay);
   }
 
   componentWillUnmount() {
@@ -46,7 +40,7 @@ export default class AutoPlayCarousel extends React.Component {
   }
 
   tick = () => this.setState(prevState => ({
-    activeItemIndex: (prevState.activeItemIndex + 1) % (noOfItems-noOfCards + 1),
+    activeItemIndex: (prevState.activeItemIndex + 1) % (this.props?.users?.length - this.state.noOfCards + 1),
   }));
 
   onChange = value => this.setState({ activeItemIndex: value });
@@ -56,16 +50,39 @@ export default class AutoPlayCarousel extends React.Component {
       <Wrapper>
         <ItemsCarousel
           gutter={12}
-          numberOfCards={noOfCards}
+          numberOfCards={this.state.noOfCards}
           activeItemIndex={this.state.activeItemIndex}
           requestToChangeActive={this.onChange}
-          rightChevron={'>'}
-          leftChevron={'<'}
+          rightChevron={<button>{'>'}</button>}
+          leftChevron={<button>{'<'}</button>}
           chevronWidth={chevronWidth}
           outsideChevron
-          children={carouselItems}
+          children={this.props.users&&this.props.users.map(element => (
+            <SlideItem key={element.id}>
+              {element.name}
+            </SlideItem>
+          ))}
         />
       </Wrapper>
     );
   }
 }
+const mapStateToProps = (state) => {
+  const Birthday = state.BirthdayReducer;
+    if(Birthday){
+      return {
+      users: Birthday.user
+    };
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    BirthdayActionDispatch: (state) => dispatch(BirthdayAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AutoPlayCarousel)

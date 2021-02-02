@@ -17,7 +17,24 @@ import {
   FAILURE_LOGOUT,
   REQUEST_LOADING,
   RECEIVE_LOADING,
+  REQUEST_BIRTHDAY,
+  RECEIVE_BIRTHDAY,
+  FAILURE_BIRTHDAY,
+  
 } from './ActionType'
+
+// BIRTHDAY
+export const requestBirthday = () => ({
+  type: REQUEST_BIRTHDAY
+})
+export const receiveBirthday = payload => ({
+  type: RECEIVE_BIRTHDAY,
+  payload
+})
+export const failureBirthday = payload => ({
+  type: FAILURE_BIRTHDAY,
+  payload
+})
 
 // LOGOUT
 export const requestLoading = () => ({
