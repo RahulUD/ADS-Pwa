@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import 'commonCss/Blog.css'
 import { Pagination } from 'react-laravel-paginex'
@@ -19,7 +19,7 @@ const EnqueryTable = (props) => {
         }
       >
 
-        {props.Contactus?.data.map(element => (<div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+        { props.Contactus?.data.map(element => (<div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
           <div className="flex">
             <div>
               <p className="font-bold">{element.name}</p>
@@ -28,13 +28,13 @@ const EnqueryTable = (props) => {
             </div>
           </div>
           <div className="mt-5">
-            <input type="text" className="bg-gray-300 " style={{ padding: '5px', width: '80%' }} /><button className="bg-blue-500 text-white ml-8 rounded-b" style={{ padding: '5px' }}>Acknowledge</button>
-          </div>
+            <input type="text" className="bg-gray-300 " style={{padding : '5px', width : '80%'}}/><button className="bg-blue-500 text-white ml-8 rounded-b" style={{padding : '5px'}}>Acknowledge</button>
+        </div>
         </div>))}
 
 
         <div id="pagination" style={{ margin: '25px' }}>
-          {props.Contactus && <Pagination changePage={(data) => props.ContactusActionDispatch(data)} data={props.Contactus} />}
+          <Pagination changePage={(data) => props.ContactusActionDispatch(data)} data={props.Contactus} />
         </div>
       </div>
     </>

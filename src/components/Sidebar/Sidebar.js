@@ -136,7 +136,7 @@ export default function Sidebar() {
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-800 hover:text-gray-600")
                   }
-                  to="/admin/enqueries"
+                  to="/admin/tables/enquery"
                 >
                   <i
                     className={
@@ -147,6 +147,28 @@ export default function Sidebar() {
                     }
                   ></i>{" "}
                   Enquery
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/settings") !== -1
+                      ? "text-blue-500 hover:text-blue-600"
+                      : "text-gray-800 hover:text-gray-600")
+                  }
+                  to="/admin/tables/teachers"
+                >
+                  <i
+                    className={
+                      "fas fa-tools mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/table/") !== -1
+                        ? "opacity-75"
+                        : "text-gray-400")
+                    }
+                  ></i>{" "}
+                  Teachers
                 </Link>
               </li>
 
