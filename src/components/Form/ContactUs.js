@@ -2,6 +2,9 @@ import React,{useState,useEffect} from 'react';
 import Validation from "../../utility/Validation";
 import {useHistory } from "react-router-dom";
 import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
+import InputFieldError from 'components/Error/InputFieldError';
+import { connect } from 'react-redux';
+import {ContactUsAction} from "redux/actionCreator/ContacUstAction";
 
  const ContactUs = (props) => {
   const [formContact, setFormContact] = useState({
@@ -9,7 +12,8 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
       value: '',
       validation: {
         required: true,
-        name: true
+        minLength:4,
+        name:true
       },
       messages : null,
       valid: false,
@@ -30,7 +34,21 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
       value: '',
       validation: {
         required: true,
-        minLength : 10
+        minLength : 10,
+        maxLength:10
+      },
+      messages : null,
+      valid: false,
+      touched: false
+    },
+    message: {
+      value: '',
+      validation: {
+        required: true,
+        
+        minLength:50,
+        maxLength:250
+      
       },
       messages : null,
       valid: false,
@@ -62,8 +80,8 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
 
   const handleSubmit = () => {
     if(formValidity){
-      let credential = {email : formContact.email.value, name : formContact.name.value, number: formContact.number.value}
-      props.LoginActionDispatch(credential);
+      let contact = {email : formContact.email.value, name : formContact.name.value, phone: formContact.number.value, message:formContact.message.value}
+      props.ContactUsActionDispatch(contact);
     }
   }
 
@@ -91,6 +109,7 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
                         Full Name
                       </label>
                       <input
+                      id="name"
                         type="text"
                         onChange={handleChange}
                         value={formContact.name.value}
@@ -98,6 +117,7 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Full Name"
                       />
+                    <InputFieldError  error={formContact?.name?.messages} />
                     </div>
 
                     <div className="relative w-full mb-3">
@@ -108,6 +128,7 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
                         Email
                       </label>
                       <input
+                      id="email"
                        onChange={handleChange}
                        value={formContact.email.value}
                       
@@ -115,6 +136,8 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Email"
                       />
+                     <InputFieldError  error={formContact?.email?.messages} />
+                    
                     </div>
 
                     <div className="relative w-full mb-3">
@@ -127,12 +150,12 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
                       <input
                        onChange={handleChange}
                        value={formContact.number.value}
-                      
-                        type="number"
+                       id="number"
+                        type="text"
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Number"
                       />
-                    </div>
+                <InputFieldError  error={formContact?.number?.messages} />                   </div>
 
 
                     <div className="relative w-full mb-3">
@@ -143,13 +166,20 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
                         Message
                       </label>
                       <textarea
+                      id="message"
                         rows="4"
                         cols="80"
+                        onChange={handleChange}
+
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                         placeholder="Type a message..."
-                      />
-                    </div>
+                      >
+                        </textarea>
+                          <InputFieldError  error={formContact?.message?.messages} />                </div>
+
+
                     <div className="text-center mt-6">
+                      <p>{props.message}</p>
                       <button
                         className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
@@ -167,4 +197,22 @@ import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod
         </div>
     )
 }
-export default ContactUs;
+
+const mapStateToProps = (state) => {
+  const ContactUs = state.ContactUsReducer;
+  return {
+   message:ContactUs.message
+  
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ContactUsActionDispatch: (state) => dispatch(ContactUsAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContactUs)

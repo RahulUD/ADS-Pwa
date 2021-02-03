@@ -103,11 +103,11 @@ export const receiveLoginFromSession = payload => ({
 export const requestContactUS = () => ({
   type: REQUEST_CONTACTUS
 })
-export const receiveContactUS = payload => ({
+export const receiveContactUS = () => ({
   type: RECEIVE_CONTACTUS,
-  payload
+  
 })
-export const failureContactUs = payload => ({
+export const failureContactUS = payload => ({
   type: FAILURE_CONTACTUS,
   payload
 })

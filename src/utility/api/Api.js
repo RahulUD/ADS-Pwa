@@ -2,7 +2,7 @@ import axios from 'axios'
 import { BASE_URL_GLOBAL, BASE_URL_LOCAL } from '../constant/EndPoints'
 import { TOKEN } from '../constant/LocalStorage'
 import { AUTHORIZATION, BEARER } from '../constant/Headers'
-let LOCAL = 2
+let LOCAL = 1
 let BaseApi =
   LOCAL === 2
     ? axios.create({ baseURL: BASE_URL_LOCAL })

@@ -1,3 +1,5 @@
+import { ENQUIRY_FAILURE } from "utility/constant/Message"
+import { ENQUIRY_SUCCESS } from "utility/constant/Message"
 import {REQUEST_CONTACTUS,
     RECEIVE_CONTACTUS,
     FAILURE_CONTACTUS
@@ -6,11 +8,7 @@ import {REQUEST_CONTACTUS,
   const initialState ={
     code : null,
     message : null,
-    data : null,
-      
-    
     error : null,
-    loading : false,
   }
 
   const ContactUsReducer =(state=initialState, action) =>{
@@ -19,18 +17,19 @@ import {REQUEST_CONTACTUS,
       case REQUEST_CONTACTUS:
       return{
         ...state,
-        loading: true
+        
       }
       case RECEIVE_CONTACTUS:
         return{
           ...state,
-          loading: false,
-          data : action.payload.data.data.contactus
+          
+        message:ENQUIRY_SUCCESS
+  
         }
         case FAILURE_CONTACTUS:
           return{
             ...state,
-            loading: false,
+            message:ENQUIRY_FAILURE,
             error:payload.error
           }
       default:

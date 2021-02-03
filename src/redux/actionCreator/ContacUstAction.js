@@ -5,15 +5,15 @@ import {
     requestLoading,
     receiveLoading,
   } from '../Action';
-  import Contact from '../../utility/api/Blog'
+  import ContactUs from 'utility/api/ContactUs'
   
-  export const BlogsAction = (pageNo) => dispatch => {
+  export const ContactUsAction = (payload) => dispatch => {
     dispatch(requestLoading())
     dispatch(requestContactUS())
-    return Contact.Blogs(pageNo)
-      .then(response => {
+    return ContactUs.submitContact(payload)
+      .then(() =>{
         dispatch(receiveLoading())
-        dispatch(receiveContactUS(response))
+        dispatch(receiveContactUS())
       })
       .catch(error => {
         dispatch(failureContactUS(error))
