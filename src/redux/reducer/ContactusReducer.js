@@ -3,11 +3,12 @@ import {
   RECEIVE_CONTACTUS,
   FAILURE_CONTACTUS,
 } from 'redux/ActionType'
+import {contactusInitialdata} from 'contract/contactus'
 
 const initialState = {
   code: null,
   message: null,
-  data: null,
+  data: contactusInitialdata,
   error: null,
 
 }

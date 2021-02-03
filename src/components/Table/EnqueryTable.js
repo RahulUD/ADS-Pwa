@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import 'commonCss/Blog.css'
 import { Pagination } from 'react-laravel-paginex'
 import { ContactusAction } from 'redux/actionCreator/ContactusAction'
-
 import { connect } from "react-redux";
+import CommentEnquery from "components/Media/CommentEnquery";
+import CommentInputBoxEnquery from "components/Form/CommentInputBoxEnquery";
 
 const EnqueryTable = (props) => {
   useEffect(() => {
     props.ContactusActionDispatch()
-  }, [])
+  },[])
   return (
     <>
       <div
@@ -19,7 +20,7 @@ const EnqueryTable = (props) => {
         }
       >
 
-        {props.Contactus?.data.map(element => (<div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+        {props.Contactus.data && props?.Contactus?.data.map(element => (<div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
           <div className="flex">
             <div>
               <p className="font-bold">{element.name}</p>
@@ -28,8 +29,9 @@ const EnqueryTable = (props) => {
             </div>
           </div>
           <div className="mt-5">
-            <input type="text" className="bg-gray-300 " style={{ padding: '5px', width: '80%' }} /><button className="bg-blue-500 text-white ml-8 rounded-b" style={{ padding: '5px' }}>Acknowledge</button>
+            <CommentInputBoxEnquery />
           </div>
+          {element.comments.map(comment => <CommentEnquery data={comment}/>)}
         </div>))}
 
 
@@ -50,7 +52,7 @@ EnqueryTable.propTypes = {
 };
 const mapStateToProps = (state) => {
   const Contactus = state.ContactusReducer;
-  console.log('blogs', Contactus.data)
+  console.log('Enquery ***', Contactus.data)
   return {
     Contactus: Contactus.data
   };
