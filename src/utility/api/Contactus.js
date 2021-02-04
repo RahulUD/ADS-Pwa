@@ -5,7 +5,7 @@ export default {
   ContactUs(pageNo=1) {
     return Api().get(CONTACTUS+pageNo)
   },
-  ContactUsPost(payload) {
+  submitContact(payload) {
     return Api().post(CONTACTUSPOST,payload)
   }
 }
