@@ -4,6 +4,7 @@ import Validation from 'utility/Validation'
 import { LoginAction } from 'redux/actionCreator/AuthAction'
 import { connect } from "react-redux";
 import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
+import InputFieldError from "components/Error/InputFieldError";
 
 function Login(props) {
   const [formData, setFormData] = useState({
@@ -89,7 +90,7 @@ function Login(props) {
                       className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                       placeholder="Email"
                     />
-                    <p className='text-red-500'>{formData.email.messages && formData.email.messages[0]}</p>
+                    <InputFieldError  error={formData?.email?.messages} />
                   </div>
 
                   <div className="relative w-full mb-3">
@@ -107,7 +108,7 @@ function Login(props) {
                       className={`px-3 py-3 placeholder-gray-400 text-gray-700  rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150 bg-white`}
                       placeholder="Password"
                     />
-                    <p className='text-red-500'>{formData.password.messages && formData.password.messages[0]}</p>
+                    <InputFieldError  error={formData?.password?.messages} />
                   </div>
                   <div>
                     <label className="inline-flex items-center cursor-pointer">

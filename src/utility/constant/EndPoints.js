@@ -5,5 +5,8 @@ export const FOOTER = 'footer'
 export const LOGIN = 'token'
 export const LOGOUT = 'logout'
 export const BLOGS = 'blogs?page='
+
+export const CONTACTUSPOST = 'contactus'
+
 export const BIRTHDAY = 'birthday'
 export const CONTACTUS = 'getContactUs?page='

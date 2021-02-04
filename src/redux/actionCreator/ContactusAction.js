@@ -1,22 +1,37 @@
 import {
-    requestContactus,
-    receiveContactus,
-    failureContactus,
-    requestLoading,
-    receiveLoading,
-  } from 'redux/Action';
-  import Contactus from 'utility/api/Contactus'
-  
-  export const ContactusAction = (data) => dispatch => {
-    dispatch(requestLoading())
-    dispatch(requestContactus())
-    return Contactus.Contactus(data?.page)
-      .then(response => {
-        console.log('contactus', response)
-        dispatch(receiveLoading())
-        dispatch(receiveContactus(response))
-      })
-      .catch(error => {
-        dispatch(failureContactus(error))
-      })
-  }
+  requestContactUs,
+  receiveContactUs,
+  failureContactUs,
+  requestContactUsPost,
+  receiveContactUsPost,
+  failureContactUsPost,
+  requestLoading,
+  receiveLoading
+} from "redux/Action";
+import ContactUs from "utility/api/ContactUs";
+
+export const ContactUsAction = (data) => (dispatch) => {
+  dispatch(requestLoading());
+  dispatch(requestContactUs());
+  return ContactUs.ContactUs(data?.page)
+    .then((response) => {
+      console.log("contactus", response);
+      dispatch(receiveLoading());
+      dispatch(receiveContactUs(response));
+    })
+    .catch((error) => {
+      dispatch(failureContactUs(error));
+    });
+};
+export const ContactUsPostAction = (payload) => (dispatch) => {
+  dispatch(requestLoading());
+  dispatch(requestContactUsPost());
+  return ContactUs.submitContact(payload)
+    .then(() => {
+      dispatch(receiveLoading());
+      dispatch(receiveContactUsPost());
+    })
+    .catch((error) => {
+      dispatch(failureContactUsPost(error));
+    });
+};

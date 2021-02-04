@@ -1,8 +1,12 @@
-import { CONTACTUS } from 'utility/constant/EndPoints'
+import { CONTACTUS ,CONTACTUSPOST} from 'utility/constant/EndPoints'
 import Api from 'utility/api/Api'
 
 export default {
-  Contactus(pageNo=1) {
+  ContactUs(pageNo=1) {
     return Api().get(CONTACTUS+pageNo)
+  },
+  ContactUsPost(payload) {
+    return Api().post(CONTACTUSPOST,payload)
   }
+
 }

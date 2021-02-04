@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import 'commonCss/Blog.css'
 import { Pagination } from 'react-laravel-paginex'
-import { ContactusAction } from 'redux/actionCreator/ContactusAction'
+import { ContactUsAction } from 'redux/actionCreator/ContactUsAction'
 import { connect } from "react-redux";
 import CommentEnquery from "components/Media/CommentEnquery";
 import CommentInputBoxEnquery from "components/Form/CommentInputBoxEnquery";
 
 const EnqueryTable = (props) => {
   useEffect(() => {
-    props.ContactusActionDispatch()
+    props.ContactUsActionDispatch()
   },[])
   return (
     <>
@@ -36,7 +36,7 @@ const EnqueryTable = (props) => {
 
 
         <div id="pagination" style={{ margin: '25px' }}>
-          {props.Contactus && <Pagination changePage={(data) => props.ContactusActionDispatch(data)} data={props.Contactus} />}
+          {props.Contactus && <Pagination changePage={(data) => props.ContactUsActionDispatch(data)} data={props.Contactus} />}
         </div>
       </div>
     </>
@@ -60,7 +60,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ContactusActionDispatch: (state) => dispatch(ContactusAction(state))
+    ContactUsActionDispatch: (state) => dispatch(ContactUsAction(state))
   };
 };
 

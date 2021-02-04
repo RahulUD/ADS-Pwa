@@ -15,25 +15,28 @@ import {
   REQUEST_LOGOUT,
   RECEIVE_LOGOUT,
   FAILURE_LOGOUT,
+  REQUEST_CONTACTUS,
+  RECEIVE_CONTACTUS,
+  FAILURE_CONTACTUS,
   REQUEST_LOADING,
   RECEIVE_LOADING,
   REQUEST_BIRTHDAY,
   RECEIVE_BIRTHDAY,
   FAILURE_BIRTHDAY,
-  REQUEST_CONTACTUS,
-  RECEIVE_CONTACTUS,
-  FAILURE_CONTACTUS,
+  REQUEST_CONTACTUS_POST,
+  RECEIVE_CONTACTUS_POST,
+  FAILURE_CONTACTUS_POST,
 } from 'redux/ActionType'
 
 // contactus
-export const requestContactus = () => ({
+export const requestContactUs = () => ({
   type: REQUEST_CONTACTUS
 })
-export const receiveContactus = payload => ({
+export const receiveContactUs = payload => ({
   type: RECEIVE_CONTACTUS,
   payload
 })
-export const failureContactus = payload => ({
+export const failureContactUs = payload => ({
   type: FAILURE_CONTACTUS,
   payload
 })
@@ -125,5 +128,18 @@ export const failureLogin = payload => ({
 })
 export const receiveLoginFromSession = payload => ({
   type: RECEIVE_LOGIN_FROM_SESSION,
+  payload
+})
+
+//CONTACTUS
+export const requestContactUsPost = () => ({
+  type: REQUEST_CONTACTUS_POST
+})
+export const receiveContactUsPost = () => ({
+  type: RECEIVE_CONTACTUS_POST,
+  
+})
+export const failureContactUsPost = payload => ({
+  type: FAILURE_CONTACTUS_POST,
   payload
 })
