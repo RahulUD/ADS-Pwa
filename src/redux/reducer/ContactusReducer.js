@@ -4,17 +4,13 @@ import {
   FAILURE_CONTACTUS,
 } from 'redux/ActionType'
 import { contactusInitialdata } from 'contract/contactus'
-import { REQUEST_CONTACTUS_POST } from 'redux/ActionType'
-import { RECEIVE_CONTACTUS_POST } from 'redux/ActionType'
-import { FAILURE_CONTACTUS_POST } from 'redux/ActionType'
-import { ENQUIRY_SUCCESS } from 'utility/constant/Message'
-import { ENQUIRY_FAILURE } from 'utility/constant/Message'
+import { REQUEST_CONTACTUS_POST,RECEIVE_CONTACTUS_POST, FAILURE_CONTACTUS_POST } from 'redux/ActionType'
+import { ENQUIRY_SUCCESS, ENQUIRY_FAILURE  } from 'utility/constant/Message'
 
 const initialState = {
   code: null,
   message: null,
   data: contactusInitialdata,
-
   error: null,
 }
 export default (state = initialState, action) => {
