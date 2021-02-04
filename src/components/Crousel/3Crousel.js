@@ -8,7 +8,7 @@ const chevronWidth = 40;
 
 const Wrapper = styled.div`
   padding: 0 ${chevronWidth}px;
-  max-width: 1000px;
+  width: 80%;
   margin: 0 auto;
 `;
 
@@ -25,7 +25,7 @@ const SlideItem = styled.div`
 class AutoPlayCarousel extends React.Component {
   state = {
     activeItemIndex: 0,
-    noOfCards: 3,
+    noOfCards: 1,
     autoPlayDelay: 3000,
   };
 

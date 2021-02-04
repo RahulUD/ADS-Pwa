@@ -171,7 +171,7 @@ const ContactUs = (props) => {
 
 
                                     <div className="text-center mt-6">
-                                        <p>{props.message}</p>
+                                        {/* <p>{props.message}</p> */}
                                         <button
                                             className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                             type="button"

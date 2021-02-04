@@ -5,7 +5,7 @@ import AuthReducer from 'redux/reducer/AuthReducer'
 import BlogReducer from 'redux/reducer/BlogReducer'
 import LoadingReducer from 'redux/reducer/LoadingReducer'
 import BirthdayReducer from 'redux/reducer/BirthdayReducer'
-import ContactusReducer from 'redux/reducer/ContactusReducer'
+import ContactUsReducer from 'redux/reducer/ContactUsReducer'
 
     const RootReducer = combineReducers({
         PresentTeachersReducer,
@@ -14,7 +14,7 @@ import ContactusReducer from 'redux/reducer/ContactusReducer'
         BlogReducer,
         LoadingReducer,
         BirthdayReducer,
-        ContactusReducer
+        ContactUsReducer
     });
 
 export default RootReducer;

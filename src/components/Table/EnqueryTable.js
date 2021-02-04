@@ -9,7 +9,7 @@ import CommentInputBoxEnquery from "components/Form/CommentInputBoxEnquery";
 
 const EnqueryTable = (props) => {
   useEffect(() => {
-    props.ContactusActionDispatch()
+    props.ContactUsActionDispatch()
   },[])
   return (
     <>
@@ -36,7 +36,7 @@ const EnqueryTable = (props) => {
 
 
         <div id="pagination" style={{ margin: '25px' }}>
-          {props.Contactus && <Pagination changePage={(data) => props.ContactusActionDispatch(data)} data={props.Contactus} />}
+          {props.Contactus && <Pagination changePage={(data) => props.ContactUsActionDispatch(data)} data={props.Contactus} />}
         </div>
       </div>
     </>
@@ -51,7 +51,7 @@ EnqueryTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
 };
 const mapStateToProps = (state) => {
-  const Contactus = state.ContactusReducer;
+  const Contactus = state.ContactUsReducer;
   console.log('Enquery ***', Contactus.data)
   return {
     Contactus: Contactus.data
