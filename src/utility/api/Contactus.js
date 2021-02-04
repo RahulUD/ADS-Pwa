@@ -8,5 +8,4 @@ export default {
   ContactUsPost(payload) {
     return Api().post(CONTACTUSPOST,payload)
   }
-
 }
