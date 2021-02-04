@@ -15,5 +15,4 @@ import ContactUsReducer from './ContactUsReducer'
         LoadingReducer,
         ContactUsReducer
     });
-
-export default RootReducer;
+export default RootReducer

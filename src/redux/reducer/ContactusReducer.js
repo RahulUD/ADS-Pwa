@@ -1,5 +1,4 @@
-import { ENQUIRY_FAILURE } from "utility/constant/Message"
-import { ENQUIRY_SUCCESS } from "utility/constant/Message"
+import { ENQUIRY_FAILURE, ENQUIRY_SUCCESS } from "utility/constant/Message"
 import {REQUEST_CONTACTUS,
     RECEIVE_CONTACTUS,
     FAILURE_CONTACTUS
