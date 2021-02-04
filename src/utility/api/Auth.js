@@ -1,5 +1,5 @@
-import { LOGIN, LOGOUT } from '../constant/EndPoints'
-import Api from './Api'
+import { LOGIN, LOGOUT } from 'utility/constant/EndPoints'
+import Api from 'utility/api/Api'
 
 export default {
   Login($payload) {

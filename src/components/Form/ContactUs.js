@@ -4,8 +4,7 @@ import {useHistory } from "react-router-dom";
 import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
 import InputFieldError from 'components/Error/InputFieldError';
 import { connect } from 'react-redux';
-import {ContactUsAction} from "redux/actionCreator/ContacUstAction";
-
+import {ContactUsPostAction} from "redux/actionCreator/ContactUsAction"
  const ContactUs = (props) => {
   const [formContact, setFormContact] = useState({
     name: {
@@ -201,14 +200,14 @@ import {ContactUsAction} from "redux/actionCreator/ContacUstAction";
 const mapStateToProps = (state) => {
   const ContactUs = state.ContactUsReducer;
   return {
-   message:ContactUs.message
+   message:ContactUs
   
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ContactUsActionDispatch: (state) => dispatch(ContactUsAction(state))
+    ContactUsActionDispatch: (state) => dispatch(ContactUsPostAction(state))
   };
 };
 

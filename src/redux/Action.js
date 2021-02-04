@@ -19,8 +19,40 @@ import {
   RECEIVE_CONTACTUS,
   FAILURE_CONTACTUS,
   REQUEST_LOADING,
-  RECEIVE_LOADING
-} from './ActionType'
+  RECEIVE_LOADING,
+  REQUEST_BIRTHDAY,
+  RECEIVE_BIRTHDAY,
+  FAILURE_BIRTHDAY,
+  REQUEST_CONTACTUS_POST,
+  RECEIVE_CONTACTUS_POST,
+  FAILURE_CONTACTUS_POST,
+} from 'redux/ActionType'
+
+// contactus
+export const requestContactUs = () => ({
+  type: REQUEST_CONTACTUS
+})
+export const receiveContactUs = payload => ({
+  type: RECEIVE_CONTACTUS,
+  payload
+})
+export const failureContactUs = payload => ({
+  type: FAILURE_CONTACTUS,
+  payload
+})
+
+// BIRTHDAY
+export const requestBirthday = () => ({
+  type: REQUEST_BIRTHDAY
+})
+export const receiveBirthday = payload => ({
+  type: RECEIVE_BIRTHDAY,
+  payload
+})
+export const failureBirthday = payload => ({
+  type: FAILURE_BIRTHDAY,
+  payload
+})
 
 // LOGOUT
 export const requestLoading = () => ({
@@ -100,14 +132,14 @@ export const receiveLoginFromSession = payload => ({
 })
 
 //CONTACTUS
-export const requestContactUS = () => ({
-  type: REQUEST_CONTACTUS
+export const requestContactUsPost = () => ({
+  type: REQUEST_CONTACTUS_POST
 })
-export const receiveContactUS = () => ({
-  type: RECEIVE_CONTACTUS,
+export const receiveContactUsPost = () => ({
+  type: RECEIVE_CONTACTUS_POST,
   
 })
-export const failureContactUS = payload => ({
-  type: FAILURE_CONTACTUS,
+export const failureContactUsPost = payload => ({
+  type: FAILURE_CONTACTUS_POST,
   payload
 })

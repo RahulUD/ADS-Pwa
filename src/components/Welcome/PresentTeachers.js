@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
-import {PresentTeachersAction} from '../../redux/actionCreator/TeacherAction'
+import {PresentTeachersAction} from 'redux/actionCreator/TeacherAction'
 
 function PresentTeachers(props) {
   useEffect(() => {

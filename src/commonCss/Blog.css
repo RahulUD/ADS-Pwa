@@ -1,0 +1,15 @@
+#pagination li{
+    display: inline;
+    margin: 5px;
+    padding: 10px;
+    font-weight: bolder;
+}
+#pagination li:hover{
+    color: black;
+    background: rgba(0, 0, 0, 0.13);
+}
+
+#pagination .active{
+    color: white;
+    background: #000;
+}

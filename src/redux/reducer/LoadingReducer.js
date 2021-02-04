@@ -1,7 +1,7 @@
 import {
     REQUEST_LOADING,
     RECEIVE_LOADING,
-  } from '../ActionType'
+  } from 'redux/ActionType'
   
   const initialState = {
     loading : false,

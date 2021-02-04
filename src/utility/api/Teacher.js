@@ -1,5 +1,5 @@
-import { PRESENT_TEACHERS } from '../constant/EndPoints'
-import Api from './Api'
+import { PRESENT_TEACHERS } from 'utility/constant/EndPoints'
+import Api from 'utility/api/Api'
 
 export default {
   presentTeacher() {

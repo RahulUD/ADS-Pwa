@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import IndexDropdown from "./IndexDropdown";
+import IndexDropdown from "components/Dropdowns/IndexDropdown";
 
 
 const Dropdown = (props) => {

@@ -2,7 +2,7 @@ import {
     REQUEST_FOOTER,
     RECEIVE_FOOTER,
     FAILURE_FOOTER
-  } from './../ActionType'
+  } from 'redux/ActionType'
   
   const initialState = {
     code : null,

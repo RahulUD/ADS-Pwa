@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { connect } from "react-redux";
-import {FooterAction} from '../../redux/actionCreator/FooterAction'
+import {FooterAction} from 'redux/actionCreator/FooterAction'
 
 const Footer= props => {
   const [footer, setFooter] = useState({

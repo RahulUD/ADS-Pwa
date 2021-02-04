@@ -4,8 +4,8 @@ import {
   failurePresentTeacher,
   requestLoading,
     receiveLoading,
-} from '../Action';
-import Teacher from '../../utility/api/Teacher'
+} from 'redux/Action';
+import Teacher from 'utility/api/Teacher'
 
 export const PresentTeachersAction = () => dispatch => {
   dispatch(requestLoading())

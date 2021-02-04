@@ -8,9 +8,9 @@ import {
   receiveLoginFromSession,
   requestLoading,
     receiveLoading,
-} from '../Action';
-import Auth from '../../utility/api/Auth'
-import {setTokeninLocalStorage, setUserinLocalStorage, unsetTokeninLocalStorage, unsetUserinLocalStorage} from './../../utility/method/LocalStorageMethod'
+} from 'redux/Action';
+import Auth from 'utility/api/Auth'
+import {setTokeninLocalStorage, setUserinLocalStorage, unsetTokeninLocalStorage, unsetUserinLocalStorage} from 'utility/method/LocalStorageMethod'
 import { USER, TOKEN } from 'utility/constant/LocalStorage';
 
 

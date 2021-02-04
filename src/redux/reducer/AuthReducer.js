@@ -6,7 +6,7 @@ import {
   RECEIVE_LOGOUT,
   FAILURE_LOGOUT,
   RECEIVE_LOGIN_FROM_SESSION
-} from './../ActionType'
+} from 'redux/ActionType'
 
 const initialState = {
   code: null,

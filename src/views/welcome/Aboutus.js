@@ -1,8 +1,8 @@
 import PresentTeachers from "components/Welcome/PresentTeachers";
 import React from "react";
 import HeaderStats from "components/Headers/HeaderStats.js";
-import sports from "./../../assets/img/sports.jpg"
-import ContactUs from "components/Form/ContactUs";
+import sports from "assets/img/sports.jpg"
+import ContactUs from "components/Form/ContactUs"
 
 
 export default function Aboutus() {
@@ -36,7 +36,7 @@ ill change when *any* prop changes, so the preferred fix is to destructure the '
           <div className="lg:w-12/12 ">
             <p style={{ fontSize: '2em' }} className="mb-6">From Principal's Desk</p></div>
           <div className="flex">
-            <div className="lg:w-4/12 px-2 py-2 shadow-md"><img className="float-left ..." src={sports} /></div>
+            <div className="lg:w-4/12 px-2 py-2 shadow-md"><img className="float-left ..." src={sports} alt="img"/></div>
             <div className="lg:w-8/12 px-2 py-2"> React Hook useEffect has a missing dependency: 'props'.
             Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
             Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.

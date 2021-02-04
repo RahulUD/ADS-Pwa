@@ -1,7 +1,9 @@
 import BlogCard from "components/Cards/BlogCard";
 import React, { useEffect } from "react";
+import {Pagination} from 'react-laravel-paginex'
+import 'commonCss/Blog.css'
 
-import { BlogsAction } from '../../redux/actionCreator/BlogAction'
+import { BlogsAction } from 'redux/actionCreator/BlogAction'
 import { connect } from "react-redux";
 
 function Post(props) {
@@ -14,10 +16,13 @@ function Post(props) {
         <div className="px-16 py-6">
           <div className="flex justify-between container mx-auto">
             <div className="w-full lg:w-8/12">
-              {props.Blogs.map((item,id) => (<BlogCard blog={item} key={id}/>))}
+              {props.Blogs?.data.map((item,id) => (<BlogCard blog={item} key={id}/>))}
               <div className="mt-8">
                 <div className="flex">
                 </div>
+              </div>
+              <div id="pagination">
+              <Pagination  changePage={(data)=>props.BlogsActionDispatch(data)} data={props.Blogs}/>
               </div>
             </div>
             <div className="-mx-8 w-4/12 hidden lg:block">

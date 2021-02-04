@@ -1,34 +1,33 @@
 import {
-    REQUEST_PRESENT_TEACHER,
-    RECEIVE_PRESENT_TEACHER,
-    FAILURE_PRESENT_TEACHER
+    REQUEST_BIRTHDAY,
+    RECEIVE_BIRTHDAY,
+    FAILURE_BIRTHDAY,
   } from 'redux/ActionType'
   
   const initialState = {
     code : null,
     message : null,
-    users : null,
+    data : null,
     error : null,
-    
+
   }
-  const PresentTeachersReducer = (state = initialState, action) => {
+  export default (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
-      case REQUEST_PRESENT_TEACHER:
+      case REQUEST_BIRTHDAY:
         return {
           ...state,
-          
+      
         }
-      case RECEIVE_PRESENT_TEACHER:
+      case RECEIVE_BIRTHDAY:
         return {
           ...state,
-          
-          users : action.payload.data.data
+          user : action.payload.data.data.user
         }
-      case FAILURE_PRESENT_TEACHER:
+      case FAILURE_BIRTHDAY:
         return {
           ...state,
-          
+      
           error : payload.error
         }
       default:
@@ -37,6 +36,4 @@ import {
         }
     }
   }
-  
-  export default PresentTeachersReducer
   

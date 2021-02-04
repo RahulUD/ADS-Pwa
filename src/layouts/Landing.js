@@ -9,7 +9,7 @@ import Welcome from "views/welcome/Welcome.js";
 import Contact from "views/welcome/Contactus.js";
 import Aboutus from "views/welcome/Aboutus.js";
 import { connect } from "react-redux";
-import Fulloverlay from './../components/Overlay/Fulloverlay'
+import Fulloverlay from 'components/Overlay/Fulloverlay'
 
 function Landing(props) {
   return (

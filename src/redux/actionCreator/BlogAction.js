@@ -4,13 +4,13 @@ import {
     failureBlogs,
     requestLoading,
     receiveLoading,
-  } from '../Action';
-  import Blog from '../../utility/api/Blog'
+  } from 'redux/Action';
+  import Blog from 'utility/api/Blog'
   
-  export const BlogsAction = (pageNo) => dispatch => {
+  export const BlogsAction = (data) => dispatch => {
     dispatch(requestLoading())
     dispatch(requestBlogs())
-    return Blog.Blogs(pageNo)
+    return Blog.Blogs(data?.page)
       .then(response => {
         dispatch(receiveLoading())
         dispatch(receiveBlogs(response))
