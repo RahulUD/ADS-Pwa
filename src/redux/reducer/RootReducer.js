@@ -4,7 +4,7 @@ import FooterReducer from './FooterReducer'
 import AuthReducer from './AuthReducer'
 import BlogReducer from './BlogReducer'
 import LoadingReducer from './LoadingReducer'
-import ContactUsReducer from './ContactUsReducer'
+import ContactUsReducer from './ContactUsReducer1'
 
 
     const RootReducer = combineReducers({
