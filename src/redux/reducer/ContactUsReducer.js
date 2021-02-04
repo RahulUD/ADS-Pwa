@@ -1,7 +1,7 @@
 import {
-  REQUEST_CONTACTUS,
-  RECEIVE_CONTACTUS,
-  FAILURE_CONTACTUS,
+  REQUEST_CONTACT_US,
+  RECEIVE_CONTACT_US,
+  FAILURE_CONTACT_US,
 } from 'redux/ActionType'
 import {contactusInitialdata} from 'contract/contactus'
 
@@ -15,18 +15,18 @@ const initialState = {
 const ContactusReducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
-    case REQUEST_CONTACTUS:
+    case REQUEST_CONTACT_US:
       return {
         ...state,
 
       }
-    case RECEIVE_CONTACTUS:
+    case RECEIVE_CONTACT_US:
       return {
         ...state,
 
         data: action.payload.data.data.contactus
       }
-    case FAILURE_CONTACTUS:
+    case FAILURE_CONTACT_US:
       return {
         ...state,
 
