@@ -1,0 +1,18 @@
+// footer
+export const FOOTER_CONTACT_TITLE = 'footer_contact_title'
+export const FOOTER_CONTACT_DESCRIPTION = 'footer_contact_description'
+export const FOOTER_CONTACT_TWITTER = 'footer_contact_twitter'
+export const FOOTER_CONTACT_FACEBOOK = 'footer_contact_facebook'
+export const FOOTER_CONTACT_GITHUB = 'footer_contact_github'
+export const FOOTER_CONTACT_GMAIL = 'footer_contact_gmail'
+export const FOOTER_LINK_TITLE = 'footer_link_title'
+export const FOOTER_LINK_1 = 'footer_link_1'
+export const FOOTER_LINK_2 = 'footer_link_2'
+export const FOOTER_LINK_3 = 'footer_link_3'
+export const FOOTER_LINK_4 = 'footer_link_4'
+export const FOOTER_RESOURCES_TITLE = 'footer_resources_title'
+export const FOOTER_RESOURCES_1 = 'footer_resources_1'
+export const FOOTER_RESOURCES_2 = 'footer_resources_2'
+export const FOOTER_RESOURCES_3 = 'footer_resources_3'
+export const FOOTER_RESOURCES_4 = 'footer_resources_4'
+
