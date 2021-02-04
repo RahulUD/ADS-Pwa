@@ -26,14 +26,27 @@ import {
 } from 'redux/ActionType'
 
 // contactus
-export const requestContactus = () => ({
+export const requestContactUs = () => ({
   type: REQUEST_CONTACTUS
 })
-export const receiveContactus = payload => ({
+export const receiveContactUs = payload => ({
   type: RECEIVE_CONTACTUS,
   payload
 })
-export const failureContactus = payload => ({
+export const failureContactUs = payload => ({
+  type: FAILURE_CONTACTUS,
+  payload
+})
+
+// contactuspost
+export const requestContactUsPost = () => ({
+  type: REQUEST_CONTACTUS
+})
+export const receiveContactUsPost = payload => ({
+  type: RECEIVE_CONTACTUS,
+  payload
+})
+export const failureContactUsPost = payload => ({
   type: FAILURE_CONTACTUS,
   payload
 })
