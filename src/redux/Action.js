@@ -26,6 +26,10 @@ import {
   REQUEST_CONTACT_US_POST,
   RECEIVE_CONTACT_US_POST,
   FAILURE_CONTACT_US_POST,
+  REQUEST_COMMENT_POST,
+  RECEIVE_COMMENT_POST,
+  FAILURE_COMMENT_POST
+
 } from 'redux/ActionType'
 
 // contactus
@@ -143,3 +147,16 @@ export const receiveLoginFromSession = payload => ({
   type: RECEIVE_LOGIN_FROM_SESSION,
   payload
 })
+//comment
+export const requestCommentPost = () => ({
+  type: REQUEST_COMMENT_POST
+})
+export const receiveCommentPost = payload => ({
+  type: RECEIVE_COMMENT_POST,
+  payload
+})
+export const failureCommentPost = payload => ({
+  type: FAILURE_COMMENT_POST,
+  payload
+})
+
