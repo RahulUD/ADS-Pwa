@@ -26,7 +26,51 @@ import {
   REQUEST_CONTACT_US_POST,
   RECEIVE_CONTACT_US_POST,
   FAILURE_CONTACT_US_POST,
+  REQUEST_STUDENT_LIST,
+  RECEIVE_STUDENT_LIST,
+  FAILURE_STUDENT_LIST,
+  REQUEST_STD_LIST,
+  RECEIVE_STD_LIST,
+  FAILURE_STD_LIST,
+  REQUEST_UPDATE_STD_ID,
+  RECEIVE_UPDATE_STD_ID,
 } from 'redux/ActionType'
+
+// update std id
+export const requestStdIdUpdate = () => ({
+  type: REQUEST_UPDATE_STD_ID
+})
+export const receiveStdIdUpdate = payload => ({
+  type: RECEIVE_UPDATE_STD_ID,
+  payload
+})
+
+// get std list
+export const requestStdList = () => ({
+  type: REQUEST_STD_LIST
+})
+export const receiveStdList = payload => ({
+  type: RECEIVE_STD_LIST,
+  payload
+})
+export const failureStdList = payload => ({
+  type: FAILURE_STD_LIST,
+  payload
+})
+
+
+// get student list
+export const requestStudentList = () => ({
+  type: REQUEST_STUDENT_LIST
+})
+export const receiveStudentList = payload => ({
+  type: RECEIVE_STUDENT_LIST,
+  payload
+})
+export const failureStudentList = payload => ({
+  type: FAILURE_STUDENT_LIST,
+  payload
+})
 
 // contactus
 export const requestContactUs = () => ({

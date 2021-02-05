@@ -158,7 +158,7 @@ export default function Sidebar() {
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-800 hover:text-gray-600")
                   }
-                  to="/admin/tables/teachers"
+                  to="/admin/tables/studentlist"
                 >
                   <i
                     className={
@@ -168,7 +168,7 @@ export default function Sidebar() {
                         : "text-gray-400")
                     }
                   ></i>{" "}
-                  Teachers
+                  Students
                 </Link>
               </li>
 
