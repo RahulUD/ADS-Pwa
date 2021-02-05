@@ -29,7 +29,7 @@ function PresentTeachers(props) {
               type="button"
             >
               <a href={contact.contact}>
-              <img src={contact.contacttype.avatars[0].avatar}/>
+              <img src={contact.contacttype.avatars[0].avatar} alt="avatar"/>
               </a>
             </button>
             ))}

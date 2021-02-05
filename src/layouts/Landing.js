@@ -8,10 +8,10 @@ import Footer from "components/Footers/Footer.js";
 import Welcome from "views/welcome/Welcome.js";
 import Contact from "views/welcome/Contactus.js";
 import Aboutus from "views/welcome/Aboutus.js";
-import { connect } from "react-redux";
 import Fulloverlay from 'components/Overlay/Fulloverlay'
+import Admission from "views/welcome/Admission";
 
-function Landing(props) {
+function Landing() {
   return (
     <>
       <Navbar />
@@ -20,6 +20,7 @@ function Landing(props) {
         <Route path="/welcome" exact component={Welcome} />
         <Route path="/welcome/contactus" exact component={Contact} />
         <Route path="/welcome/aboutus" exact component={Aboutus} />
+        <Route path="/welcome/admission" exact component={Admission} />
         <Redirect from="/" to="/welcome" />
       </Switch>
       </main>
