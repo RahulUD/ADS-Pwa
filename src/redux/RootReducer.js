@@ -8,6 +8,7 @@ import BirthdayReducer from 'redux/reducer/BirthdayReducer'
 import ContactUsReducer from 'redux/reducer/ContactUsReducer'
 import StdReducer from 'redux/reducer/StdReducer'
 import StudentReducer from 'redux/reducer/StudentReducer'
+import CountReducer from 'redux/reducer/CountReducer'
 
     const RootReducer = combineReducers({
         PresentTeachersReducer,
@@ -18,7 +19,8 @@ import StudentReducer from 'redux/reducer/StudentReducer'
         BirthdayReducer,
         ContactUsReducer,
         StdReducer,
-        StudentReducer
+        StudentReducer,
+        CountReducer
     });
 
 export default RootReducer;

@@ -1,22 +1,25 @@
-import React from "react";
-
-// components
-
+import React, { useEffect } from "react";
 import CardStats from "components/Cards/CardStats.js";
+import { connect } from "react-redux";
+import { GetStudentCountAction, GetTeacherCountAction, GetAdminCountAction, GetNonteachingCountAction } from 'redux/actionCreator/CountAction'
 
-export default function HeaderStats() {
+const HeaderStats = (props) => {
+  useEffect(() => {
+    props.GetStudentCountActionDispatch()
+    props.GetTeacherCountActionDispatch()
+    props.GetAdminCountActionDispatch()
+    props.GetNonteachingCountActionDispatch()
+  }, [])
   return (
     <>
-      {/* Header */}
       <div className="relative bg-blue-600 md:pt-32 pb-32 pt-12">
         <div className="px-4 md:px-10 mx-auto w-full">
           <div>
-            {/* Card stats */}
             <div className="flex flex-wrap">
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
-                  statSubtitle="TRAFFIC"
-                  statTitle="350,897"
+                  statSubtitle="Student"
+                  statTitle={props.studentCount}
                   statArrow="up"
                   statPercent="3.48"
                   statPercentColor="text-green-500"
@@ -27,8 +30,8 @@ export default function HeaderStats() {
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
-                  statSubtitle="NEW USERS"
-                  statTitle="2,356"
+                  statSubtitle="Teacher"
+                  statTitle={props.teacherCount}
                   statArrow="down"
                   statPercent="3.48"
                   statPercentColor="text-red-500"
@@ -39,8 +42,8 @@ export default function HeaderStats() {
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
-                  statSubtitle="SALES"
-                  statTitle="924"
+                  statSubtitle="Admin"
+                  statTitle={props.adminCount}
                   statArrow="down"
                   statPercent="1.10"
                   statPercentColor="text-orange-500"
@@ -51,8 +54,8 @@ export default function HeaderStats() {
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
-                  statSubtitle="PERFORMANCE"
-                  statTitle="49,65%"
+                  statSubtitle="Non-Teaching"
+                  statTitle={props.nonTeachingCount}
                   statArrow="up"
                   statPercent="12"
                   statPercentColor="text-green-500"
@@ -68,3 +71,25 @@ export default function HeaderStats() {
     </>
   );
 }
+const mapStateToProps = (state) => {
+  const Count = state.CountReducer;
+  console.log('Counts ***', Count)
+  return {
+    studentCount: Count.studentCount,
+    teacherCount: Count.studentCount,
+    adminCount: Count.adminCount,
+    nonTeachingCount: Count.nonTeachingCount
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    GetStudentCountActionDispatch: (state) => dispatch(GetStudentCountAction(state)),
+    GetTeacherCountActionDispatch: (state) => dispatch(GetTeacherCountAction(state)),
+    GetAdminCountActionDispatch: (state) => dispatch(GetAdminCountAction(state)),
+    GetNonteachingCountActionDispatch: (state) => dispatch(GetNonteachingCountAction(state))
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HeaderStats)
