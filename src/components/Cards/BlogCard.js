@@ -2,25 +2,20 @@ import React from 'react'
 const BlogCard = (props) => {
     return (
         <>
-            <div className="mt-6">
-                <div className="max-w-4xl px-6 py-6 bg-white rounded-lg shadow-md">
-                    <div className="flex justify-between items-center">
-                        <span className="font-light text-gray-600">Jun 1,
-                                2020</span><a href="#"
-                            className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500">Laravel</a>
+            <div className="max-w-md w-full lg:flex">
+                <div className="h-20 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={{backgroundImage: `url("https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg")`}} title="Woman holding a mug">
+                </div>
+                <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <div className="mb-8">
+                        <div className="text-black font-bold text-xl mb-2">Can coffee make you a better developer?</div>
+                        <p className="text-grey-darker text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
                     </div>
-                    <div className="mt-2"><a href="#" className="text-2xl text-gray-700 font-bold hover:underline">{props.blog.title}</a>
-                        <p className="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
-                                reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
-                    </div>
-                    <div className="flex justify-between items-center mt-4"><a href="#"
-                        className="text-blue-500 hover:underline">Read more</a>
-                        <div><a href="#" className="flex items-center"><img
-                            src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                            alt="avatar" className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" />
-                            <h1 className="text-gray-700 font-bold hover:underline">Alex John</h1>
-                        </a></div>
+                    <div className="flex items-center">
+                        <img className="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink" />
+                        <div className="text-sm">
+                            <p className="text-black leading-none">Jonathan Reinink</p>
+                            <p className="text-grey-dark">Aug 18</p>
+                        </div>
                     </div>
                 </div>
             </div>

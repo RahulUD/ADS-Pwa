@@ -46,9 +46,23 @@ import {
   REQUEST_COUNT_NONTEACHING,
   RECEIVE_COUNT_NONTEACHING,
   FAILURE_COUNT_NONTEACHING,
-
-
+  REQUEST_POST_MESSAGE,
+  RECEIVE_POST_MESSAGE,
+  FAILURE_POST_MESSAGE,
 } from 'redux/ActionType'
+
+// post message
+export const requestPostMessage = () => ({
+  type: REQUEST_POST_MESSAGE
+})
+export const receivePostMessage = payload => ({
+  type: RECEIVE_POST_MESSAGE,
+  payload
+})
+export const failurePostMessage = payload => ({
+  type: FAILURE_POST_MESSAGE,
+  payload
+})
 
 // get Counts
 export const requestGetStudentCount = () => ({
