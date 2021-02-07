@@ -49,7 +49,14 @@ import {
   REQUEST_POST_MESSAGE,
   RECEIVE_POST_MESSAGE,
   FAILURE_POST_MESSAGE,
+  REQUEST_PAGE_SETUP
 } from 'redux/ActionType'
+
+// Page setup
+export const requestPageSetup = payload => ({
+  type: REQUEST_PAGE_SETUP,
+  payload
+})
 
 // post message
 export const requestPostMessage = () => ({

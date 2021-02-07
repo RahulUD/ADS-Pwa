@@ -15,7 +15,7 @@ import { USER, TOKEN } from 'utility/constant/LocalStorage';
 
 
 export const loginFromSession = () => dispatch => {
-  const data = {user : localStorage.getItem(USER), token : localStorage.getItem(TOKEN)}
+  const data = {user : JSON.parse(localStorage.getItem(USER)), token : localStorage.getItem(TOKEN)}
   dispatch(receiveLoginFromSession(data))
 }
 
@@ -35,8 +35,10 @@ export const LoginAction = ($payload) => dispatch => {
 }
 export const LogoutAction = () => dispatch => {
   dispatch(requestLogout())
+   dispatch(requestLoading())
   return Auth.Logout()
     .then(response => {
+      dispatch(receiveLoading())
       unsetTokeninLocalStorage()
       unsetUserinLocalStorage()
       dispatch(receiveLogout(response))

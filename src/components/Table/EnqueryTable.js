@@ -6,10 +6,12 @@ import { ContactUsAction } from 'redux/actionCreator/ContactUsAction'
 import { connect } from "react-redux";
 import CommentEnquery from "components/Media/CommentEnquery";
 import CommentInputBoxEnquery from "components/Form/CommentInputBoxEnquery";
+import { PageSetupAction } from "redux/actionCreator/PageAction";
 
 const EnqueryTable = (props) => {
   useEffect(() => {
     props.ContactUsActionDispatch()
+    props.PageSetupActionDispatch({currentPage : 'Enqueries'})
   },[])
   return (
     <>
@@ -60,7 +62,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ContactUsActionDispatch: (state) => dispatch(ContactUsAction(state))
+    ContactUsActionDispatch: (state) => dispatch(ContactUsAction(state)),
+    PageSetupActionDispatch:(state) =>dispatch(PageSetupAction(state))
   };
 };
 

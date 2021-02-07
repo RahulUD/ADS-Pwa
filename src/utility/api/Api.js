@@ -4,7 +4,7 @@ import { TOKEN } from 'utility/constant/LocalStorage'
 import { AUTHORIZATION, BEARER } from 'utility/constant/Headers'
 let LOCAL = 1
 let BaseApi =
-  LOCAL === 2
+  LOCAL === 1
     ? axios.create({ baseURL: BASE_URL_LOCAL })
     : axios.create({ baseURL: BASE_URL_GLOBAL })
 

@@ -22,7 +22,6 @@ export default (state = initialState, action) => {
     case RECEIVE_LOGIN_FROM_SESSION:
       return {
         ...state,
-    
         isAuthSuccessful: true,
         user: action.payload.user,
         token: action.payload.token
@@ -54,15 +53,13 @@ export default (state = initialState, action) => {
     case RECEIVE_LOGIN:
       return {
         ...state,
-    
         isAuthSuccessful: true,
-        user: action.payload.data.data.user.name,
+        user: action.payload.data.data.user,
         token: action.payload.data.data.token
       }
     case FAILURE_LOGIN:
       return {
         ...state,
-    
         error: payload.error
       }
     default:

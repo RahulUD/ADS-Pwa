@@ -4,6 +4,7 @@ import { createPopper } from "@popperjs/core";
 import { connect } from "react-redux";
 import { LogoutAction } from "redux/actionCreator/AuthAction";
 import Logout from "components/Button/Logout";
+import AvatarNameCardBox from "components/Cards/AvatarNameCardBox";
 
 const IndexDropdown = (props) => {
   // dropdown props
@@ -22,12 +23,12 @@ const IndexDropdown = (props) => {
   return (
     <>
       <button
-        className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 whitespace-no-wrap flex items-center text-xs uppercase font-bold"
+        className="hover:text-gray-600 text-gray-800 whitespace-no-wrap flex items-center text-xs uppercase font-bold"
         ref={btnDropdownRef}
         onMouseEnter={() => openDropdownPopover()}
         onMouseLeave={() => closeDropdownPopover()}
       >
-        {props.User}
+        <AvatarNameCardBox name={props.UserName} avatar={props.Avatar} />
       </button>
       <div
       onMouseEnter={() => openDropdownPopover()}
@@ -68,7 +69,8 @@ const mapStateToProps = (state) => {
   const Auth = state.AuthReducer;
   console.log('Auth', Auth.user)
     return {
-      User : Auth.user
+      UserName : Auth.user.name,
+      Avatar : Auth.user.avatar
     };
 };
 const mapDispatchToProps = (dispatch) => {

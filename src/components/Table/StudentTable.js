@@ -4,6 +4,8 @@ import MessageBox from "components/Models/MessageBox";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { GetStudentAction } from 'redux/actionCreator/StudentAction'
+import { PageSetupAction } from 'redux/actionCreator/PageAction'
+
 
 const StudentTable = (props) => {
   const [show, setShow] = useState(false)
@@ -20,6 +22,7 @@ const StudentTable = (props) => {
   }, [props.stdId])
   useEffect(() => {
     props.GetStudentActionDispatch({ id: props.stdId });
+    props.PageSetupActionDispatch({currentPage : 'Student List'})
   }, [])
 
   return (
@@ -90,7 +93,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    GetStudentActionDispatch: (state) => dispatch(GetStudentAction(state))
+    GetStudentActionDispatch: (state) => dispatch(GetStudentAction(state)),
+    PageSetupActionDispatch:(state) =>dispatch(PageSetupAction(state))
   };
 };
 

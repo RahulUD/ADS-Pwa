@@ -9,6 +9,7 @@ import ContactUsReducer from 'redux/reducer/ContactUsReducer'
 import StdReducer from 'redux/reducer/StdReducer'
 import StudentReducer from 'redux/reducer/StudentReducer'
 import CountReducer from 'redux/reducer/CountReducer'
+import PageReducer from 'redux/reducer/PageReducer'
 
     const RootReducer = combineReducers({
         PresentTeachersReducer,
@@ -20,7 +21,9 @@ import CountReducer from 'redux/reducer/CountReducer'
         ContactUsReducer,
         StdReducer,
         StudentReducer,
-        CountReducer
+        CountReducer,
+        PageReducer
     });
 
 export default RootReducer;
+// 08626 nitish kumar 8292671739
