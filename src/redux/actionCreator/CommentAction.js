@@ -9,7 +9,7 @@ import {
 
 import Comment from "utility/api/Comment";
 
-  export const CommentPostAction = (payload) => (dispatch) => {
+  export const CommentAction = (payload) => (dispatch) => {
     dispatch(requestLoading());
     dispatch(requestCommentPost());
     return Comment.commentPost(payload)

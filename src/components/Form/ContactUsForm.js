@@ -71,13 +71,17 @@ const ContactUs = (props) => {
     }
 
     const handleSubmit = () => {
+        
         if (formValidity) {
             let contact = { email: formContact.email.value, name: formContact.name.value, phone: formContact.number.value, message: formContact.message.value }
             props.ContactUsActionDispatch(contact);
+            
+
+
         }
+        
     }
-
-
+   
     return (
         <div>
             <section className="relative block py-24 lg:pt-0 bg-gray-900">

@@ -29,7 +29,7 @@ const EnqueryTable = (props) => {
             </div>
           </div>
           <div className="mt-5">
-            <CommentInputBoxEnquery />
+            <CommentInputBoxEnquery  id={element.id} type='App\Models\Contactus'/>
           </div>
           {element.comments.map(comment => <CommentEnquery data={comment}/>)}
         </div>))}
