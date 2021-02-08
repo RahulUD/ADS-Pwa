@@ -1,14 +1,28 @@
+import AvatarNameCard from "components/Cards/AvatarNameCard";
 import StdListCard from "components/Cards/StdCardList";
-import React, { useEffect } from "react";
+import MessageBox from "components/Models/MessageBox";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { GetStudentAction } from 'redux/actionCreator/StudentAction'
+import { PageSetupAction } from 'redux/actionCreator/PageAction'
+
 
 const StudentTable = (props) => {
+  const [show, setShow] = useState(false)
+  const [student, setStudent] = useState()
+  const showModel = (data) => {
+    setShow(true)
+    setStudent(data)
+  }
+  const hideModel = () => {
+    setShow(false)
+  }
   useEffect(() => {
     props.GetStudentActionDispatch({ id: props.stdId });
   }, [props.stdId])
   useEffect(() => {
     props.GetStudentActionDispatch({ id: props.stdId });
+    props.PageSetupActionDispatch({currentPage : 'Student List'})
   }, [])
 
   return (
@@ -33,6 +47,7 @@ const StudentTable = (props) => {
                   <th className="px-4 py-2 " style={{ backgroundColor: '#f8f8f8' }}>Std</th>
                   <th className="px-4 py-2 " style={{ backgroundColor: '#f8f8f8' }}>DOB</th>
                   <th className="px-4 py-2 " style={{ backgroundColor: '#f8f8f8' }}>Gender</th>
+                  <th className="px-4 py-2 " style={{ backgroundColor: '#f8f8f8' }}>Action</th>
                 </tr>
               </thead>
               <tbody className="text-sm font-normal text-gray-700">
@@ -40,21 +55,27 @@ const StudentTable = (props) => {
                   <>
                     <tr className="hover:bg-gray-100  border-gray-200">
                       <td className="px-4 py-4">{index + 1}</td>
-                      <td className="px-4 py-4">{student.user.name} - ({student.id}) {student.std.monis.map(moni => (
-                        <>{moni.student_id === student.id && <i class="fas fa-user-shield"></i>}</>))}</td>
+                      <td className="px-4 py-4">
+                        <AvatarNameCard name={student.user.name} avatar={student.user.avatar} />
+                      </td>
                       <td className="px-4 py-4">{student.std.name} - {student.std.section}</td>
                       <td className="px-4 py-4">{student.user.date_of_birth}</td>
                       <td className="px-4 py-4">{student.user.gender.name}</td>
+                      <td className="px-4 py-4" onClick={() =>showModel(student)}>
+                        <button className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                          Message
+                        </button>
+                      </td>
                     </tr>
                   </>
                 ))}
               </tbody>
             </table>
+            <MessageBox show={show} data={student} hideModel={hideModel} />
           </div>
           <div id="pagination" className="w-full flex justify-center border-t border-gray-100 pt-4 items-center">
           </div>
         </div>
-
       </div>
     </>
   )
@@ -72,7 +93,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    GetStudentActionDispatch: (state) => dispatch(GetStudentAction(state))
+    GetStudentActionDispatch: (state) => dispatch(GetStudentAction(state)),
+    PageSetupActionDispatch:(state) =>dispatch(PageSetupAction(state))
   };
 };
 

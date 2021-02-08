@@ -5,14 +5,12 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-
-// views
-
 import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
 import PrivateRoute from "utility/PrivateRoute";
+import MessageBoard from 'views/admin/MessageBoard'
 
 export default function Admin() {
   return (
@@ -25,6 +23,7 @@ export default function Admin() {
             <PrivateRoute path="/admin/maps" exact component={Maps} />
             <PrivateRoute path="/admin/settings" exact component={Settings} />
             <PrivateRoute path="/admin/tables" component={Tables} />
+            <PrivateRoute path="/admin/message/board" component={MessageBoard} />
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
         </div>

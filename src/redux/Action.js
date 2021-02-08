@@ -34,7 +34,94 @@ import {
   FAILURE_STD_LIST,
   REQUEST_UPDATE_STD_ID,
   RECEIVE_UPDATE_STD_ID,
+  REQUEST_COUNT_STUDENT,
+  RECEIVE_COUNT_STUDENT,
+  FAILURE_COUNT_STUDENT,
+  REQUEST_COUNT_TEACHER,
+  RECEIVE_COUNT_TEACHER,
+  FAILURE_COUNT_TEACHER,
+  REQUEST_COUNT_ADMIN,
+  RECEIVE_COUNT_ADMIN,
+  FAILURE_COUNT_ADMIN,
+  REQUEST_COUNT_NONTEACHING,
+  RECEIVE_COUNT_NONTEACHING,
+  FAILURE_COUNT_NONTEACHING,
+  REQUEST_POST_MESSAGE,
+  RECEIVE_POST_MESSAGE,
+  FAILURE_POST_MESSAGE,
+  REQUEST_PAGE_SETUP
 } from 'redux/ActionType'
+
+// Page setup
+export const requestPageSetup = payload => ({
+  type: REQUEST_PAGE_SETUP,
+  payload
+})
+
+// post message
+export const requestPostMessage = () => ({
+  type: REQUEST_POST_MESSAGE
+})
+export const receivePostMessage = payload => ({
+  type: RECEIVE_POST_MESSAGE,
+  payload
+})
+export const failurePostMessage = payload => ({
+  type: FAILURE_POST_MESSAGE,
+  payload
+})
+
+// get Counts
+export const requestGetStudentCount = () => ({
+  type: REQUEST_COUNT_STUDENT
+})
+export const receiveGetStudentCount = payload => ({
+  type: RECEIVE_COUNT_STUDENT,
+  payload
+})
+export const failureGetStudentCount = payload => ({
+  type: FAILURE_COUNT_STUDENT,
+  payload
+})
+
+// get std list
+export const requestGetTeacherCount = () => ({
+  type: REQUEST_COUNT_TEACHER
+})
+export const receiveGetTeacherCount = payload => ({
+  type: RECEIVE_COUNT_TEACHER,
+  payload
+})
+export const failureGetTeacherCount = payload => ({
+  type: FAILURE_COUNT_TEACHER,
+  payload
+})
+
+// get std list
+export const requestGetAdminCount = () => ({
+  type: REQUEST_COUNT_ADMIN
+})
+export const receiveGetAdminCount = payload => ({
+  type: RECEIVE_COUNT_ADMIN,
+  payload
+})
+export const failureGetAdminCount = payload => ({
+  type: FAILURE_COUNT_ADMIN,
+  payload
+})
+
+// get std list
+export const requestGetNonteachingCount = () => ({
+  type: REQUEST_COUNT_NONTEACHING
+})
+export const receiveGetNonteachingCount = payload => ({
+  type: RECEIVE_COUNT_NONTEACHING,
+  payload
+})
+export const failureGetNonteachingCount = payload => ({
+  type: FAILURE_COUNT_NONTEACHING,
+  payload
+})
 
 // update std id
 export const requestStdIdUpdate = () => ({

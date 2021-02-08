@@ -7,6 +7,7 @@ import EnqueryTable from "components/Table/EnqueryTable";
 import StudentTable from "components/Table/StudentTable";
 import { Redirect, Switch } from "react-router";
 import PrivateRoute from "utility/PrivateRoute";
+import Fulloverlay from "components/Overlay/Fulloverlay";
 
 export default function Tables() {
   return (
@@ -23,6 +24,7 @@ export default function Tables() {
           </div>
         </div>
       </div>
+      <Fulloverlay message="Loading student data..."/>
     </>
   );
 }

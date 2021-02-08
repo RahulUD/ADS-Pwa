@@ -4,6 +4,7 @@ import Validation from 'utility/Validation'
 import { LoginAction } from 'redux/actionCreator/AuthAction'
 import { connect } from "react-redux";
 import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
+import Fulloverlay from 'components/Overlay/Fulloverlay';
 
 function Login(props) {
   const [formData, setFormData] = useState({
@@ -48,7 +49,9 @@ function Login(props) {
   }
 
   const handleValidation = ()=>{
-    return formData.email.valid & formData.password.valid
+    if(formData.email.valid && formData.password.valid)
+      return true
+      return false
   }
 
   const handleSubmit = () => {
@@ -153,6 +156,7 @@ function Login(props) {
             </div>
           </div>
         </div>
+        <Fulloverlay message="Authenticating..."/>
       </div>
     </>
   );

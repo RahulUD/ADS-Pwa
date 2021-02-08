@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { GetStdAction, UpdateStdIdAction } from 'redux/actionCreator/StdAction'
 
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         GetStdActionDispatch: (state) => dispatch(GetStdAction(state)),
-        UpdateStdIdActionDispatch : (state) => dispatch(UpdateStdIdAction(state))
+        UpdateStdIdActionDispatch: (state) => dispatch(UpdateStdIdAction(state))
     };
 };
 
