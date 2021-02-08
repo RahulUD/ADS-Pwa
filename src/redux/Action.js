@@ -49,8 +49,15 @@ import {
   REQUEST_POST_MESSAGE,
   RECEIVE_POST_MESSAGE,
   FAILURE_POST_MESSAGE,
-  REQUEST_PAGE_SETUP
+  REQUEST_PAGE_SETUP,
+  REQUEST_ADD_NOTIFI_USER
 } from 'redux/ActionType'
+
+// notifi
+export const requestAddNotifiUser = payload => ({
+  type: REQUEST_ADD_NOTIFI_USER,
+  payload
+})
 
 // Page setup
 export const requestPageSetup = payload => ({

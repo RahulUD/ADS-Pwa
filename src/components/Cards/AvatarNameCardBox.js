@@ -11,7 +11,7 @@ const AvatarNameCardBox = (props) => {
                 <div className="ml-3">
                     <p className="text-gray-900 whitespace-no-wrap">{props.name}</p>
                 </div>
-                {props?.icon && <i className={`fas ${props.icon}`} style={{marginLeft : '15px'}}></i>}
+                {props?.icon && <i className={`fas ${props.icon}`} style={{marginLeft : '15px'}} ></i>}
             </div>
         </div>
     )

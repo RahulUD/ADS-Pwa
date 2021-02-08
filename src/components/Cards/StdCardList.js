@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import { GetStdAction, UpdateStdIdAction } from 'redux/actionCreator/StdAction'
 
 const StdListCard = (props) => {
+    let stds = props.stds?.data
     useEffect(() => {
         props.GetStdActionDispatch()
     }, [])
+    const clickHandle = (id) => {
+        props.UpdateStdIdActionDispatch(id)
+    }
     return (
         <>
-            {props.stds?.data && props.stds.data.map(std => (<span className="cursor-pointer text-xs font-semibold my-2 inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 uppercase last:mr-0 mr-1" onClick={() => props.UpdateStdIdActionDispatch(std.id)}>
+            {stds && stds.map(std => (<span key={std.id} className={`cursor-pointer text-xs font-semibold my-2 inline-block py-1 px-2 uppercase rounded text-blue-600 uppercase last:mr-0 mr-1 bg-blue-200`} onClick={() => clickHandle(std.id)}>
                 {std.name} - {std.section}
             </span>))}
         </>
@@ -16,7 +20,6 @@ const StdListCard = (props) => {
 }
 const mapStateToProps = (state) => {
     const Std = state.StdReducer;
-    console.log('Enquery ***', Std)
     return {
         stds: Std
     };

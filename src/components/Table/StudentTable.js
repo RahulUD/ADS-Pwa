@@ -34,7 +34,7 @@ const StudentTable = (props) => {
           </div>
           <div className="w-full flex justify-end px-2 mt-2">
             <div className="w-full sm:w-64 inline-block relative ">
-              <StdListCard />
+              <StdListCard multi={false}/>
             </div>
           </div>
           <div className="overflow-x-auto mt-6">

@@ -34,9 +34,14 @@ function Login(props) {
      history.push('/')
    }
   }, [])
+  useEffect(() => {
+    setFormValidity(handleValidation())
+  }, [formData])
+
   const history = useHistory()
   const [formValidity, setFormValidity] = useState(false)
   const handleChange = event => {
+    debugger
     let identifier = event.target.id
     let element = { ...formData[identifier] }
     element.value = event.target.value
@@ -45,13 +50,10 @@ function Login(props) {
     element.valid = isValid
     element.messages = messages
     setFormData({ ...formData, [identifier]: element })
-    setFormValidity(handleValidation())
   }
 
   const handleValidation = ()=>{
-    if(formData.email.valid && formData.password.valid)
-      return true
-      return false
+      return formData.password.valid && formData.email.valid
   }
 
   const handleSubmit = () => {
