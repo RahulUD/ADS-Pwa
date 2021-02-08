@@ -4,9 +4,10 @@ import React from "react";
 
 import HeaderStatsEmpty from "components/Headers/HeaderStatsEmpty";
 import EnqueryTable from "components/Table/EnqueryTable";
-import TeacherTable from "components/Table/TeacherTable";
+import StudentTable from "components/Table/StudentTable";
 import { Redirect, Switch } from "react-router";
 import PrivateRoute from "utility/PrivateRoute";
+import Fulloverlay from "components/Overlay/Fulloverlay";
 
 export default function Tables() {
   return (
@@ -17,12 +18,13 @@ export default function Tables() {
           <div className="w-full mb-12 px-4">
             <Switch>
               <PrivateRoute path="/admin/tables/enquery" exact component={EnqueryTable} />
-              <PrivateRoute path="/admin/tables/teachers" exact component={TeacherTable} />
+              <PrivateRoute path="/admin/tables/studentlist" exact component={StudentTable} />
               <Redirect from="/admin/tables" to="/admin/dashboard" />
             </Switch>
           </div>
         </div>
       </div>
+      <Fulloverlay message="Loading student data..."/>
     </>
   );
 }

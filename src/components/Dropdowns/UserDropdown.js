@@ -3,6 +3,8 @@ import { createPopper } from "@popperjs/core";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Logout from "components/Button/Logout";
+import AvatarNameCard from "components/Cards/AvatarNameCard";
+import AvatarNameCardBox from "components/Cards/AvatarNameCardBox";
 
 
 const UserDropdown = (props) => {
@@ -29,13 +31,14 @@ const UserDropdown = (props) => {
         onMouseLeave={() => closeDropdownPopover()}
       >
         <div className="items-center flex">
-          <span className="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
+          {/* <span className="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
               src={require("assets/img/team-1-800x800.jpg")}
             />
-          </span>
+          </span> */}
+          <AvatarNameCardBox name={props.name} avatar={props.avatar}/>
         </div>
       </a>
       <div
@@ -83,7 +86,8 @@ const mapStateToProps = (state) => {
   const Auth = state.AuthReducer;
   console.log('Auth', Auth.user)
     return {
-      User : Auth.user
+      name : Auth.user?.name,
+      avatar : Auth.user?.avatar
     };
 };
 

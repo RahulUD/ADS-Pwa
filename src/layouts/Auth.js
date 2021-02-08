@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 
 import Navbar from "components/Navbars/IndexNavbar.js";
 import FooterSmall from "components/Footers/Footer.js";

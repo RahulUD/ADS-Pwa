@@ -6,10 +6,10 @@ git checkout -b new_branch_name  => create new branch and switch to that
 git branch =>  show list of branch
 git branch new_branch_name  => to create new branch
 git pull norigin branch_name  => to pull particular baranch from server
-git push origin branch_name  => to push particular br
-
-
-
+git push origin branch_name  => to push particular branch to server
+git merge branch  => to marge particular branch
+git stash  => to stach changes
+git log => to see commits
 
 
 # Notus React <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20React%20UI%20Kit%20and%20Admin.%20Let%20Notus%20React%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level.%20" target="_blank">![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)</a>

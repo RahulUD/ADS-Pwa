@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {FOOTER_CONTACT_TITLE,FOOTER_CONTACT_DESCRIPTION,FOOTER_LINK_TITLE,FOOTER_LINK_1,FOOTER_LINK_2,FOOTER_LINK_3,FOOTER_LINK_4,FOOTER_RESOURCES_TITLE,FOOTER_RESOURCES_1,FOOTER_RESOURCES_2,FOOTER_RESOURCES_3,FOOTER_RESOURCES_4,
 } from 'utility/constant/UiConstant'
 
@@ -67,12 +68,12 @@ export default () => {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation?ref=nr-footer"
+                        to="/welcome/admission"
                       >
                         {FOOTER_LINK_1}
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a
