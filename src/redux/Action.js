@@ -50,10 +50,48 @@ import {
   RECEIVE_POST_MESSAGE,
   FAILURE_POST_MESSAGE,
   REQUEST_PAGE_SETUP,
-  REQUEST_ADD_NOTIFI_USER
+  REQUEST_ADD_NOTIFI_USER,
+  REQUEST_REMOVE_NOTIFI_USER,
+  REQUEST_COMMENT_POST,
+  RECEIVE_COMMENT_POST,
+  FAILURE_COMMENT_POST,
+  REQUEST_BALANCE,
+  RECEIVE_BALANCE,
+  FAILURE_BALANCE
 } from 'redux/ActionType'
 
+// message Balance
+export const requestBalance = () => ({
+  type: REQUEST_BALANCE
+})
+export const receiveBalance = payload => ({
+  type: RECEIVE_BALANCE,
+  payload
+})
+export const failureBalance = payload => ({
+  type: FAILURE_BALANCE,
+  payload
+})
+
+// post message
+export const requestCommentPost = () => ({
+  type: REQUEST_COMMENT_POST
+})
+export const receiveCommentPost = payload => ({
+  type: RECEIVE_COMMENT_POST,
+  payload
+})
+export const failureCommentPost = payload => ({
+  type: FAILURE_COMMENT_POST,
+  payload
+})
+
 // notifi
+
+export const requestRemoveNotifiUser = payload => ({
+  type: REQUEST_REMOVE_NOTIFI_USER,
+  payload
+})
 export const requestAddNotifiUser = payload => ({
   type: REQUEST_ADD_NOTIFI_USER,
   payload

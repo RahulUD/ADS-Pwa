@@ -1,5 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { NotifiAddUserAction } from 'redux/actionCreator/NotifiAction';
 const AvatarNameCardBox = (props) => {
+    const deleteHandle = (id) =>{
+        let list =props.users.filter(data => data.id !== id);
+        props.NotifiAddUserActionDispatch(list)
+    }
     return (
         <div className="flex-1 ">
             <div className="flex items-center bg-white m-2 p-2 rounded">
@@ -11,9 +17,24 @@ const AvatarNameCardBox = (props) => {
                 <div className="ml-3">
                     <p className="text-gray-900 whitespace-no-wrap">{props.name}</p>
                 </div>
-                {props?.icon && <i className={`fas ${props.icon}`} style={{marginLeft : '15px'}} ></i>}
+                {props?.icon && <i className={`fas ${props.icon}`} style={{marginLeft : '15px'}} onClick={() => deleteHandle(props.id)}></i>}
             </div>
         </div>
     )
 }
-export default AvatarNameCardBox
+const mapStateToProps = (state) => {
+    const Notifi = state.NotifiReducer;
+    return {
+      users : Notifi.users
+    };
+  };
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      NotifiAddUserActionDispatch:(state) => dispatch(NotifiAddUserAction(state))
+    };
+  };
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(AvatarNameCardBox)

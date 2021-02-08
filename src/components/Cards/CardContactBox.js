@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { NotifiAddUserAction } from "redux/actionCreator/NotifiAction";
 import { PageSetupAction } from "redux/actionCreator/PageAction";
 import { GetStudentAction } from "redux/actionCreator/StudentAction";
 import AllListCard from "./AllCardList";
@@ -18,13 +19,15 @@ const CardContactBox = (props) => {
     props.GetStudentActionDispatch({ id: props.std.stdId });
   }, [props.std.stdId])
   useEffect(() => {
-    let allStudent = [...students, ...props.students];
-    let ids = allStudent.map(o => o.id)
-    let filtered = allStudent.filter(({ id }, index) => !ids.includes(id, index + 1))
-    setStudents([...filtered])
+    let allStudent = [ ...props.students];
+    let users = [...props.users]
+    allStudent.forEach(student => {
+      users.push({'id' : student.user.id,'name' : `${student.id}) ${student.user.name} (${student.std.name} ${student.std.section})`, 'avatar' : student.user.avatar})
+    });
+    let ids = users.map(o => o.id)
+    let filtered = users.filter(({ id }, index) => !ids.includes(id, index + 1))
+    props.NotifiAddUserActionDispatch(filtered)
   }, [props.students])
-
-
 
 
   return (
@@ -42,7 +45,7 @@ const CardContactBox = (props) => {
           />
         </div>
         <div className="flex flex-wrap">
-          {students?.map(student => (<AvatarNameCardBox name={`${student.id}) ${student.user.name} (${student.std.name} ${student.std.section})`} icon="fa-window-close" avatar={student.user.avatar} />))}
+          {props.users && props.users?.map(user => (<AvatarNameCardBox id={user.id} name={`${user.name}`} icon="fa-window-close" avatar={user.avatar} />))}
         </div>
       </div>
     </>
@@ -52,13 +55,16 @@ const CardContactBox = (props) => {
 const mapStateToProps = (state) => {
   const Student = state.StudentReducer;
   const std = state.StdReducer;
+  const Notifi = state.NotifiReducer;
   return {
     students: Student.data,
-    std
+    std,
+    users : Notifi.users
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    NotifiAddUserActionDispatch:(state) => dispatch(NotifiAddUserAction(state)),
     GetStudentActionDispatch: (state) => dispatch(GetStudentAction(state)),
     PageSetupActionDispatch: (state) => dispatch(PageSetupAction(state))
   };

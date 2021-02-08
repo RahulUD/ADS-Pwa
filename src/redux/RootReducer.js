@@ -10,6 +10,8 @@ import StdReducer from 'redux/reducer/StdReducer'
 import StudentReducer from 'redux/reducer/StudentReducer'
 import CountReducer from 'redux/reducer/CountReducer'
 import PageReducer from 'redux/reducer/PageReducer'
+import NotifiReducer from 'redux/reducer/NotifiReducer'
+import CommentReducer from 'redux/reducer/NotifiReducer'
 
     const RootReducer = combineReducers({
         PresentTeachersReducer,
@@ -22,8 +24,9 @@ import PageReducer from 'redux/reducer/PageReducer'
         StdReducer,
         StudentReducer,
         CountReducer,
-        PageReducer
+        PageReducer,
+        NotifiReducer,
+        CommentReducer
     });
-
 export default RootReducer;
 // 08626 nitish kumar 8292671739

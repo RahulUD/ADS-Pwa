@@ -15,6 +15,9 @@ const AllListCard = (props) => {
             <span className="cursor-pointer text-xs font-semibold my-2 inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 uppercase last:mr-0 mr-1">
                 Non-Teaching
             </span>
+            <span className="cursor-pointer text-xs font-semibold my-2 inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 uppercase last:mr-0 mr-1">
+                Student
+            </span>
 
         </>
     )
