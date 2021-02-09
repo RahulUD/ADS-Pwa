@@ -57,8 +57,28 @@ import {
   FAILURE_COMMENT_POST,
   REQUEST_BALANCE,
   RECEIVE_BALANCE,
-  FAILURE_BALANCE
+  FAILURE_BALANCE,
+  REQUEST_USER_SEARCH,
+RECEIVE_USER_SEARCH,
+FAILURE_USER_SEARCH,
+REQUEST_USER_SELECT,
 } from 'redux/ActionType'
+
+// user Search
+export const requestUserSelect = () => ({
+  type: REQUEST_USER_SEARCH
+})
+export const requestUserSearch = () => ({
+  type: REQUEST_USER_SEARCH
+})
+export const receiveUserSearch = payload => ({
+  type: RECEIVE_USER_SEARCH,
+  payload
+})
+export const failureUserSearch = payload => ({
+  type: FAILURE_USER_SEARCH,
+  payload
+})
 
 // message Balance
 export const requestBalance = () => ({

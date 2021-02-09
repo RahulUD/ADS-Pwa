@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import PresentTeachersReducer from 'redux/reducer/PresentTeachersReducer'
-import FooterReducer from 'redux/reducer/FooterReducer'
+import UserSearchReducer from 'redux/reducer/UserSearchReducer'
 import AuthReducer from 'redux/reducer/AuthReducer'
 import BlogReducer from 'redux/reducer/BlogReducer'
 import LoadingReducer from 'redux/reducer/LoadingReducer'
@@ -15,7 +15,7 @@ import CommentReducer from 'redux/reducer/NotifiReducer'
 
     const RootReducer = combineReducers({
         PresentTeachersReducer,
-        FooterReducer,
+        UserSearchReducer,
         AuthReducer,
         BlogReducer,
         LoadingReducer,

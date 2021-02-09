@@ -44,6 +44,8 @@ export const LogoutAction = () => dispatch => {
       dispatch(receiveLogout(response))
     })
     .catch(error => {
+      unsetTokeninLocalStorage()
+      unsetUserinLocalStorage()
       dispatch(failureLogout(error))
     })
 }

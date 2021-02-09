@@ -6,6 +6,7 @@ import { GetStudentAction } from "redux/actionCreator/StudentAction";
 import AllListCard from "./AllCardList";
 import AvatarNameCardBox from "./AvatarNameCardBox";
 import StdCardList from "./StdCardList";
+import SearchUserForm from 'components/Form/SearchUserForm'
 
 
 const CardContactBox = (props) => {
@@ -38,11 +39,7 @@ const CardContactBox = (props) => {
             <AllListCard />
             <StdCardList multi={true}/>
           </div>
-          <input
-            type="text"
-            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-gray-200 rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-            placeholder="Search ... .i.e. VI Rahul"
-          />
+         <SearchUserForm />
         </div>
         <div className="flex flex-wrap">
           {props.users && props.users?.map(user => (<AvatarNameCardBox id={user.id} name={`${user.name}`} icon="fa-window-close" avatar={user.avatar} />))}

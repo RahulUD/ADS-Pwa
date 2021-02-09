@@ -16,7 +16,7 @@ const TagPopOver = (props) => {
     };
     return (
         <>
-            <div className="rounded" style={{margin: '2px', padding:'2px'}}>
+            <div className="rounded" style={{ margin: '2px', padding: '2px' }}>
                 <div className="text-center">
                     <span className="cursor-pointer text-xs font-semibold inline-block rounded text-blue-600"
                         onMouseEnter={() => openPopover()}
@@ -35,8 +35,8 @@ const TagPopOver = (props) => {
                         <div>
                             <div className="text-white p-3">
                                 {props.description}
-                    </div>
-                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

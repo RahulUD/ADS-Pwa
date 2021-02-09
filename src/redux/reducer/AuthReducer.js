@@ -34,7 +34,6 @@ export default (state = initialState, action) => {
     case RECEIVE_LOGOUT:
       return {
         ...state,
-    
         isAuthSuccessful: false,
         user: null,
         token: null
@@ -42,7 +41,9 @@ export default (state = initialState, action) => {
     case FAILURE_LOGOUT:
       return {
         ...state,
-    
+        isAuthSuccessful: false,
+        user: null,
+        token: null,
         error: payload.error
       }
     case REQUEST_LOGIN:

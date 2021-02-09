@@ -56,7 +56,7 @@ const StudentTable = (props) => {
                     <tr className="hover:bg-gray-100  border-gray-200">
                       <td className="px-4 py-4">{index + 1}</td>
                       <td className="px-4 py-4">
-                        <AvatarNameCard name={student.user.name} avatar={student.user.avatar} />
+                        <AvatarNameCard name={student.user.name} id={student.user.id} avatar={student.user.avatar} />
                       </td>
                       <td className="px-4 py-4">{student.std.name} - {student.std.section}</td>
                       <td className="px-4 py-4">{student.user.date_of_birth}</td>

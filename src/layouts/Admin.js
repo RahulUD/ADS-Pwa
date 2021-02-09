@@ -11,6 +11,7 @@ import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
 import PrivateRoute from "utility/PrivateRoute";
 import MessageBoard from 'views/admin/MessageBoard'
+import StudentProfile from 'views/admin/StudentProfile'
 
 export default function Admin() {
   return (
@@ -24,6 +25,7 @@ export default function Admin() {
             <PrivateRoute path="/admin/settings" exact component={Settings} />
             <PrivateRoute path="/admin/tables" component={Tables} />
             <PrivateRoute path="/admin/message/board" component={MessageBoard} />
+            <PrivateRoute path="/admin/student/:id" component={StudentProfile} />
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
         </div>
