@@ -67,8 +67,100 @@ import {
   REQUEST_GET_GENDER,
   RECEIVE_GET_GENDER,
   FAILURE_GET_GENDER,
+  REQUEST_GET_CONTACT_TYPE,
+  RECEIVE_GET_CONTACT_TYPE,
+  FAILURE_GET_CONTACT_TYPE,
+  REQUEST_GET_ADDRESS_TYPE,
+  RECEIVE_GET_ADDRESS_TYPE,
+  FAILURE_GET_ADDRESS_TYPE,
+  REQUEST_RELATION,
+  RECEIVE_RELATION,
+  FAILURE_RELATION,
+  REQUEST_STATES,
+  RECEIVE_STATES,
+  FAILURE_STATES,
+  REQUEST_DISTRICTS,
+  RECEIVE_DISTRICTS,
+  FAILURE_DISTRICTS,
+  REQUEST_PINS,
+  RECEIVE_PINS,
+  FAILURE_PINS,
 
 } from 'redux/ActionType'
+
+// getPins
+export const requestStates = () => ({
+  type: REQUEST_STATES
+})
+export const receiveStates = payload => ({
+  type: RECEIVE_STATES,
+  payload
+})
+export const failureStates = payload => ({
+  type: FAILURE_STATES,
+  payload
+})
+export const requestDistricts = () => ({
+  type: REQUEST_DISTRICTS
+})
+export const receiveDistricts = payload => ({
+  type: RECEIVE_DISTRICTS,
+  payload
+})
+export const failureDistricts = payload => ({
+  type: FAILURE_DISTRICTS,
+  payload
+})
+export const requestPins = () => ({
+  type: REQUEST_PINS
+})
+export const receivePins = payload => ({
+  type: RECEIVE_PINS,
+  payload
+})
+export const failurePins = payload => ({
+  type: FAILURE_PINS,
+  payload
+})
+
+// getRelation
+export const requestRelation = () => ({
+  type: REQUEST_RELATION
+})
+export const receiveRelation = payload => ({
+  type: RECEIVE_RELATION,
+  payload
+})
+export const failureRelation = payload => ({
+  type: FAILURE_RELATION,
+  payload
+})
+
+// getAddresstype
+export const requestGetAddressType = () => ({
+  type: REQUEST_GET_ADDRESS_TYPE
+})
+export const receiveGetAddressType = payload => ({
+  type: RECEIVE_GET_ADDRESS_TYPE,
+  payload
+})
+export const failureGetAddressType = payload => ({
+  type: FAILURE_GET_ADDRESS_TYPE,
+  payload
+})
+
+// getcontacttype
+export const requestGetContactType = () => ({
+  type: REQUEST_GET_CONTACT_TYPE
+})
+export const receiveGetContactType = payload => ({
+  type: RECEIVE_GET_CONTACT_TYPE,
+  payload
+})
+export const failureGetContactType = payload => ({
+  type: FAILURE_GET_CONTACT_TYPE,
+  payload
+})
 
 // gender
 export const requestGetGender = () => ({

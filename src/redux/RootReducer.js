@@ -14,23 +14,31 @@ import NotifiReducer from 'redux/reducer/NotifiReducer'
 import CommentReducer from 'redux/reducer/NotifiReducer'
 import GenderReducer from 'redux/reducer/GenderReducer'
 import MemberReducer from 'redux/reducer/MemberReducer'
+import ContactTypeReducer from 'redux/reducer/ContactTypeReducer'
+import AddressTypeReducer from 'redux/reducer/AddressTypeReducer'
+import RelationReducer from 'redux/reducer/RelationReducer'
+import PinReducer from 'redux/reducer/PinReducer'
 
-    const RootReducer = combineReducers({
-        PresentTeachersReducer,
-        UserSearchReducer,
-        AuthReducer,
-        BlogReducer,
-        LoadingReducer,
-        BirthdayReducer,
-        ContactUsReducer,
-        StdReducer,
-        StudentReducer,
-        CountReducer,
-        PageReducer,
-        NotifiReducer,
-        CommentReducer,
-        GenderReducer,
-        MemberReducer
-    });
+const RootReducer = combineReducers({
+    PresentTeachersReducer,
+    UserSearchReducer,
+    AuthReducer,
+    BlogReducer,
+    LoadingReducer,
+    BirthdayReducer,
+    ContactUsReducer,
+    StdReducer,
+    StudentReducer,
+    CountReducer,
+    PageReducer,
+    NotifiReducer,
+    CommentReducer,
+    GenderReducer,
+    MemberReducer,
+    ContactTypeReducer,
+    AddressTypeReducer,
+    RelationReducer,
+    PinReducer,
+});
 export default RootReducer;
 // 08626 nitish kumar 8292671739

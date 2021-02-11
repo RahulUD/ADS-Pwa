@@ -41,7 +41,6 @@ function Login(props) {
   const history = useHistory()
   const [formValidity, setFormValidity] = useState(false)
   const handleChange = event => {
-    debugger
     let identifier = event.target.id
     let element = { ...formData[identifier] }
     element.value = event.target.value

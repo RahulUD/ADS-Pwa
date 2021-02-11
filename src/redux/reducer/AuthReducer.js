@@ -61,7 +61,7 @@ export default (state = initialState, action) => {
     case FAILURE_LOGIN:
       return {
         ...state,
-        error: payload.error
+        error: payload
       }
     default:
       return {

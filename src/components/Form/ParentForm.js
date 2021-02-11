@@ -1,5 +1,13 @@
-import React from 'react'
-const ParentForm = () => {
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux';
+import { GetContactTypeAction } from 'redux/actionCreator/ContactTypeAction';
+import { GetRelationAction } from 'redux/actionCreator/RelationAction';
+const ParentForm = (props) => {
+    const { contactTypes, relations } = props
+    useEffect(() => {
+        props.GetContactTyeActionDispatch()
+        props.GetRelationActionDispatch()
+    }, [])
     return (
         <form>
             <hr className="mt-6 border-b-1 border-gray-400" />
@@ -16,11 +24,10 @@ const ParentForm = () => {
                         >
                             Relation
                   </label>
-                        <input
-                            type="text"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-
-                        />
+                        <select className="w-full border bg-white rounded px-3 py-2 outline-none">
+                            <option className="py-1" selected disabled>Select Relation Type</option>
+                            {relations && relations.map(relation => (<option className="py-1">{relation.type}</option>))}
+                        </select>
                     </div>
                 </div>
                 <div className="w-full lg:w-6/12 px-4">
@@ -34,7 +41,6 @@ const ParentForm = () => {
                         <input
                             type="email"
                             className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-
                         />
                     </div>
                 </div>
@@ -62,11 +68,10 @@ const ParentForm = () => {
                         >
                             Contact Type
                   </label>
-                        <input
-                            type="text"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-
-                        />
+                        <select className="w-full border bg-white rounded px-3 py-2 outline-none">
+                            <option className="py-1" selected disabled>Select Contact Type</option>
+                            {contactTypes && contactTypes.map(contactType => (<option className="py-1">{contactType.type}</option>))}
+                        </select>
                     </div>
                 </div>
                 <div className="w-full lg:w-6/12 px-4">
@@ -87,20 +92,39 @@ const ParentForm = () => {
 
             </div>
             <div className="px-4 mt-10">
-                    <button
-                        className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                        type="button"
-                    >
-                        Submit
+                <button
+                    className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    type="button"
+                >
+                    Submit
             </button>
-                    <button
-                        className="bg-red-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                        type="button"
-                    >
-                        Reset
+                <button
+                    className="bg-red-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    type="button"
+                >
+                    Reset
             </button>
-                </div>
+            </div>
         </form>
     )
 }
-export default ParentForm
+const mapStateToProps = (state) => {
+    const ContactType = state.ContactTypeReducer;
+    const Relation = state.RelationReducer;
+    return {
+        contactTypes: ContactType.data,
+        relations: Relation.data
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        GetContactTyeActionDispatch: (state) => dispatch(GetContactTypeAction(state)),
+        GetRelationActionDispatch: (state) => dispatch(GetRelationAction(state))
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ParentForm)
