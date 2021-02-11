@@ -20,6 +20,7 @@ const AcademicForm = (props) => {
                             Std
                   </label>
                   <select className="w-full border bg-white rounded px-3 py-2 outline-none">
+                  <option className="py-1" selected disabled>Select Std</option>
     {props.stds&& props.stds.map(std =>(<option className="py-1">{std.name}</option>))}
 </select>
                     </div>

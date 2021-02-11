@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 // components
 
@@ -7,8 +7,12 @@ import UserFormCard from "components/Form/UserFormCard";
 import AcademicForm from "components/Form/AcademicForm";
 import ParentForm from "components/Form/ParentForm";
 import AddressForm from "components/Form/AddressForm";
+import { connect } from "react-redux";
 
-function Admission() {
+function Admission(props) {
+  useEffect(() => {
+    
+  }, [props.progress])
   return (
     <>
       <HeaderStatsEmpty />
@@ -22,10 +26,10 @@ function Admission() {
                 </div>
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <UserFormCard />
-                <AcademicForm />
-                <ParentForm />
-                <AddressForm />
+                {props?.progress===0 && <UserFormCard />}
+                {props?.progress===1 && <AcademicForm />}
+                {props?.progress===2 && <ParentForm />}
+                {props?.progress===3 && <AddressForm />}
               </div>
             </div>
           </div>
@@ -35,4 +39,19 @@ function Admission() {
   );
 }
 
-export default Admission;
+const mapStateToProps = (state) => {
+  const Member = state.MemberReducer;
+  return {
+    progress : Member.progress
+  };
+};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+   
+//   };
+// };
+
+export default connect(
+  mapStateToProps,
+  null
+)(Admission);
