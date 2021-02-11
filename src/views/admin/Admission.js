@@ -4,6 +4,9 @@ import React from "react";
 
 import HeaderStatsEmpty from "components/Headers/HeaderStatsEmpty";
 import UserFormCard from "components/Form/UserFormCard";
+import AcademicForm from "components/Form/AcademicForm";
+import ParentForm from "components/Form/ParentForm";
+import AddressForm from "components/Form/AddressForm";
 
 function Admission() {
   return (
@@ -20,6 +23,9 @@ function Admission() {
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <UserFormCard />
+                <AcademicForm />
+                <ParentForm />
+                <AddressForm />
               </div>
             </div>
           </div>

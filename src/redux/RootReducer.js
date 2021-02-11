@@ -13,6 +13,7 @@ import PageReducer from 'redux/reducer/PageReducer'
 import NotifiReducer from 'redux/reducer/NotifiReducer'
 import CommentReducer from 'redux/reducer/NotifiReducer'
 import GenderReducer from 'redux/reducer/GenderReducer'
+import MemberReducer from 'redux/reducer/MemberReducer'
 
     const RootReducer = combineReducers({
         PresentTeachersReducer,
@@ -28,7 +29,8 @@ import GenderReducer from 'redux/reducer/GenderReducer'
         PageReducer,
         NotifiReducer,
         CommentReducer,
-        GenderReducer
+        GenderReducer,
+        MemberReducer
     });
 export default RootReducer;
 // 08626 nitish kumar 8292671739
