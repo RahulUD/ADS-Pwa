@@ -59,10 +59,42 @@ import {
   RECEIVE_BALANCE,
   FAILURE_BALANCE,
   REQUEST_USER_SEARCH,
-RECEIVE_USER_SEARCH,
-FAILURE_USER_SEARCH,
-REQUEST_USER_SELECT,
+  RECEIVE_USER_SEARCH,
+  FAILURE_USER_SEARCH,
+  REQUEST_ADD_USER,
+  RECEIVE_ADD_USER,
+  FAILURE_ADD_USER,
+  REQUEST_GET_GENDER,
+  RECEIVE_GET_GENDER,
+  FAILURE_GET_GENDER,
+
 } from 'redux/ActionType'
+
+// gender
+export const requestGetGender = () => ({
+  type: REQUEST_GET_GENDER
+})
+export const receiveGetGender = payload => ({
+  type: RECEIVE_GET_GENDER,
+  payload
+})
+export const failureGetGender = payload => ({
+  type: FAILURE_GET_GENDER,
+  payload
+})
+
+// Add User
+export const requestAddUser = () => ({
+  type: REQUEST_ADD_USER
+})
+export const receiveAddUser = payload => ({
+  type: RECEIVE_ADD_USER,
+  payload
+})
+export const failureAddUser = payload => ({
+  type: FAILURE_ADD_USER,
+  payload
+})
 
 // user Search
 export const requestUserSelect = () => ({

@@ -5,7 +5,6 @@ import React from "react";
 import CardSettings from "components/Cards/CardSettings.js";
 import CardProfile from "components/Cards/CardProfile.js";
 import HeaderStatsEmpty from "components/Headers/HeaderStatsEmpty";
-import { connect } from "react-redux";
 
 function StudentProfile() {
   return (

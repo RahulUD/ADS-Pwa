@@ -202,7 +202,7 @@ export default function Sidebar() {
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-800 hover:text-gray-600")
                   }
-                  to="/admin/tables"
+                  to="/admin/admission/new"
                 >
                   <i
                     className={
@@ -212,7 +212,7 @@ export default function Sidebar() {
                         : "text-gray-400")
                     }
                   ></i>{" "}
-                  Tables
+                  Admission
                 </Link>
               </li>
 

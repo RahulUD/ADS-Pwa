@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 
 // components
 
@@ -12,6 +12,7 @@ import Tables from "views/admin/Tables.js";
 import PrivateRoute from "utility/PrivateRoute";
 import MessageBoard from 'views/admin/MessageBoard'
 import StudentProfile from 'views/admin/StudentProfile'
+import Admission from "views/admin/Admission";
 
 export default function Admin() {
   return (
@@ -19,16 +20,17 @@ export default function Admin() {
       <Sidebar />
       <div className="relative md:ml-64 bg-gray-200">
         <AdminNavbar />
-          <Switch>
-            <PrivateRoute path="/admin/dashboard" exact component={Dashboard} />
-            <PrivateRoute path="/admin/maps" exact component={Maps} />
-            <PrivateRoute path="/admin/settings" exact component={Settings} />
-            <PrivateRoute path="/admin/tables" component={Tables} />
-            <PrivateRoute path="/admin/message/board" component={MessageBoard} />
-            <PrivateRoute path="/admin/student/:id" component={StudentProfile} />
-            <Redirect from="/admin" to="/admin/dashboard" />
-          </Switch>
-        </div>
+        <Switch>
+          <PrivateRoute path="/admin/dashboard" exact component={Dashboard} />
+          <PrivateRoute path="/admin/maps" exact component={Maps} />
+          <PrivateRoute path="/admin/settings" exact component={Settings} />
+          <PrivateRoute path="/admin/tables" component={Tables} />
+          <PrivateRoute path="/admin/message/board" component={MessageBoard} />
+          <PrivateRoute path="/admin/admission/new" component={Admission} />
+          <PrivateRoute path="/admin/student/:id" component={StudentProfile} />
+          <Redirect from="/admin" to="/admin/dashboard" />
+        </Switch>
+      </div>
     </>
   );
 }
