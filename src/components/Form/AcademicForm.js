@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { GetStdAction } from 'redux/actionCreator/StdAction';
 const AcademicForm = (props) => {
@@ -19,10 +19,10 @@ const AcademicForm = (props) => {
                         >
                             Std
                   </label>
-                  <select className="w-full border bg-white rounded px-3 py-2 outline-none">
-                  <option className="py-1" selected disabled>Select Std</option>
-    {props.stds&& props.stds.map(std =>(<option className="py-1">{std.name}</option>))}
-</select>
+                        <select className="w-full border bg-white rounded px-3 py-2 outline-none">
+                            <option className="py-1" selected disabled>Select Std</option>
+                            {props.stds && props.stds.map(std => (<option className="py-1">{std.name}</option>))}
+                        </select>
                     </div>
                 </div>
                 <div className="w-full lg:w-6/12 px-4">

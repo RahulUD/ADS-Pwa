@@ -3,7 +3,12 @@ import { connect } from 'react-redux'
 import { GetGenderAction } from 'redux/actionCreator/GenderAction'
 import Validation from 'utility/Validation'
 import { AddUserAction } from 'redux/actionCreator/MemberAction'
+import RadioWithLevel from '../InputType/RadioWithLevel'
+import { prePareKeyValue } from 'utility/method/FormMethods'
+import InputWithLevel from '../InputType/InputWithLevel'
+import ActionButton from '../InputType/ActionButton'
 const UserFormCard = (props) => {
+    const { Genders } = props
     const [form, setForm] = useState({
         name: {
             value: '',
@@ -40,7 +45,6 @@ const UserFormCard = (props) => {
             value: '',
             validation: {
                 required: true,
-
             },
             messages: null,
             valid: false,
@@ -58,6 +62,7 @@ const UserFormCard = (props) => {
     })
 
     const [formValidity, setFormValidity] = useState(false)
+    const [genderArray, setGenderArray] = useState([])
     const handleChange = event => {
         let identifier = event.target.id
         let element = { ...form[identifier] }
@@ -68,12 +73,13 @@ const UserFormCard = (props) => {
         element.messages = messages
         setForm({ ...form, [identifier]: element })
         setFormValidity(handleValidation())
-        console.log(form)
+        
     }
     const handleValidation = () => {
         return form.email.valid & form.name.valid & form.dob.valid & form.gender.valid & form.adharNumber.valid
     }
     const radioHandle = (event) => {
+        console.log('radioHandle', event)
         let element = { ...form['gender'] }
         element.value = event.target.value
         element.touched = true
@@ -82,7 +88,7 @@ const UserFormCard = (props) => {
         element.messages = messages
         setForm({ ...form, gender: element })
         setFormValidity(handleValidation())
-        console.log(form)
+        console.log('radioHandle',event.target.value)
     }
 
     const submitHandle = () => {
@@ -97,6 +103,9 @@ const UserFormCard = (props) => {
     useEffect(() => {
         props.GetGenderActionDispatch()
     }, [])
+    useEffect(() => {
+        setGenderArray(prePareKeyValue('id', Genders, { fields: ['name'] }))
+    }, [Genders])
     return (
         <>
             <form>
@@ -104,97 +113,14 @@ const UserFormCard = (props) => {
                     User Information
             </h6>
                 <div className="flex flex-wrap">
-                    <div className="w-full lg:w-6/12 px-4">
-                        <div className="relative w-full mb-3">
-                            <label
-                                className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                                value={form.name.value}
-                            >
-                                Name
-                  </label>
-                            <input id='name'
-                                onChange={handleChange}
-                                type="text"
-                                className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                            />
-                        </div>
-                    </div>
-                    <div className="w-full lg:w-6/12 px-4">
-                        <div className="relative w-full mb-3">
-                            <label
-                                className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                            >
-                                Date Of Birth
-                  </label>
-                            <input id='dob'
-                                onChange={handleChange}
-                                type="date"
-                                className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="w-full lg:w-6/12 px-4">
-                        <div className="relative w-full mb-3">
-                            <label
-                                className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                            >
-                                Email
-                  </label>
-                            <input id='email'
-                                onChange={handleChange}
-                                type="email"
-                                className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="w-full lg:w-12/12 px-4">
-                        <div className="relative w-full mb-3">
-                            <label
-                                className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                            >
-                                Gender
-                        </label>
-                            {props?.Genders && props?.Genders.map(gender => (<label className="inline-flex items-center mr-4">
-                                <input onClick={radioHandle} id='gender' name="gender" value={gender.id} type="radio" className="form-radio h-5 w-5 text-gray-600" /><span className="ml-2 text-gray-700">{gender.name}</span>
-                            </label>))}
-                        </div>
-                    </div>
-                    <div className="w-full lg:w-6/12 px-4">
-                        <div className="relative w-full mb-3">
-                            <label
-                                className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                            >
-                                Adhar Number
-                  </label>
-                            <input id='adharNumber'
-                                onChange={handleChange}
-                                type="number"
-                                className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                            />
-                        </div>
-                    </div>
+                    <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.name.value} placeholder='Name of Student' isFocused={true} id='name' changeHandle={handleChange} errors={form.name.messages}>Name of Srudent</InputWithLevel>
+                    <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='date' value={form.dob.value} placeholder='Date of Birth' isFocused={true} id='dob' changeHandle={handleChange} errors={form.dob.messages}>Date of Birth</InputWithLevel>
+                    <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.email.value} placeholder='Email' isFocused={true} id='email' changeHandle={handleChange} errors={form.email.messages}>Email</InputWithLevel>
+                    <RadioWithLevel bodyClass={['px-4']} width='lg:w-12/12' isFocused={true} id='gender' radioHandle={radioHandle} list={genderArray} errors={form.gender.messages}>Gender</RadioWithLevel>
+                    <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='number' value={form.adharNumber.value} placeholder='Adhar Number of Student' isFocused={true} id='adharNumber' changeHandle={handleChange} errors={form.adharNumber.messages}>Adhar Number of Srudent</InputWithLevel>
                 </div>
                 <div className="px-4 mt-10">
-                    <button
-                        onClick={submitHandle}
-                        className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                        type="button"
-                    >
-                        Next
-            </button>
-                    <button
-                        className="bg-red-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                        type="button"
-                    >
-                        Reset
-            </button>
+                    <ActionButton handleClick={submitHandle} btnClass={['bg-blue-500 active:bg-blue-600']}>Submit</ActionButton>
                 </div>
             </form>
         </>

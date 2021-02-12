@@ -25,10 +25,10 @@ export const GetStatesAction = () => (dispatch) => {
       dispatch(failureStates(error));
     });
 };
-export const GetDistrictsAction = () => (dispatch) => {
+export const GetDistrictsAction = payload => (dispatch) => {
   dispatch(requestLoading());
   dispatch(requestDistricts());
-  return Pin.getDistricts()
+  return Pin.getDistricts(payload)
     .then(response => {
       dispatch(receiveLoading());
       dispatch(receiveDistricts(response));
@@ -37,10 +37,10 @@ export const GetDistrictsAction = () => (dispatch) => {
       dispatch(failureDistricts(error));
     });
 };
-export const GetPinsAction = () => (dispatch) => {
+export const GetPinsAction = (payload) => (dispatch) => {
   dispatch(requestLoading());
   dispatch(requestPins());
-  return Pin.getPins()
+  return Pin.getPins(payload)
     .then(response => {
       dispatch(receiveLoading());
       dispatch(receivePins(response));

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Validation from "../../utility/Validation";
-import InputFieldError from 'components/Error/InputFieldError';
 import { connect } from 'react-redux';
 import { ContactUsPostAction } from "redux/actionCreator/ContactUsAction"
+import InputWithLevel from '../InputType/InputWithLevel';
+import TextAreaWithLevel from '../InputType/TextAreaWithLevel';
 const ContactUs = (props) => {
     const [formContact, setFormContact] = useState({
         name: {
@@ -52,7 +53,7 @@ const ContactUs = (props) => {
             touched: false
         }
     })
-    
+
     const [formValidity, setFormValidity] = useState(false)
     const handleChange = event => {
         let identifier = event.target.id
@@ -76,8 +77,6 @@ const ContactUs = (props) => {
             props.ContactUsActionDispatch(contact);
         }
     }
-
-
     return (
         <div>
             <section className="relative block py-24 lg:pt-0 bg-gray-900">
@@ -86,99 +85,23 @@ const ContactUs = (props) => {
                         <div className="w-full lg:w-6/12 px-4">
                             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                                 <div className="flex-auto p-5 lg:p-10">
-                                    <h4 className="text-2xl font-semibold">
-                                        Want to work with us?
-                    </h4>
+                                    <h4 className="text-2xl font-semibold"> to work with us?</h4>
                                     <p className="leading-relaxed mt-1 mb-4 text-gray-600">
                                         Complete this form and we will get back to you in 24
                                         hours.
-                    </p>
-                                    <div className="relative w-full mb-3 mt-8">
-                                        <label
-                                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                            htmlFor="full-name"
-                                        >
-                                            Full Name
-                      </label>
-                                        <input
-                                            id="name"
-                                            type="text"
-                                            onChange={handleChange}
-                                            value={formContact.name.value}
-
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                                            placeholder="Full Name"
-                                        />
-                                        <InputFieldError error={formContact?.name?.messages} />
-                                    </div>
-
-                                    <div className="relative w-full mb-3">
-                                        <label
-                                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                            htmlFor="email"
-                                        >
-                                            Email
-                      </label>
-                                        <input
-                                            id="email"
-                                            onChange={handleChange}
-                                            value={formContact.email.value}
-
-                                            type="email"
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                                            placeholder="Email"
-                                        />
-                                        <InputFieldError error={formContact?.email?.messages} />
-
-                                    </div>
-
-                                    <div className="relative w-full mb-3">
-                                        <label
-                                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                            htmlFor="number"
-                                        >
-                                            Number
-                      </label>
-                                        <input
-                                            onChange={handleChange}
-                                            value={formContact.number.value}
-                                            id="number"
-                                            type="text"
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                                            placeholder="Number"
-                                        />
-                                        <InputFieldError error={formContact?.number?.messages} />                   </div>
-
-
-                                    <div className="relative w-full mb-3">
-                                        <label
-                                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                            htmlFor="message"
-                                        >
-                                            Message
-                      </label>
-                                        <textarea
-                                            id="message"
-                                            rows="4"
-                                            cols="80"
-                                            onChange={handleChange}
-
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                                            placeholder="Type a message..."
-                                        >
-                                        </textarea>
-                                        <InputFieldError error={formContact?.message?.messages} />                </div>
-
-
+                                    </p>
+                                    <InputWithLevel width='lg:w-12/12' type='text' value={formContact.name.value} placeholder='Enter Name' isFocused={true} id='name' changeHandle={handleChange} errors={formContact.name.messages}>Name</InputWithLevel>
+                                    <InputWithLevel width='lg:w-12/12' type='text' value={formContact.email.value} placeholder='Enter Email' isFocused={true} id='email' changeHandle={handleChange} errors={formContact.email.messages}>Email</InputWithLevel>
+                                    <InputWithLevel width='lg:w-12/12' type='text' value={formContact.number.value} placeholder='Enter mobile Number' isFocused={true} id='number' changeHandle={handleChange} errors={formContact.number.messages}>Number</InputWithLevel>
+                                    <TextAreaWithLevel width='lg:w-12/12' rows='4' cols='80' value={formContact.message.value} placeholder='Please enter message' isFocused={true} id='message' changeHandle={handleChange} errors={formContact.message.messages}>Message</TextAreaWithLevel>
                                     <div className="text-center mt-6">
-                                        {/* <p>{props.message}</p> */}
                                         <button
                                             className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                             type="button"
                                             onClick={handleSubmit}
                                         >
                                             Send Message
-                      </button>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +117,6 @@ const mapStateToProps = (state) => {
     const ContactUs = state.ContactUsReducer;
     return {
         message: ContactUs
-
     };
 };
 
@@ -203,7 +125,6 @@ const mapDispatchToProps = (dispatch) => {
         ContactUsActionDispatch: (state) => dispatch(ContactUsPostAction(state))
     };
 };
-
 export default connect(
     mapStateToProps,
     mapDispatchToProps

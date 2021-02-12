@@ -6,13 +6,13 @@ import {
 import Api from 'utility/api/Api'
 
 export default {
-  getPins() {
-    return Api().get(GET_STATES)
+  getPins(payload) {
+    return Api().get(GET_PINS+payload)
   },
-  getDistricts() {
-    return Api().get(GET_DISTRICTS)
+  getDistricts(payload) {
+    return Api().get(GET_DISTRICTS+payload)
   },
   getStates() {
-    return Api().get(GET_PINS)
+    return Api().get(GET_STATES)
   }
 }

@@ -25,7 +25,7 @@ import {
       case RECEIVE_ADD_USER:
         return {
           ...state,
-          user : payload,
+          user : payload.data.data.user,
           progress : 1
         }
         case FAILURE_ADD_USER:
