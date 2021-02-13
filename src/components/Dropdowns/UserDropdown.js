@@ -84,7 +84,6 @@ const UserDropdown = (props) => {
 };
 const mapStateToProps = (state) => {
   const Auth = state.AuthReducer;
-  console.log('Auth', Auth.user)
     return {
       name : Auth.user?.name,
       avatar : Auth.user?.avatar

@@ -54,7 +54,6 @@ EnqueryTable.propTypes = {
 };
 const mapStateToProps = (state) => {
   const Contactus = state.ContactUsReducer;
-  console.log('Enquery ***', Contactus.data)
   return {
     Contactus: Contactus.data
   };

@@ -15,7 +15,6 @@ export const ContactUsAction = (data) => (dispatch) => {
   dispatch(requestContactUs());
   return ContactUs.ContactUs(data?.page)
     .then((response) => {
-      console.log("contactus", response);
       dispatch(receiveLoading());
       dispatch(receiveContactUs(response));
     })

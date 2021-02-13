@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { GetScholorAction } from 'redux/actionCreator/ScholorAction'
+import { AddStudentAction } from 'redux/actionCreator/MemberAction'
 import { GetStdAction } from 'redux/actionCreator/StdAction'
 import Validation from 'utility/Validation'
 import { GetTransportAction } from 'redux/actionCreator/TransportAction'
@@ -15,7 +16,7 @@ const AcademicForm = (props) => {
     const [scholorArray, setScholorArray] = useState([])
     const [transortArray, setTransortArray] = useState([])
 
-    const { scholors, transports, stds } = props
+    const { scholors, transports, stds, user } = props
     const [form, setForm] = useState({
         std: {
             value: '',
@@ -65,7 +66,6 @@ const AcademicForm = (props) => {
         }
     })
 
-    const [formValidity, setFormValidity] = useState(false)
     const handleChange = event => {
         let identifier = event.target.id
         let element = { ...form[identifier] }
@@ -75,22 +75,22 @@ const AcademicForm = (props) => {
         element.valid = isValid
         element.messages = messages
         setForm({ ...form, [identifier]: element })
-        setFormValidity(handleValidation())
-        console.log('mmmmmmmmmm', form)
     }
     const handleValidation = () => {
         return form.transport.valid & form.scholor.valid & form.tcNumber.valid & form.rollNumber.valid & form.std.valid
     }
 
     const submitHandle = () => {
-        if (formValidity) console.log(form)
-        // props.AddUserActionDispatch({
-        //     std: form.std.value,
-        //     rollNumber: form.rollNumber.value,
-        //     tcNumber: form.tcNumber.value,
-        //     scholor: form.scholor.value,
-        //     transport: form.transport.value
-        // })
+        handleValidation()
+        if (user && handleValidation()) props.AddStudentActionDispatch({
+            transport: form.transport.value,
+            scholor: form.scholor.value,
+            tcNumber: form.tcNumber.value,
+            rollNumber: form.rollNumber.value,
+            std: form.std.value,
+            user: user.id,
+        })
+        console.log(form)
     }
     useEffect(() => {
 
@@ -115,7 +115,7 @@ const AcademicForm = (props) => {
                 <h6 className="text-gray-500 text-sm mt-3 mb-6 font-bold uppercase">
                     Academic Information</h6>
                 <div className="flex flex-wrap">
-                    <SelactWithLevel width='lg:w-4/12' bodyClass={['px-4']} placeholder='Select Std' isFocused={true} id='std' list={stdArray} selectHandle={handleChange} errors={form.std.messages}>Std</SelactWithLevel>
+                    <SelactWithLevel width='lg:w-6/12' bodyClass={['px-4']} placeholder='Select Std' isFocused={true} id='std' list={stdArray} selectHandle={handleChange} errors={form.std.messages}>Std</SelactWithLevel>
                     <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='number' value={form.rollNumber.value} placeholder='Roll Number' isFocused={true} id='rollNumber' changeHandle={handleChange} errors={form.rollNumber.messages}>Roll Number</InputWithLevel>
                     <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.tcNumber.value} placeholder='TC Number' isFocused={true} id='tcNumber' changeHandle={handleChange} errors={form.tcNumber.messages}>TC Number</InputWithLevel>
                     <RadioWithLevel bodyClass={['px-4']} width='lg:w-12/12' isFocused={true} id='scholor' radioHandle={handleChange} list={scholorArray} errors={form.scholor.messages}>Scholor</RadioWithLevel>
@@ -129,10 +129,12 @@ const AcademicForm = (props) => {
     )
 }
 const mapStateToProps = (state) => {
+    const Member = state.MemberReducer;
     const Scholors = state.ScholorReducer;
     const Transports = state.TransportReducer;
     const Stds = state.StdReducer;
     return {
+        user : Member.user,
         scholors: Scholors.data,
         transports: Transports.data,
         stds: Stds.data
@@ -141,6 +143,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        AddStudentActionDispatch:(state) => dispatch(AddStudentAction(state)),
         GetScholorActionDispatch: (state) => dispatch(GetScholorAction(state)),
         GetStdActionDispatch: (state) => dispatch(GetStdAction(state)),
         GetTransportActionDispatch: (state) => dispatch(GetTransportAction(state))

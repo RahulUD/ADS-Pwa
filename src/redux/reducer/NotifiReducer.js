@@ -17,7 +17,6 @@ const NotifiReducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case REQUEST_ADD_NOTIFI_USER:
-      console.log('notifi payload ..........', payload)
       return {
         ...state,
         users: payload
@@ -27,13 +26,11 @@ const NotifiReducer = (state = initialState, action) => {
         ...state,
       }
     case RECEIVE_BALANCE:
-      console.log('notifi payload ..........', payload)
       return {
         ...state,
         balance: payload.data
       }
     case FAILURE_BALANCE:
-      console.log('notifi payload ..........', payload)
       return {
         ...state,
         console: payload

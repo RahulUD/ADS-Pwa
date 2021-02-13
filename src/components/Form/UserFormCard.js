@@ -79,7 +79,6 @@ const UserFormCard = (props) => {
         return form.email.valid & form.name.valid & form.dob.valid & form.gender.valid & form.adharNumber.valid
     }
     const radioHandle = (event) => {
-        console.log('radioHandle', event)
         let element = { ...form['gender'] }
         element.value = event.target.value
         element.touched = true
@@ -88,7 +87,6 @@ const UserFormCard = (props) => {
         element.messages = messages
         setForm({ ...form, gender: element })
         setFormValidity(handleValidation())
-        console.log('radioHandle', event.target.value)
     }
 
     const submitHandle = () => {
@@ -127,7 +125,6 @@ const UserFormCard = (props) => {
 }
 const mapStateToProps = (state) => {
     const Genders = state.GenderReducer;
-    console.log('genders ****', Genders)
     return {
         Genders: Genders.data
     };

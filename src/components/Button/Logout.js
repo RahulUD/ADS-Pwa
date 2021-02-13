@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch) => {
   };
   const mapStateToProps = (state) => {
     const Auth = state.AuthReducer;
-    console.log('Auth', Auth.isAuthSuccessful)
       return {
         isAuthSuccessful : Auth.isAuthSuccessful
       };

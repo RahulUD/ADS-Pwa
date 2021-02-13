@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import { prePareKeyValue } from 'utility/method/FormMethods';
+import { AddAddressAction, AddContactAction } from 'redux/actionCreator/MemberAction'
 import InputWithLevel from '../InputType/InputWithLevel';
 import SelactWithLevel from '../InputType/SelectWithLevel';
 import ActionButton from '../InputType/ActionButton';
@@ -9,7 +10,7 @@ import PinWithLevel from 'components/InputType/PinWithLevel';
 import { GetAddressTypeAction } from 'redux/actionCreator/AddressTypeAction';
 
 const AddressForm = (props) => {
-    const { AddressTypes } = props
+    const { AddressTypes, user } = props
     const [addresstypeArray, setAddresstypeArray] = useState([])
     const [form, setForm] = useState({
         address1: {
@@ -68,7 +69,6 @@ const AddressForm = (props) => {
             touched: false
         }
     })
-    const [formValidity, setFormValidity] = useState(false)
     const handleChange = event => {
         let identifier = event.target.id
         let element = { ...form[identifier] }
@@ -78,25 +78,27 @@ const AddressForm = (props) => {
         element.valid = isValid
         element.messages = messages
         setForm({ ...form, [identifier]: element })
-        setFormValidity(handleValidation())
-        console.log('mmmmmmmmmm', form)
     }
     const handleValidation = () => {
-        return form.address1.valid & form.address2.valid &  form.pin.valid & form.addressType.valid & form.name.valid & form.number.valid
+        return form.address1.valid & form.address2.valid & form.pin.valid & form.addressType.valid & form.name.valid & form.number.valid
     }
 
     const submitHandle = () => {
-        if (formValidity) console.log(form)
-        // props.AddUserActionDispatch({
-        //     std: form.std.value,
-        //     rollNumber: form.rollNumber.value,
-        //     tcNumber: form.tcNumber.value,
-        //     scholor: form.scholor.value,
-        //     transport: form.transport.value
-        // })
+        if (user && handleValidation)
+            props.AddAddressActionDispatch({
+                address1: form.address1.value,
+                address2: form.address2.value,
+                pin: form.pin.value,
+                addressType: form.addressType.value,
+                name: form.name.value
+            })
+        props.AddContactActionDispatch({
+            name: form.name.value,
+            contact: form.number.value,
+            contacttype_id: 1,
+        })
     }
     useEffect(() => {
-        debugger
         setAddresstypeArray(prePareKeyValue('id', AddressTypes, { fields: ['type'] }))
     }, [AddressTypes])
     useEffect(() => {
@@ -116,7 +118,7 @@ const AddressForm = (props) => {
                 <SelactWithLevel width='lg:w-6/12' bodyClass={['px-4']} placeholder='Select Address Type' isFocused={true} id='addressType' list={addresstypeArray} selectHandle={handleChange} errors={form.addressType.messages}>Address Type</SelactWithLevel>
                 <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.name.value} placeholder='Name' isFocused={true} id='name' changeHandle={handleChange} errors={form.name.messages}>Name of Addresee</InputWithLevel>
                 <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.number.value} placeholder='Number' isFocused={true} id='number' changeHandle={handleChange} errors={form.number.messages}>Number of Addresee</InputWithLevel>
-            </div> 
+            </div>
             <div className="px-4 mt-10">
                 <ActionButton handleClick={submitHandle} >Submit</ActionButton>
                 <ActionButton handleClick={submitHandle} btnClass={['bg-red-500 active:bg-red-600']}>Reset</ActionButton>
@@ -126,14 +128,18 @@ const AddressForm = (props) => {
 }
 const mapStateToProps = (state) => {
     const AddressType = state.AddressTypeReducer;
+    const Member = state.MemberReducer;
     return {
         AddressTypes: AddressType.data,
+        user: Member.user,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        GetAddressTypeActionDispatch: (state) => dispatch(GetAddressTypeAction(state))
+        GetAddressTypeActionDispatch: (state) => dispatch(GetAddressTypeAction(state)),
+        AddAddressActionDispatch: (state) => dispatch(AddAddressAction(state)),
+        AddContactActionDispatch: (state) => dispatch(AddContactAction(state)),
     };
 };
 

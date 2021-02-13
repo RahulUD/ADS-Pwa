@@ -31,7 +31,6 @@ const Fulloverlay = (props) => {
 
 const mapStateToProps = (state) => {
     const Loading = state.LoadingReducer;
-    console.log('Loading', Loading)
       return {
         Loading : Loading.loading
       };

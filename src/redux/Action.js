@@ -91,7 +91,71 @@ import {
   REQUEST_SCHOLOR,
   RECEIVE_SCHOLOR,
   FAILURE_SCHOLOR,
+  REQUEST_ADD_STUDENT,
+RECEIVE_ADD_STUDENT,
+FAILURE_ADD_STUDENT,
+REQUEST_PARENT,
+RECEIVE_PARENT,
+FAILURE_PARENT,
+REQUEST_ADD_ADDRESS,
+RECEIVE_ADD_ADDRESS,
+FAILURE_ADD_ADDRESS,
+REQUEST_ADD_CONTACT,
+RECEIVE_ADD_CONTACT,
+FAILURE_ADD_CONTACT,
 } from 'redux/ActionType'
+
+// parent
+export const requestAddAddress = () => ({
+  type: REQUEST_ADD_ADDRESS
+})
+export const receiveAddAddress = payload => ({
+  type: RECEIVE_ADD_ADDRESS,
+  payload
+})
+export const failureAddAddress = payload => ({
+  type: FAILURE_ADD_ADDRESS,
+  payload
+})
+
+// parent
+export const requestAddContact = () => ({
+  type: REQUEST_ADD_CONTACT
+})
+export const receiveAddContact = payload => ({
+  type: RECEIVE_ADD_CONTACT,
+  payload
+})
+export const failureAddContact = payload => ({
+  type: FAILURE_ADD_CONTACT,
+  payload
+})
+
+// parent
+export const requestParent = () => ({
+  type: REQUEST_PARENT
+})
+export const receiveParent = payload => ({
+  type: RECEIVE_PARENT,
+  payload
+})
+export const failureParent = payload => ({
+  type: FAILURE_PARENT,
+  payload
+})
+
+// add student
+export const requestAddStudent = () => ({
+  type: REQUEST_ADD_STUDENT
+})
+export const receiveAddStudent = payload => ({
+  type: RECEIVE_ADD_STUDENT,
+  payload
+})
+export const failureAddStudent = payload => ({
+  type: FAILURE_ADD_STUDENT,
+  payload
+})
 
 // getTransport
 export const requestTransport = () => ({

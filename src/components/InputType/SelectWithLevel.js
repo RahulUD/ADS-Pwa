@@ -2,7 +2,6 @@ import InputFieldError from 'components/Error/InputFieldError';
 import React, { useEffect } from 'react'
 
 const SelactWithLevel = ({ width = 'lg:w-12/12',fieldClass=[], bodyClass=[], levelClass=[], children, placeholder, isFocused, id, list, selectHandle, errors }) => {
-    console.log('<<<<',list)
     const inputRef = React.useRef();
     useEffect(() => {
         if (isFocused && inputRef.current) {

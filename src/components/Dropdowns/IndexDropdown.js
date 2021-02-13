@@ -67,7 +67,6 @@ const IndexDropdown = (props) => {
 
 const mapStateToProps = (state) => {
   const Auth = state.AuthReducer;
-  console.log('Auth', Auth.user)
     return {
       UserName : Auth.user.name,
       Avatar : Auth.user.avatar

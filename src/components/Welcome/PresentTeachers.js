@@ -43,7 +43,6 @@ function PresentTeachers(props) {
 
 const mapStateToProps = (state) => {
   const PresentTeachers = state.PresentTeachersReducer;
-  console.log('users', PresentTeachers.users)
   return {
     users : PresentTeachers.users
   };

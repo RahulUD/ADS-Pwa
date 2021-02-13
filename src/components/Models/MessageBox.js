@@ -40,7 +40,6 @@ const MessageBox = (props) => {
 }
 const mapStateToProps = (state) => {
     const Message = state.MessageReducer;
-    console.log('Message ***', Message)
     return {
         Message
     };

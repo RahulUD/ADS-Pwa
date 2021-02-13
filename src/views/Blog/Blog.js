@@ -98,7 +98,6 @@ function Post(props) {
 
 const mapStateToProps = (state) => {
   const Blog = state.BlogReducer;
-  console.log('blogs', Blog.data)
     return {
       Blogs : Blog.data
     };

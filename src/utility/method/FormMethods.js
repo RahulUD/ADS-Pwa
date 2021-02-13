@@ -1,5 +1,4 @@
 export const debounce = (func) => {
-  debugger
   let timer;
   return function (...args) {
     const context = this;
@@ -25,6 +24,13 @@ export const prePareKeyValue = (key, initialDatum, { fields, separators = ['',''
       })
     });
   }
-  console.log('>>>>',key, initialDatum,fields, separators,list)
   return list
+}
+
+export const handleValidation = states => {
+  let isValid=true
+  states.forEach(state => {
+    isValid = state.valid && isValid
+  });
+  return isValid
 }

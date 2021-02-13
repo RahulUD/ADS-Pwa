@@ -73,7 +73,6 @@ const HeaderStats = (props) => {
 }
 const mapStateToProps = (state) => {
   const Count = state.CountReducer;
-  console.log('Counts ***', Count)
   return {
     studentCount: Count.studentCount,
     teacherCount: Count.studentCount,

@@ -39,7 +39,6 @@ export const SmsBalanceAction = (paload) => dispatch => {
   dispatch(requestBalance())
   return Message.smsBalance(paload)
     .then(response => {
-      console.log('.............',response)
       dispatch(receiveLoading())
       dispatch(receiveBalance(response))
     })

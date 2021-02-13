@@ -84,7 +84,6 @@ const StudentTable = (props) => {
 const mapStateToProps = (state) => {
   const Student = state.StudentReducer;
   const Std = state.StdReducer;
-  console.log('Enquery ***', Student)
   return {
     students: Student.data,
     stdId: Std.stdId
