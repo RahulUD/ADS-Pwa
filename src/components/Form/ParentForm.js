@@ -1,12 +1,100 @@
-import React, { useEffect } from 'react'
+import ActionButton from 'components/InputType/ActionButton';
+import InputWithLevel from 'components/InputType/InputWithLevel';
+import SelactWithLevel from 'components/InputType/SelectWithLevel';
+import React, { useEffect, useState} from 'react'
 import { connect } from 'react-redux';
 import { GetContactTypeAction } from 'redux/actionCreator/ContactTypeAction';
 import { GetRelationAction } from 'redux/actionCreator/RelationAction';
+import { prePareKeyValue } from 'utility/method/FormMethods';
+import Validation from 'utility/Validation';
 const ParentForm = (props) => {
     const { contactTypes, relations } = props
+    const [relationArray, setRelationArray] = useState([])
+    const [contactTyeArray, setContactTyeArray] = useState([])
+    const [form, setForm] = useState({
+        relation: {
+            value: '',
+            validation: {
+                required: true,
+            },
+            messages: null,
+            valid: false,
+            touched: false
+        },
+
+        name: {
+            value: '',
+            validation: {
+                required: true,
+            },
+            messages: null,
+            valid: false,
+            touched: false
+        },
+        adharNumber: {
+            value: '',
+            validation: {
+                required: true,
+            },
+            messages: null,
+            valid: false,
+            touched: false
+        },
+        contactType: {
+            value: '',
+            validation: {
+                required: true,
+            },
+            messages: null,
+            valid: false,
+            touched: false
+        },
+        contact: {
+            value: '',
+            validation: {
+                required: true,
+            },
+            messages: null,
+            valid: false,
+            touched: false
+        }
+    })
+    const [formValidity, setFormValidity] = useState(false)
+    const handleChange = event => {
+        let identifier = event.target.id
+        let element = { ...form[identifier] }
+        element.value = event.target.value
+        element.touched = true
+        const { isValid, messages } = Validation(event.target.value, form[identifier].validation)
+        element.valid = isValid
+        element.messages = messages
+        setForm({ ...form, [identifier]: element })
+        setFormValidity(handleValidation())
+        console.log('mmmmmmmmmm', form)
+    }
+    const handleValidation = () => {
+        return form.relation.valid & form.name.valid & form.adharNumber.valid & form.contactType.valid & form.contact.valid
+    }
+
+    const submitHandle = () => {
+        if (formValidity) console.log(form)
+        // props.AddUserActionDispatch({
+        //     std: form.std.value,
+        //     rollNumber: form.rollNumber.value,
+        //     tcNumber: form.tcNumber.value,
+        //     scholor: form.scholor.value,
+        //     transport: form.transport.value
+        // })
+    }
     useEffect(() => {
-        props.GetContactTyeActionDispatch()
+        setRelationArray(prePareKeyValue('id', relations, { fields: ['type'] }))
+    }, [relations])
+    useEffect(() => {
+        setContactTyeArray(prePareKeyValue('id', contactTypes, { fields: ['type'] }))
+    }, [ contactTypes])
+    useEffect(() => {
         props.GetRelationActionDispatch()
+        props.GetContactTypeActionDispatch()
     }, [])
     return (
         <form>
@@ -16,94 +104,17 @@ const ParentForm = (props) => {
                 Parents / Guardian
             </h6>
             <div className="flex flex-wrap">
-                <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                        <label
-                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                            htmlFor="grid-password"
-                        >
-                            Relation
-                  </label>
-                        <select className="w-full border bg-white rounded px-3 py-2 outline-none">
-                            <option className="py-1" selected disabled>Select Relation Type</option>
-                            {relations && relations.map(relation => (<option className="py-1">{relation.type}</option>))}
-                        </select>
-                    </div>
-                </div>
-                <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                        <label
-                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                            htmlFor="grid-password"
-                        >
-                            Name
-                  </label>
-                        <input
-                            type="email"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                        />
-                    </div>
-                </div>
-                <div className="w-full lg:w-12/12 px-4">
-                    <div className="relative w-full mb-3">
-                        <label
-                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                            htmlFor="grid-password"
-                        >
-                            Adhar Number
-                  </label>
-                        <input
-                            type="text"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+            <SelactWithLevel width='lg:w-4/12' bodyClass={['px-4']} placeholder='Select Relation' isFocused={true} id='relation' list={relationArray} selectHandle={handleChange} errors={form.relation.messages}>Relation</SelactWithLevel>
+            <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.name.value} placeholder='Name' isFocused={true} id='name' changeHandle={handleChange} errors={form.name.messages}>Name</InputWithLevel>
+            <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='number' value={form.adharNumber.value} placeholder='Adhar Number' isFocused={true} id='adharNumber' changeHandle={handleChange} errors={form.adharNumber.messages}>Adhar Number</InputWithLevel>
+            <SelactWithLevel width='lg:w-4/12' bodyClass={['px-4']} placeholder='Select contact type' isFocused={true} id='contactType' list={contactTyeArray} selectHandle={handleChange} errors={form.contactType.messages}>Contact Type</SelactWithLevel>
+            <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='number' value={form.contact.value} placeholder=' Number' isFocused={true} id='contact' changeHandle={handleChange} errors={form.contact.messages}>Number</InputWithLevel>
 
-                        />
-                    </div>
-                </div>
-
-                <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                        <label
-                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                            htmlFor="grid-password"
-                        >
-                            Contact Type
-                  </label>
-                        <select className="w-full border bg-white rounded px-3 py-2 outline-none">
-                            <option className="py-1" selected disabled>Select Contact Type</option>
-                            {contactTypes && contactTypes.map(contactType => (<option className="py-1">{contactType.type}</option>))}
-                        </select>
-                    </div>
-                </div>
-                <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                        <label
-                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                            htmlFor="grid-password"
-                        >
-                            Contact
-                  </label>
-                        <input
-                            type="email"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-
-                        />
-                    </div>
-                </div>
 
             </div>
             <div className="px-4 mt-10">
-                <button
-                    className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                    type="button"
-                >
-                    Submit
-            </button>
-                <button
-                    className="bg-red-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                    type="button"
-                >
-                    Reset
-            </button>
+                <ActionButton onClick={submitHandle}>Next</ActionButton>
+                <ActionButton onClick={submitHandle}>Reset</ActionButton>
             </div>
         </form>
     )
@@ -119,8 +130,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        GetContactTyeActionDispatch: (state) => dispatch(GetContactTypeAction(state)),
-        GetRelationActionDispatch: (state) => dispatch(GetRelationAction(state))
+        GetRelationActionDispatch: (state) => dispatch(GetRelationAction(state)),
+        GetContactTypeActionDispatch: (state) => dispatch(GetContactTypeAction(state))
     };
 };
 

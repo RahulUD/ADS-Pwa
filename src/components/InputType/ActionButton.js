@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ActionButton = (props) => {
-    const {handleClick, children, btnClass=[]} = props
+    const {handleClick, children, btnClass=['bg-blue-500 active:bg-blue-600']} = props
     return (
             <button 
                 onClick={handleClick}

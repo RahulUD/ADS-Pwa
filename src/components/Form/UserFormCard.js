@@ -73,7 +73,7 @@ const UserFormCard = (props) => {
         element.messages = messages
         setForm({ ...form, [identifier]: element })
         setFormValidity(handleValidation())
-        
+
     }
     const handleValidation = () => {
         return form.email.valid & form.name.valid & form.dob.valid & form.gender.valid & form.adharNumber.valid
@@ -88,7 +88,7 @@ const UserFormCard = (props) => {
         element.messages = messages
         setForm({ ...form, gender: element })
         setFormValidity(handleValidation())
-        console.log('radioHandle',event.target.value)
+        console.log('radioHandle', event.target.value)
     }
 
     const submitHandle = () => {
@@ -110,8 +110,7 @@ const UserFormCard = (props) => {
         <>
             <form>
                 <h6 className="text-gray-500 text-sm mt-3 mb-6 font-bold uppercase">
-                    User Information
-            </h6>
+                    User Information</h6>
                 <div className="flex flex-wrap">
                     <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='text' value={form.name.value} placeholder='Name of Student' isFocused={true} id='name' changeHandle={handleChange} errors={form.name.messages}>Name of Srudent</InputWithLevel>
                     <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='date' value={form.dob.value} placeholder='Date of Birth' isFocused={true} id='dob' changeHandle={handleChange} errors={form.dob.messages}>Date of Birth</InputWithLevel>
@@ -120,7 +119,7 @@ const UserFormCard = (props) => {
                     <InputWithLevel width='lg:w-6/12' bodyClass={['px-4']} type='number' value={form.adharNumber.value} placeholder='Adhar Number of Student' isFocused={true} id='adharNumber' changeHandle={handleChange} errors={form.adharNumber.messages}>Adhar Number of Srudent</InputWithLevel>
                 </div>
                 <div className="px-4 mt-10">
-                    <ActionButton handleClick={submitHandle} btnClass={['bg-blue-500 active:bg-blue-600']}>Submit</ActionButton>
+                    <ActionButton handleClick={submitHandle} btnClass={['bg-blue-500 active:bg-blue-600']}>Next</ActionButton>
                 </div>
             </form>
         </>
@@ -144,4 +143,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UserFormCard)
+    )(UserFormCard)

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ContactUsPostAction } from "redux/actionCreator/ContactUsAction"
 import InputWithLevel from '../InputType/InputWithLevel';
 import TextAreaWithLevel from '../InputType/TextAreaWithLevel';
+import ActionButton from 'components/InputType/ActionButton';
 const ContactUs = (props) => {
     const [formContact, setFormContact] = useState({
         name: {
@@ -95,13 +96,7 @@ const ContactUs = (props) => {
                                     <InputWithLevel width='lg:w-12/12' type='text' value={formContact.number.value} placeholder='Enter mobile Number' isFocused={true} id='number' changeHandle={handleChange} errors={formContact.number.messages}>Number</InputWithLevel>
                                     <TextAreaWithLevel width='lg:w-12/12' rows='4' cols='80' value={formContact.message.value} placeholder='Please enter message' isFocused={true} id='message' changeHandle={handleChange} errors={formContact.message.messages}>Message</TextAreaWithLevel>
                                     <div className="text-center mt-6">
-                                        <button
-                                            className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                            type="button"
-                                            onClick={handleSubmit}
-                                        >
-                                            Send Message
-                                        </button>
+                                        <ActionButton handleClick={handleSubmit}>Submit</ActionButton>
                                     </div>
                                 </div>
                             </div>

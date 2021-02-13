@@ -18,6 +18,8 @@ import ContactTypeReducer from 'redux/reducer/ContactTypeReducer'
 import AddressTypeReducer from 'redux/reducer/AddressTypeReducer'
 import RelationReducer from 'redux/reducer/RelationReducer'
 import PinReducer from 'redux/reducer/PinReducer'
+import ScholorReducer from 'redux/reducer/ScholorReducer'
+import TransportReducer from 'redux/reducer/TransportReducer'
 
 const RootReducer = combineReducers({
     PresentTeachersReducer,
@@ -39,6 +41,8 @@ const RootReducer = combineReducers({
     AddressTypeReducer,
     RelationReducer,
     PinReducer,
+    ScholorReducer,
+    TransportReducer,
 });
 export default RootReducer;
 // 08626 nitish kumar 8292671739

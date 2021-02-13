@@ -85,8 +85,39 @@ import {
   REQUEST_PINS,
   RECEIVE_PINS,
   FAILURE_PINS,
-
+  REQUEST_TRANSPORT,
+  RECEIVE_TRANSPORT,
+  FAILURE_TRANSPORT,
+  REQUEST_SCHOLOR,
+  RECEIVE_SCHOLOR,
+  FAILURE_SCHOLOR,
 } from 'redux/ActionType'
+
+// getTransport
+export const requestTransport = () => ({
+  type: REQUEST_TRANSPORT
+})
+export const receiveTransport = payload => ({
+  type: RECEIVE_TRANSPORT,
+  payload
+})
+export const failureTransport = payload => ({
+  type: FAILURE_TRANSPORT,
+  payload
+})
+
+// getScholor
+export const requestScholor = () => ({
+  type: REQUEST_SCHOLOR
+})
+export const receiveScholor = payload => ({
+  type: RECEIVE_SCHOLOR,
+  payload
+})
+export const failureScholor = payload => ({
+  type: FAILURE_SCHOLOR,
+  payload
+})
 
 // getPins
 export const requestStates = () => ({
