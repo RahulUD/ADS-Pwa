@@ -26,10 +26,10 @@ function Admission(props) {
                 </div>
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                {<UserFormCard />}  
-                {<AcademicForm />}  
-                {<ParentForm />}  
-                {<AddressForm />}  
+                {props?.progress===0 && <UserFormCard />}  
+                {props?.progress===1 && <AcademicForm />}  
+                {props?.progress===2 && <ParentForm />}  
+                {props?.progress===3 && <AddressForm />}  
               </div>
             </div>
           </div>
@@ -39,22 +39,12 @@ function Admission(props) {
   );
 }
 
-// props?.progress===0 &&
-// props?.progress===0 &&
-// props?.progress===0 &&
-// props?.progress===3 &&
-
 const mapStateToProps = (state) => {
   const Member = state.MemberReducer;
   return {
     progress : Member.progress
   };
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-   
-//   };
-// };
 
 export default connect(
   mapStateToProps,

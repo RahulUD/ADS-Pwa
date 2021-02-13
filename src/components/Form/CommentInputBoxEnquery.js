@@ -51,7 +51,7 @@ const CommentInputBoxEnquery = (props) => {
         className="bg-blue-500 text-white ml-8 rounded-b"
         style={{ padding: "5px", width: "20%" }}
       >
-        <i class="fas fa-paper-plane"></i>
+        <i className="fas fa-paper-plane"></i>
       </button>
     </>
   );

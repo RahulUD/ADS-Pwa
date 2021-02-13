@@ -11,6 +11,9 @@ import {
   REQUEST_ADD_CONTACT,
   RECEIVE_ADD_CONTACT,
   FAILURE_ADD_CONTACT,
+  REQUEST_PARENT,
+RECEIVE_PARENT,
+FAILURE_PARENT,
 } from 'redux/ActionType'
 
 const initialState = {
@@ -27,51 +30,6 @@ const initialState = {
 export default (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
-    case REQUEST_ADD_ADDRESS:
-      return {
-        ...state,
-      }
-    case RECEIVE_ADD_ADDRESS:
-      return {
-        ...state,
-        addresses: payload.data.data.address,
-        progress: 1
-      }
-    case FAILURE_ADD_ADDRESS:
-      return {
-        ...state,
-        error: payload
-      }
-    case REQUEST_ADD_CONTACT:
-      return {
-        ...state,
-      }
-    case RECEIVE_ADD_CONTACT:
-      return {
-        ...state,
-        contacts: payload.data.data.contact,
-        progress: 1
-      }
-    case FAILURE_ADD_CONTACT:
-      return {
-        ...state,
-        error: payload
-      }
-    case REQUEST_ADD_STUDENT:
-      return {
-        ...state,
-      }
-    case RECEIVE_ADD_STUDENT:
-      return {
-        ...state,
-        student: payload.data.data.student,
-        progress: 1
-      }
-    case FAILURE_ADD_STUDENT:
-      return {
-        ...state,
-        error: payload
-      }
     case REQUEST_ADD_USER:
       return {
         ...state,
@@ -88,6 +46,68 @@ export default (state = initialState, action) => {
         error: payload
       }
 
+      case REQUEST_ADD_STUDENT:
+      return {
+        ...state,
+      }
+    case RECEIVE_ADD_STUDENT:
+      return {
+        ...state,
+        student: payload.data.data,
+        progress: 2
+      }
+    case FAILURE_ADD_STUDENT:
+      return {
+        ...state,
+        error: payload
+      }
+
+    case REQUEST_PARENT:
+      return {
+        ...state,
+      }
+    case RECEIVE_PARENT:
+      return {
+        ...state,
+        student: payload.data.data,
+        progress: 3
+      }
+    case FAILURE_PARENT:
+      return {
+        ...state,
+        error: payload
+      }
+    case REQUEST_ADD_ADDRESS:
+      return {
+        ...state,
+      }
+    case RECEIVE_ADD_ADDRESS:
+      return {
+        ...state,
+        addresses: payload.data.data,
+        progress: 3
+      }
+    case FAILURE_ADD_ADDRESS:
+      return {
+        ...state,
+        error: payload
+      }
+    case REQUEST_ADD_CONTACT:
+      return {
+        ...state,
+      }
+    case RECEIVE_ADD_CONTACT:
+      return {
+        ...state,
+        contacts: payload.data.data,
+        progress: 3
+      }
+    case FAILURE_ADD_CONTACT:
+      return {
+        ...state,
+        error: payload
+      }
+    
     default:
       return {
         ...state

@@ -65,6 +65,7 @@ const ParentForm = (props) => {
     }
 
     const submitHandle = () => {
+        console.log('parent ', form)
         if (student && handleValidation())
             props.ParentActionDispatch({
                 relation: form.relation.value,
@@ -96,18 +97,18 @@ const ParentForm = (props) => {
 
             </div>
             <div className="px-4 mt-10">
-                <ActionButton onClick={submitHandle}>Next</ActionButton>
-                <ActionButton onClick={submitHandle}>Reset</ActionButton>
+                <ActionButton handleClick={submitHandle}>Next</ActionButton>
+                <ActionButton handleClick={submitHandle}>Reset</ActionButton>
             </div>
         </form>
     )
 }
 const mapStateToProps = (state) => {
     const Relation = state.RelationReducer;
-    const Student = state.MemberReducer;
+    const Member = state.MemberReducer;
     return {
         relations: Relation.data,
-        student: Student.student
+        student: Member.student
     };
 };
 

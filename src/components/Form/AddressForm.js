@@ -90,12 +90,14 @@ const AddressForm = (props) => {
                 address2: form.address2.value,
                 pin: form.pin.value,
                 addressType: form.addressType.value,
-                name: form.name.value
+                name: form.name.value,
+                user : user.id
             })
         props.AddContactActionDispatch({
             name: form.name.value,
             contact: form.number.value,
             contacttype_id: 1,
+            user : user.id
         })
     }
     useEffect(() => {
