@@ -16,8 +16,46 @@ import {
   requestAddContact,
   receiveAddContact,
   failureAddContact,
+  requestAddDocument,
+receiveAddDocument,
+failureAddDocument,
+requestUpdateProgress,
+requestUpdateDocument,
+receiveUpdateDocument,
+failureUpdateocument,
 } from 'redux/Action';
 import Member from 'utility/api/Member';
+
+
+export const UpdateDocumentAction = (payload) => dispatch => {
+  dispatch(requestUpdateDocument())
+  dispatch(requestLoading())
+  return Member.UpdateDocument(payload)
+    .then(response => {
+      dispatch(receiveLoading())
+      dispatch(receiveUpdateDocument(response))
+    })
+    .catch(error => {
+      dispatch(failureUpdateocument(error))
+    })
+}
+
+export const UpdateProgresAction = (payload) => dispatch => {
+  dispatch(requestUpdateProgress(payload))
+}
+
+export const AddDocumentAction = (payload) => dispatch => {
+  dispatch(requestAddDocument())
+  dispatch(requestLoading())
+  return Member.AddDocument(payload)
+    .then(response => {
+      dispatch(receiveLoading())
+      dispatch(receiveAddDocument(response))
+    })
+    .catch(error => {
+      dispatch(failureAddDocument(error))
+    })
+}
 
 export const AddUserAction = (payload) => dispatch => {
   dispatch(requestAddUser())

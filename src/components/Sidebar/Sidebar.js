@@ -251,10 +251,10 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-                  to="/auth/login"
+                  to="/admin/tables/Teacherlist"
                 >
                   <i className="fas fa-fingerprint text-gray-500 mr-2 text-sm"></i>{" "}
-                  Login
+                  Teacher
                 </Link>
               </li>
 

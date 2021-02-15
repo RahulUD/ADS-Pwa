@@ -8,6 +8,7 @@ import StudentTable from "components/Table/StudentTable";
 import { Redirect, Switch } from "react-router";
 import PrivateRoute from "utility/PrivateRoute";
 import Fulloverlay from "components/Overlay/Fulloverlay";
+import TeacherTable from "components/Table/TeacherTable";
 
 export default function Tables() {
   return (
@@ -19,6 +20,7 @@ export default function Tables() {
             <Switch>
               <PrivateRoute path="/admin/tables/enquery" exact component={EnqueryTable} />
               <PrivateRoute path="/admin/tables/studentlist" exact component={StudentTable} />
+              <PrivateRoute path="/admin/tables/Teacherlist" exact component={TeacherTable} />
               <Redirect from="/admin/tables" to="/admin/dashboard" />
             </Switch>
           </div>

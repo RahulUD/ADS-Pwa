@@ -13,6 +13,7 @@ import PrivateRoute from "utility/PrivateRoute";
 import MessageBoard from 'views/admin/MessageBoard'
 import StudentProfile from 'views/admin/StudentProfile'
 import Admission from "views/admin/Admission";
+import AddTeacher from "views/admin/AddTeacher";
 
 export default function Admin() {
   return (
@@ -27,6 +28,7 @@ export default function Admin() {
           <PrivateRoute path="/admin/tables" component={Tables} />
           <PrivateRoute path="/admin/message/board" component={MessageBoard} />
           <PrivateRoute path="/admin/admission/new" component={Admission} />
+          <PrivateRoute path="/admin/teacher/new" component={AddTeacher} />
           <PrivateRoute path="/admin/student/:id" component={StudentProfile} />
           <Redirect from="/admin" to="/admin/dashboard" />
         </Switch>

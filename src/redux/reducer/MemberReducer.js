@@ -12,8 +12,13 @@ import {
   RECEIVE_ADD_CONTACT,
   FAILURE_ADD_CONTACT,
   REQUEST_PARENT,
-RECEIVE_PARENT,
-FAILURE_PARENT,
+  RECEIVE_PARENT,
+  FAILURE_PARENT,
+  REQUEST_ADD_DOCUMENT,
+  RECEIVE_ADD_DOCUMENT,
+  FAILURE_ADD_DOCUMENT,
+  REQUEST_UPDATE_PROGRESS,
+
 } from 'redux/ActionType'
 
 const initialState = {
@@ -22,6 +27,7 @@ const initialState = {
   error: null,
   user: null,
   student: null,
+  documents: [],
   addresses: [],
   contacts: [],
   guardians: [],
@@ -30,6 +36,26 @@ const initialState = {
 export default (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
+    case REQUEST_UPDATE_PROGRESS:
+      return {
+        ...state,
+        progress: payload
+      }
+    case REQUEST_ADD_DOCUMENT:
+      return {
+        ...state,
+      }
+    case RECEIVE_ADD_DOCUMENT:
+      return {
+        ...state,
+        documents: payload.data.data,
+
+      }
+    case FAILURE_ADD_DOCUMENT:
+      return {
+        ...state,
+        error: payload
+      }
     case REQUEST_ADD_USER:
       return {
         ...state,
@@ -38,15 +64,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: payload.data.data.user,
-        progress: 1
+        documents: payload.data.data.document,
+
       }
     case FAILURE_ADD_USER:
       return {
         ...state,
         error: payload
       }
-
-      case REQUEST_ADD_STUDENT:
+    case REQUEST_ADD_STUDENT:
       return {
         ...state,
       }
@@ -54,7 +80,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         student: payload.data.data,
-        progress: 2
+
       }
     case FAILURE_ADD_STUDENT:
       return {
@@ -70,7 +96,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         student: payload.data.data,
-        progress: 3
+
       }
     case FAILURE_PARENT:
       return {
@@ -85,7 +111,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         addresses: payload.data.data,
-        progress: 3
       }
     case FAILURE_ADD_ADDRESS:
       return {
@@ -100,17 +125,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         contacts: payload.data.data,
-        progress: 3
       }
     case FAILURE_ADD_CONTACT:
       return {
         ...state,
         error: payload
       }
-    
+
     default:
       return {
         ...state
       }
   }
-}  
+}

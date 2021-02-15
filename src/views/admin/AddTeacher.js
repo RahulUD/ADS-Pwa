@@ -4,12 +4,11 @@ import React, { useEffect } from "react";
 
 import HeaderStatsEmpty from "components/Headers/HeaderStatsEmpty";
 import UserFormCard from "components/Form/UserFormCard";
-import AcademicForm from "components/Form/AcademicForm";
-import ParentForm from "components/Form/ParentForm";
 import AddressForm from "components/Form/AddressForm";
 import { connect } from "react-redux";
+import TeacherDetail from "components/Form/TeacherDetail";
 
-function Admission(props) {
+function AddTeacher(props) {
   useEffect(() => {
 
   }, [props.progress])
@@ -27,9 +26,8 @@ function Admission(props) {
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 {props?.progress === 0 && <UserFormCard />}
-                {props?.progress === 1 && <AcademicForm />}
-                {props?.progress === 2 && <ParentForm />}
-                {props?.progress === 3 && <AddressForm />}
+                {props?.progress === 1 && <TeacherDetail />}
+                {props?.progress === 2 && <AddressForm />}
               </div>
             </div>
           </div>
@@ -49,4 +47,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   null
-)(Admission);
+)(AddTeacher);

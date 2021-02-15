@@ -92,18 +92,70 @@ import {
   RECEIVE_SCHOLOR,
   FAILURE_SCHOLOR,
   REQUEST_ADD_STUDENT,
-RECEIVE_ADD_STUDENT,
-FAILURE_ADD_STUDENT,
-REQUEST_PARENT,
-RECEIVE_PARENT,
-FAILURE_PARENT,
-REQUEST_ADD_ADDRESS,
-RECEIVE_ADD_ADDRESS,
-FAILURE_ADD_ADDRESS,
-REQUEST_ADD_CONTACT,
-RECEIVE_ADD_CONTACT,
-FAILURE_ADD_CONTACT,
+  RECEIVE_ADD_STUDENT,
+  FAILURE_ADD_STUDENT,
+  REQUEST_PARENT,
+  RECEIVE_PARENT,
+  FAILURE_PARENT,
+  REQUEST_ADD_ADDRESS,
+  RECEIVE_ADD_ADDRESS,
+  FAILURE_ADD_ADDRESS,
+  REQUEST_ADD_CONTACT,
+  RECEIVE_ADD_CONTACT,
+  FAILURE_ADD_CONTACT,
+  REQUEST_ADD_DOCUMENT,
+  RECEIVE_ADD_DOCUMENT,
+  FAILURE_ADD_DOCUMENT,
+  REQUEST_UPDATE_PROGRESS,
+  REQUEST_GET_TEACHER,
+RECEIVE_GET_TEACHER,
+FAILURE_GET_TEACHER,
 } from 'redux/ActionType'
+
+// get teacher
+export const requestGetTeacher = () => ({
+  type: REQUEST_GET_TEACHER
+})
+export const receiveGetTeacher = payload => ({
+  type: RECEIVE_GET_TEACHER,
+  payload
+})
+export const failureGetTeacher = payload => ({
+  type: FAILURE_GET_TEACHER,
+  payload
+})
+
+// update document
+export const requestUpdateDocument = () => ({
+  type: REQUEST_ADD_DOCUMENT
+})
+export const receiveUpdateDocument = payload => ({
+  type: RECEIVE_ADD_DOCUMENT,
+  payload
+})
+export const failureUpdateocument = payload => ({
+  type: FAILURE_ADD_DOCUMENT,
+  payload
+})
+
+// progress
+export const requestUpdateProgress = (payload) => ({
+  type: REQUEST_UPDATE_PROGRESS,
+  payload
+})
+
+// document
+export const requestAddDocument = () => ({
+  type: REQUEST_ADD_DOCUMENT
+})
+export const receiveAddDocument = payload => ({
+  type: RECEIVE_ADD_DOCUMENT,
+  payload
+})
+export const failureAddDocument = payload => ({
+  type: FAILURE_ADD_DOCUMENT,
+  payload
+})
 
 // parent
 export const requestAddAddress = () => ({

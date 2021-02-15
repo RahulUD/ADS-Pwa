@@ -8,6 +8,7 @@ import ActionButton from '../InputType/ActionButton';
 import Validation from 'utility/Validation';
 import PinWithLevel from 'components/InputType/PinWithLevel';
 import { GetAddressTypeAction } from 'redux/actionCreator/AddressTypeAction';
+import { UpdateProgresAction } from 'redux/actionCreator/MemberAction';
 
 const AddressForm = (props) => {
     const { AddressTypes, user } = props
@@ -91,14 +92,15 @@ const AddressForm = (props) => {
                 pin: form.pin.value,
                 addressType: form.addressType.value,
                 name: form.name.value,
-                user : user.id
+                user: user.id
             })
         props.AddContactActionDispatch({
             name: form.name.value,
             contact: form.number.value,
             contacttype_id: 1,
-            user : user.id
+            user: user.id
         })
+        props.UpdateProgresActionDispatch(4)
     }
     useEffect(() => {
         setAddresstypeArray(prePareKeyValue('id', AddressTypes, { fields: ['type'] }))
@@ -142,6 +144,7 @@ const mapDispatchToProps = (dispatch) => {
         GetAddressTypeActionDispatch: (state) => dispatch(GetAddressTypeAction(state)),
         AddAddressActionDispatch: (state) => dispatch(AddAddressAction(state)),
         AddContactActionDispatch: (state) => dispatch(AddContactAction(state)),
+        UpdateProgresActionDispatch:(state) =>dispatch(UpdateProgresAction(state))
     };
 };
 

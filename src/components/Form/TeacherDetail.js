@@ -8,7 +8,7 @@ import { prePareKeyValue } from 'utility/method/FormMethods'
 import InputWithLevel from '../InputType/InputWithLevel'
 import ActionButton from '../InputType/ActionButton'
 import { UpdateProgresAction } from 'redux/actionCreator/MemberAction'
-const UserFormCard = (props) => {
+const TeacherDetail = (props) => {
     const { Genders } = props
     const [form, setForm] = useState({
         name: {
@@ -145,4 +145,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UserFormCard)
+)(TeacherDetail)

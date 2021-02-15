@@ -10,6 +10,8 @@ import { prePareKeyValue } from 'utility/method/FormMethods'
 import InputWithLevel from '../InputType/InputWithLevel'
 import ActionButton from '../InputType/ActionButton'
 import SelactWithLevel from 'components/InputType/SelectWithLevel'
+import { AddDocumentAction } from 'redux/actionCreator/MemberAction'
+import { UpdateProgresAction } from 'redux/actionCreator/MemberAction'
 const AcademicForm = (props) => {
 
     const [stdArray, setStdArray] = useState([])
@@ -85,12 +87,17 @@ const AcademicForm = (props) => {
         if (user && handleValidation()) props.AddStudentActionDispatch({
             transport: form.transport.value,
             scholor: form.scholor.value,
-            tcNumber: form.tcNumber.value,
             rollNumber: form.rollNumber.value,
             std: form.std.value,
             user: user.id,
         })
-        console.log(form)
+        props.AddDocumentActionDispatch({
+            cardNumber: form.tcNumber.value,
+            name: 'TC',
+            image: '',
+            user: user.id,
+        })
+        props.UpdateProgresActionDispatch(2)
     }
     useEffect(() => {
 
@@ -146,7 +153,9 @@ const mapDispatchToProps = (dispatch) => {
         AddStudentActionDispatch:(state) => dispatch(AddStudentAction(state)),
         GetScholorActionDispatch: (state) => dispatch(GetScholorAction(state)),
         GetStdActionDispatch: (state) => dispatch(GetStdAction(state)),
-        GetTransportActionDispatch: (state) => dispatch(GetTransportAction(state))
+        GetTransportActionDispatch: (state) => dispatch(GetTransportAction(state)),
+        AddDocumentActionDispatch:(state) =>dispatch(AddDocumentAction(state)),
+        UpdateProgresActionDispatch:(state) =>dispatch(UpdateProgresAction(state))
     };
 };
 
