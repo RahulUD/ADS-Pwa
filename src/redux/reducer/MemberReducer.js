@@ -95,8 +95,7 @@ export default (state = initialState, action) => {
     case RECEIVE_PARENT:
       return {
         ...state,
-        student: payload.data.data,
-
+        student: payload.data,
       }
     case FAILURE_PARENT:
       return {

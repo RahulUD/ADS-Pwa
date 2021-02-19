@@ -88,6 +88,7 @@ export const ParentAction = (payload) => dispatch => {
     .then(response => {
       dispatch(receiveLoading())
       dispatch(receiveParent(response))
+      console.log(response)
     })
     .catch(error => {
       dispatch(failureParent(error))

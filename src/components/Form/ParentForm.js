@@ -137,7 +137,7 @@ const mapDispatchToProps = (dispatch) => {
         ParentActionDispatch: (state) => dispatch(ParentAction(state)),
         AddDocumentActionDispatch: (state) => dispatch(AddDocumentAction(state)),
         AddContactActionDispatch: (state) => dispatch(AddContactAction(state)),
-        UpdateProgresActionDispatch:(state) =>dispatch(UpdateProgresAction(state))
+        UpdateProgresActionDispatch:(state) =>dispatch(UpdateProgresAction(state)),
     };
 };
 
