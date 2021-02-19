@@ -9,6 +9,7 @@ import ParentForm from "components/Form/ParentForm";
 import AddressForm from "components/Form/AddressForm";
 import { connect } from "react-redux";
 import InfoCard from "components/Cards/InfoCard";
+import { Link } from "react-router-dom";
 
 function Admission({ user, progress, documents, student, guardians, contacts, addresses }) {
   useEffect(() => {
@@ -31,6 +32,10 @@ function Admission({ user, progress, documents, student, guardians, contacts, ad
                 {progress === 1 && <AcademicForm />}
                 {progress === 2 && <ParentForm />}
                 {progress === 3 && <AddressForm />}
+                {progress === 100 && <div className="bg-green-500 border-t border-b border-blue-500 text-blue-700 px-4 py-3 m-10" role="alert">
+                  <p class="font-bold">Admitted Successfully</p>
+                  <p class="text-sm">Student is admitted successfully. To see or edit edtails please <Link to='/admin/settings'><b className='text-white'>Click</b></Link> here</p>
+                </div>}
               </div>
             </div>
           </div>

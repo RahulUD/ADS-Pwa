@@ -100,7 +100,7 @@ const AddressForm = (props) => {
             contacttype_id: 1,
             user: user.id
         })
-        props.UpdateProgresActionDispatch(4)
+        props.UpdateProgresActionDispatch(100)
     }
     useEffect(() => {
         setAddresstypeArray(prePareKeyValue('id', AddressTypes, { fields: ['type'] }))
