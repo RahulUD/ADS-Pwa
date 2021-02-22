@@ -1,0 +1,17 @@
+.blogPadding{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+  @media only screen and (min-width: 600px) {
+    .blogPadding{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .blogPadding{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+  }

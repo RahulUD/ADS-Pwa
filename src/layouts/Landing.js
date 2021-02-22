@@ -10,6 +10,7 @@ import Contact from "views/welcome/Contactus.js";
 import Aboutus from "views/welcome/Aboutus.js";
 import Fulloverlay from 'components/Overlay/Fulloverlay'
 import Admission from "views/welcome/Admission";
+import Faq from "views/welcome/Faq";
 
 function Landing() {
   return (
@@ -18,6 +19,8 @@ function Landing() {
       <main className="mt-15">
       <Switch>
         <Route path="/welcome" exact component={Welcome} />
+        <Route path="/welcome/faq" exact component={Faq} />
+        <Route path="/welcome/admission" exact component={Admission} />
         <Route path="/welcome/contactus" exact component={Contact} />
         <Route path="/welcome/aboutus" exact component={Aboutus} />
         <Route path="/welcome/admission" exact component={Admission} />

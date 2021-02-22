@@ -54,6 +54,13 @@ function Navbar(props) {
                   </Link>
               </li>
 
+              <li className="flex items-center">
+                <Link to='/welcome/admission'
+                  className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                  Admission
+                  </Link>
+              </li>
+
               <li className="flex items-center" >
                 <Link to='/blog'
                   className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
@@ -65,6 +72,13 @@ function Navbar(props) {
                 <Link to='/welcome/contactus'
                   className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
                   Contact Us
+                  </Link>
+              </li>
+
+              <li className="flex items-center" >
+                <Link to='/welcome/faq'
+                  className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                  Faq
                   </Link>
               </li>
 

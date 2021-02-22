@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import BirthdayWallpaper from 'assets/img/birthday.jpg'
 import ThreeCrousel from 'components/Crousel/3Crousel'
 
