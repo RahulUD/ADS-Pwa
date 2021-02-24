@@ -1,6 +1,6 @@
 import ContactUsForm from "components/Form/ContactUsForm";
 import React from "react";
-
+import RegisterForm from "components/Form/RegistrationForm"
 export default function Contactus() {
   return (
     <>
@@ -70,6 +70,7 @@ export default function Contactus() {
           </div>
         </section>
         <ContactUsForm />
+        <RegisterForm/>
         </>
   )
 }
