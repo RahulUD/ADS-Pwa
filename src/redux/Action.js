@@ -113,6 +113,9 @@ FAILURE_GET_TEACHER,
 REQUEST_POST_BLOG,
 RECEIVE_POST_BLOG,
 FAILURE_POST_BLOG,
+REQUEST_POST_REGISTER,
+RECEIVE_POST_REGISTER,
+FAILURE_POST_REGISTER
 } from 'redux/ActionType'
 
 // post blog
@@ -627,3 +630,17 @@ export const receiveLoginFromSession = payload => ({
   type: RECEIVE_LOGIN_FROM_SESSION,
   payload
 })
+
+//REGISTER
+export const requestRegister = () => ({
+  type: REQUEST_POST_REGISTER
+})
+export const receiveRegister = payload => ({
+  type: RECEIVE_POST_REGISTER,
+  payload
+})
+export const failureRegister = payload => ({
+  type: FAILURE_POST_REGISTER,
+  payload
+})
+

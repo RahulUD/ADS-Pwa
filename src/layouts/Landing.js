@@ -11,6 +11,7 @@ import Aboutus from "views/welcome/Aboutus.js";
 import Fulloverlay from 'components/Overlay/Fulloverlay'
 import Admission from "views/timeline/Admission";
 import Faq from "views/welcome/Faq";
+import Register from "views/welcome/Register";
 
 function Landing() {
   return (
@@ -24,6 +25,7 @@ function Landing() {
         <Route path="/welcome/contactus" exact component={Contact} />
         <Route path="/welcome/aboutus" exact component={Aboutus} />
         <Route path="/welcome/admission" exact component={Admission} />
+        <Route path="/welcome/register" exact component={Register} />
         <Redirect from="/" to="/welcome" />
       </Switch>
       </main>

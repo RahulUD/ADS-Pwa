@@ -48,3 +48,16 @@ export const validateAllField=(formData)=>{
   }
   return copyFormData
 }
+export const resetAllField=(formData)=>{
+  var copyFormData = { ...formData }
+  for (const data in formData) {
+    let element = { ...formData[data] }
+    
+    element.valid = false
+    element.messages = null
+    element.value =''
+    element.touched=false
+    copyFormData[data] = element
+  }
+  return copyFormData
+}
