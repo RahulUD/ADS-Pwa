@@ -5,6 +5,7 @@ import { ContactUsPostAction } from "redux/actionCreator/ContactUsAction"
 import InputWithLevel from '../InputType/InputWithLevel';
 import TextAreaWithLevel from '../InputType/TextAreaWithLevel';
 import ActionButton from 'components/InputType/ActionButton';
+import { validateAllField } from 'utility/method/FormMethods';
 const ContactUs = (props) => {
     const [formContact, setFormContact] = useState({
         name: {
@@ -73,6 +74,7 @@ const ContactUs = (props) => {
     }
 
     const handleSubmit = () => {
+        setFormContact(validateAllField(formContact))
         if (formValidity) {
             let contact = { email: formContact.email.value, name: formContact.name.value, phone: formContact.number.value, message: formContact.message.value }
             props.ContactUsActionDispatch(contact);
@@ -114,7 +116,6 @@ const mapStateToProps = (state) => {
         message: ContactUs
     };
 };
-
 const mapDispatchToProps = (dispatch) => {
     return {
         ContactUsActionDispatch: (state) => dispatch(ContactUsPostAction(state))
