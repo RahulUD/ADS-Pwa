@@ -9,7 +9,7 @@ import Welcome from "views/welcome/Welcome.js";
 import Contact from "views/welcome/Contactus.js";
 import Aboutus from "views/welcome/Aboutus.js";
 import Fulloverlay from 'components/Overlay/Fulloverlay'
-import Admission from "views/welcome/Admission";
+import Admission from "views/timeline/Admission";
 import Faq from "views/welcome/Faq";
 
 function Landing() {

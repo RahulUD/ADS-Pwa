@@ -5,7 +5,7 @@ export default {
   presentTeacher() {
     return Api().get(PRESENT_TEACHERS)
   },
-  allTeacher(){
-    return Api().get(ALL_CONTACT)
+  allTeacher(pageNo=1){
+    return Api().get(ALL_CONTACT+pageNo)
   }
 }

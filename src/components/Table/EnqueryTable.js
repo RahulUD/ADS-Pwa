@@ -21,7 +21,6 @@ const EnqueryTable = (props) => {
           (props.color === "light" ? "bg-white" : "bg-blue-900 text-white")
         }
       >
-
         {props.Contactus.data && props?.Contactus?.data.map(element => (<div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
           <div className="flex">
             <div>

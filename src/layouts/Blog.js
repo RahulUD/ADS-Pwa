@@ -13,7 +13,7 @@ export default function Landing() {
       <Navbar />
       <main className="mt-15">
       <Switch>
-        <Route path="/blog" component={Blog} />
+        <Route path="/blog/blogs" component={Blog} />
       </Switch>
       </main>
       <Footer />

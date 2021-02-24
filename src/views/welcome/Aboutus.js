@@ -1,68 +1,40 @@
 import PresentTeachers from "components/Welcome/PresentTeachers";
 import React from "react";
-import sports from "assets/img/sports.jpg"
 import ContactUsForm from "components/Form/ContactUsForm";
+import ImageDescriptionBanner from "./ImageDescriptionBanner";
+import InfoCard from "components/Cards/InfoCard";
 
 
 export default function Aboutus() {
   return (
     <>
       <div className="justify-between pt-16 pb-16">
-        <div className="bg-blue-500 shadow-md">
-          <div className="flex justify-between text-white container py-3 mx-auto py-3">
+        <div className="bg-blue-500  px-8">
+          <div className="flex justify-between text-white container mx-auto py-20">
             <div className="lg:w-12/12">
-              <p style={{ fontSize: '3em' }} className="mb-6 bold">ADS Public School</p>
+              <p style={{ fontSize: '3em' }} className="mb-6 bold ">ADS Public School</p>
               <p style={{ fontSize: '1em' }}>2 days ago · Tailwind is one of the frameworks that take the approach of reusable, content-agnostic CSS, like other frameworks of the same type (Bootstrap, Foundation). This is obviously and as usual in the programming world a tradeoff. It does not care too much about separation of concerns, it aims to provide reusable CSS. In contrast to its competition, it tackles the subject differently. 2 days ago · Tailwind is one of the frameworks that take the approach of reusable, content-agnostic CSS, like other frameworks of the same type (Bootstrap, Foundation). This is obviously and as usual in the programming world a tradeoff. It does not care too much about separation of concerns, it aims to provide reusable CSS. In contrast to its competition, it tackles the subject differently. 2 days ago · Tailwind is one of the frameworks that take the approach of reusable, content-agnostic CSS, like other frameworks of the same type (Bootstrap, Foundation). This is obviously and as usual in the programming world a tradeoff. It does not care too much about separation of concerns, it aims to provide reusable CSS. In contrast to its competition, it tackles the subject differently. 2 days ago · Tailwind is one of the frameworks that take the approach of reusable, content-agnostic CSS, like other frameworks of the same type (Bootstrap, Foundation). This is obviously and as usual in the programming world a tradeoff. It does not care too much about separation of concerns, it aims to provide reusable CSS. In contrast to its competition, it tackles the subject differently. 2 days ago · Tailwind is one of the frameworks that take the approach of reusable, content-agnostic CSS, like other frameworks of the same type (Bootstrap, Foundation). This is obviously and as usual in the programming world a tradeoff. It does not care too much about separation of concerns, it aims to provide reusable CSS. In contrast to its competition, it tackles the subject differently.</p>
             </div>
           </div>
         </div>
-        <div className="shadow-md">
-          <div className="justify-between container mt-6 mx-auto">
-            <div className="lg:w-12/12 ">
-              <p style={{ fontSize: '2em' }} className="mb-6">From Directors Desk</p></div>
-            <div className="flex">
-              <div className="lg:w-4/12 px-2 py-2 shadow-md"><img alt="imag" className="float-left ..." src={sports} /></div>
-              <div className="lg:w-8/12 px-2 py-2"> React Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. However, 'props' w
-ill change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of</div>
-            </div></div>
-        </div>
-        <div className="shadow-md">
-          <div className="justify-between container mt-6 mx-auto">
-            <div className="lg:w-12/12 ">
-              <p style={{ fontSize: '2em' }} className="mb-6">From Principal's Desk</p></div>
-            <div className="flex">
-              <div className="lg:w-4/12 px-2 py-2 shadow-md"><img alt="imag" className="float-left ..." src={sports} /></div>
-              <div className="lg:w-8/12 px-2 py-2"> React Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
-              Either include it or remove the dependency array. HowevReact Hook useEffect has a missing dependency: 'props'.
-Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of</div>
-            </div></div>
-        </div>
-        <div className="flex justify-center container py-3 py-3">
+        <ImageDescriptionBanner />
+        <ImageDescriptionBanner />
+        <div className="lg:flex justify-center container py-3 py-3">
           <PresentTeachers />
         </div>
-        <div className="flex justify-between container  mx-auto">
-          <div className="lg:w-3/12 px-3 rounded-lg py-2 shadow-md">
-            <p style={{ fontSize: '2em' }}>Vision</p>
-            React Hook useEffect has a missing dependency: 'props'.
-Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of</div>
-          <div className="lg:w-3/12 px-3 rounded-lg py-2 shadow-md">
-            <p style={{ fontSize: '2em' }}>Mission</p>
-            React Hook useEffect has a missing dependency: 'props'.
-Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of</div>
-          <div className="lg:w-3/12 px-3 rounded-lg py-2 shadow-md">
-            <p style={{ fontSize: '2em' }}>Motto</p>
-            React Hook useEffect has a missing dependency: 'props'.
-Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of</div>
-          <div className="lg:w-3/12 px-3 rounded-lg py-2 shadow-md">
-            <p style={{ fontSize: '2em' }}>Curriculum</p>
-            React Hook useEffect has a missing dependency: 'props'.
-Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of</div>
+        <div className="flex justify-between container  mx-auto mt-32">
+          <div className="lg:w-3/12 px-3">
+            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-red-400'><p>df sdfh sdfh sh</p></InfoCard>
+          </div>
+          <div className="lg:w-3/12 px-3">
+            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-black'><p>df sdfh sdfh sh</p></InfoCard>
+          </div>
+          <div className="lg:w-3/12 px-3">
+            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-green-400'><p>df sdfh sdfh sh</p></InfoCard>
+          </div>
+          <div className="lg:w-3/12 px-3">
+            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-blue-400'><p>df sdfh sdfh sh</p></InfoCard>
+          </div>
         </div>
       </div>
       <section className="pb-20 relative block bg-gray-900">

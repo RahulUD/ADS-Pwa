@@ -22,10 +22,10 @@ export const PresentTeachersAction = () => dispatch => {
       dispatch(failurePresentTeacher(error))
     })
 }
-export const GetTeacherAction = () => dispatch => {
+export const GetTeacherAction = (data) => dispatch => {
   dispatch(requestLoading())
   dispatch(requestGetTeacher())
-  return Teacher.allTeacher()
+  return Teacher.allTeacher(data?.page)
     .then(response => {
       dispatch(receiveLoading())
       dispatch(receiveGetTeacher(response))

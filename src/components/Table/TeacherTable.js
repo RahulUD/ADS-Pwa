@@ -1,6 +1,7 @@
 import AvatarNameCard from "components/Cards/AvatarNameCard";
 import MessageBox from "components/Models/MessageBox";
 import React, { useEffect, useState } from "react";
+import { Pagination } from 'react-laravel-paginex'
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { GetTeacherAction } from 'redux/actionCreator/TeacherAction'
@@ -40,7 +41,7 @@ const TeacherTable = ({Teachers, GetTeacherActionDispatch}) => {
                 </tr>
               </thead>
               <tbody className="text-sm font-normal text-gray-700">
-                {Teachers.map((Teacher, index) => (
+                {Teachers?.data && Teachers?.data.map((Teacher, index) => (
                   <>
                     <tr className="hover:bg-gray-100  border-gray-200">
                       <td className="px-4 py-4">{index + 1}</td>
@@ -60,9 +61,11 @@ const TeacherTable = ({Teachers, GetTeacherActionDispatch}) => {
                 ))}
               </tbody>
             </table>
+            
             <MessageBox show={show} data={teacher} hideModel={hideModel} />
           </div>
-          <div id="pagination" className="w-full flex justify-center border-t border-gray-100 pt-4 items-center">
+          <div id="pagination" className="w-full justify-center mt-5 flex border-t border-gray-100 items-center">
+          {Teachers && <Pagination changePage={(data) => GetTeacherActionDispatch(data)} data={Teachers} />}
           </div>
         </div>
       </div>

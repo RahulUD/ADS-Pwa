@@ -1,3 +1,5 @@
+import Validation from "utility/Validation";
+
 export const debounce = (func) => {
   let timer;
   return function (...args) {
@@ -33,4 +35,16 @@ export const handleValidation = states => {
     isValid = state.valid && isValid
   });
   return isValid
+}
+
+export const validateAllField=(formData)=>{
+  var copyFormData = { ...formData }
+  for (const data in formData) {
+    let element = { ...formData[data] }
+    const { isValid, messages } = Validation(element.value, element.validation)
+    element.valid = isValid
+    element.messages = messages
+    copyFormData[data] = element
+  }
+  return copyFormData
 }

@@ -110,7 +110,37 @@ import {
   REQUEST_GET_TEACHER,
 RECEIVE_GET_TEACHER,
 FAILURE_GET_TEACHER,
+REQUEST_POST_BLOG,
+RECEIVE_POST_BLOG,
+FAILURE_POST_BLOG,
 } from 'redux/ActionType'
+
+// post blog
+export const requestBlogPost = () => ({
+  type: REQUEST_POST_BLOG
+})
+export const receiveBlogPost = payload => ({
+  type: RECEIVE_POST_BLOG,
+  payload
+})
+export const failureBlogPost = payload => ({
+  type: FAILURE_POST_BLOG,
+  payload
+})
+
+// blogs
+export const requestBlogs = () => ({
+  type: REQUEST_BLOGS
+})
+export const receiveBlogs = payload => ({
+  type: RECEIVE_BLOGS,
+  payload
+})
+export const failureBlogs = payload => ({
+  type: FAILURE_BLOGS,
+  payload
+})
+
 
 // get teacher
 export const requestGetTeacher = () => ({
@@ -552,19 +582,6 @@ export const receiveLogout = payload => ({
 })
 export const failureLogout = payload => ({
   type: FAILURE_LOGOUT,
-  payload
-})
-
-// blogs
-export const requestBlogs = () => ({
-  type: REQUEST_BLOGS
-})
-export const receiveBlogs = payload => ({
-  type: RECEIVE_BLOGS,
-  payload
-})
-export const failureBlogs = payload => ({
-  type: FAILURE_BLOGS,
   payload
 })
 

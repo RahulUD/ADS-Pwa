@@ -1,38 +1,39 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from "react-router-dom";
 import Validation from 'utility/Validation'
 import { LoginAction } from 'redux/actionCreator/AuthAction'
 import { connect } from "react-redux";
 import { isTokenAvilableInLocalStorage } from 'utility/method/LocalStorageMethod';
 import Fulloverlay from 'components/Overlay/Fulloverlay';
+import { validateAllField } from 'utility/method/FormMethods';
 
 function Login(props) {
   const [formData, setFormData] = useState({
+    password: {
+      value: '',
+      validation: {
+        required: true,
+        minLength: 8
+      },
+      messages: null,
+      valid: false,
+      touched: false
+    },
     email: {
       value: '',
       validation: {
         required: true,
         email: true
       },
-      messages : null,
+      messages: null,
       valid: false,
       touched: false
     },
-    password: {
-      value: '',
-      validation: {
-        required: true,
-        minLength : 8
-      },
-      messages : null,
-      valid: false,
-      touched: false
-    }
   })
   useEffect(() => {
-   if(isTokenAvilableInLocalStorage()){
-     history.push('/')
-   }
+    if (isTokenAvilableInLocalStorage()) {
+      history.push('/')
+    }
   }, [])
   useEffect(() => {
     setFormValidity(handleValidation())
@@ -45,26 +46,27 @@ function Login(props) {
     let element = { ...formData[identifier] }
     element.value = event.target.value
     element.touched = true
-    const {isValid, messages}  = Validation(event.target.value, formData[identifier].validation)
+    const { isValid, messages } = Validation(event.target.value, formData[identifier].validation)
     element.valid = isValid
     element.messages = messages
     setFormData({ ...formData, [identifier]: element })
   }
 
-  const handleValidation = ()=>{
-      return formData.password.valid && formData.email.valid
+  const handleValidation = () => {
+    return formData.password.valid && formData.email.valid
   }
 
   const handleSubmit = () => {
-    if(formValidity){
-      let credential = {email : formData.email.value, password : formData.password.value}
+    setFormData(validateAllField(formData))
+    if (formValidity) {
+      let credential = { email: formData.email.value, password: formData.password.value }
       props.LoginActionDispatch(credential);
     }
   }
 
   useEffect(() => {
-    if(props.isAuthSuccessful)
-    history.push('/admin')
+    if (props.isAuthSuccessful)
+      history.push('/admin')
   }, [props.isAuthSuccessful])
   return (
     <>
@@ -128,7 +130,6 @@ function Login(props) {
 
                   <div className="text-center mt-6">
                     <button
-                      disabled={!formValidity}
                       onClick={handleSubmit}
                       className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="button"
@@ -157,7 +158,7 @@ function Login(props) {
             </div>
           </div>
         </div>
-        <Fulloverlay message="Authenticating..."/>
+        <Fulloverlay message="Authenticating..." />
       </div>
     </>
   );
@@ -166,8 +167,8 @@ function Login(props) {
 const mapStateToProps = (state) => {
   const Auth = state.AuthReducer;
   return {
-    user : Auth.user,
-    isAuthSuccessful : Auth.isAuthSuccessful
+    user: Auth.user,
+    isAuthSuccessful: Auth.isAuthSuccessful
   };
 };
 

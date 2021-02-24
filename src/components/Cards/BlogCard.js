@@ -1,22 +1,25 @@
 import React from 'react'
-const BlogCard = (props) => {
+import { Link } from 'react-router-dom';
+import { BASE_URL } from 'utility/constant/EndPoints';
+const BlogCard = ({id,user, title, short_descrition, description, created_at, updated_at}) => {
     return (
         <>
-            <div className="max-w-md w-full lg:flex">
-                <div className="h-20 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={{backgroundImage: `url("https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg")`}} title="Woman holding a mug">
+            <div className="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md px-6 py-8">
+                
+                <div className="flex justify-between items-center"><span className="font-light text-gray-600">{updated_at}</span><a href="#/"
+                        className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500">Design</a>
                 </div>
-                <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <div className="mb-8">
-                        <div className="text-black font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-                        <p className="text-grey-darker text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
-                    </div>
-                    <div className="flex items-center">
-                        <img className="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink" />
-                        <div className="text-sm">
-                            <p className="text-black leading-none">Jonathan Reinink</p>
-                            <p className="text-grey-dark">Aug 18</p>
-                        </div>
-                    </div>
+                <div className="mt-2"><Link to={`/blog/blogs/${id}`}
+                    className="text-2xl text-gray-700 font-bold hover:underline">{title}</Link>
+                    <p className="mt-2 text-gray-600">{short_descrition}</p>
+                </div>
+                <div className="flex justify-between items-center mt-4"><a href="#/"
+                    className="text-blue-500 hover:underline"><Link to={`/blog/blogs/${id}`}>Read more</Link></a>
+                    <div><a href="#/" className="flex items-center"><img
+                        src={`${BASE_URL}${user?.avatar}`}
+                        alt="avatar" className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" />
+                        <h1 className="text-gray-700 font-bold hover:underline">{user?.name}</h1>
+                    </a></div>
                 </div>
             </div>
         </>

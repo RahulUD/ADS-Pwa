@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ItemsCarousel from 'react-items-carousel';
 import { connect } from 'react-redux';
 import { BirthdayAction } from 'redux/actionCreator/UserAction'
+import { BASE_URL } from 'utility/constant/EndPoints';
 
 const chevronWidth = 40;
 
@@ -55,11 +56,10 @@ class AutoPlayCarousel extends React.Component {
             <SlideItem key={element.id}>
               <div className="rounded rounded-t-lg overflow-hidden shadow my-3">
                 <div className="flex justify-center">
-                  <img src={element.avatar} alt='profile' style={{height: '300px'}} className="rounded-lg border-solid border-white border-2 mt-3" />
+                  <img src={`${BASE_URL}${element.avatar}`} alt='profile' style={{height: '300px'}} className="rounded-lg border-solid border-white border-2 mt-3" />
                 </div>
                 <div className="text-center px-3 pb-6 pt-2">
                   <h3 className="text-black text-sm bold font-sans"><b className="text-3xl">{element.name}</b></h3>
-                  {/* {element.userable_type==='App\\Models\\Student' && <p className="mt-2 font-sans font-light text-grey-dark">{`STD : ${element.std.name}`}</p>} */}
                 </div>
               </div>
             </SlideItem>
