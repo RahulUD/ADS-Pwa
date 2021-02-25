@@ -1,8 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-
-// components
-
 import Navbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import Welcome from "views/welcome/Welcome.js";
@@ -12,6 +9,7 @@ import Fulloverlay from 'components/Overlay/Fulloverlay'
 import Admission from "views/timeline/Admission";
 import Faq from "views/welcome/Faq";
 import Register from "views/welcome/Register";
+import Holidays from "views/welcome/Holidays";
 
 function Landing() {
   return (
@@ -25,6 +23,7 @@ function Landing() {
         <Route path="/welcome/contactus" exact component={Contact} />
         <Route path="/welcome/aboutus" exact component={Aboutus} />
         <Route path="/welcome/admission" exact component={Admission} />
+        <Route path="/welcome/holidays" exact component={Holidays} />
         <Route path="/welcome/register" exact component={Register} />
         <Redirect from="/" to="/welcome" />
       </Switch>

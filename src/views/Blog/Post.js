@@ -6,7 +6,10 @@ const Post = ({ blogs, newBlog }) => {
     const [blog, setBlog] = useState()
     const history = useHistory();
 
-   
+    useEffect(() => {
+        if(newBlog?.id)
+            history.push('blog/blogs/all')
+    }, [newBlog])
 
     useEffect(() => {
         blogs.data.forEach(element => {

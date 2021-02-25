@@ -20,8 +20,12 @@ import RelationReducer from 'redux/reducer/RelationReducer'
 import PinReducer from 'redux/reducer/PinReducer'
 import ScholorReducer from 'redux/reducer/ScholorReducer'
 import TransportReducer from 'redux/reducer/TransportReducer'
+import HolidayReducer from 'redux/reducer/HolidayReducer'
+import NotificationReducer from 'redux/reducer/NotificationReducer'
 
 const RootReducer = combineReducers({
+    NotificationReducer,
+    HolidayReducer,
     PresentTeachersReducer,
     UserSearchReducer,
     AuthReducer,

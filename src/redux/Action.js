@@ -115,8 +115,57 @@ RECEIVE_POST_BLOG,
 FAILURE_POST_BLOG,
 REQUEST_POST_REGISTER,
 RECEIVE_POST_REGISTER,
-FAILURE_POST_REGISTER
+FAILURE_POST_REGISTER,
+REQUEST_GET_HOLIDAYS,
+RECEIVE_GET_HOLIDAYS,
+FAILURE_GET_HOLIDAYS,
+REQUEST_GET_FAQ,
+RECEIVE_GET_FAQ,
+FAILURE_GET_FAQ,
+REQUEST_GET_NOTIFICATION,
+RECEIVE_GET_NOTIFICATION,
+FAILURE_GET_NOTIFICATION,
 } from 'redux/ActionType'
+
+// notification
+export const requestGetNotification = () => ({
+  type: REQUEST_GET_NOTIFICATION
+})
+export const receiveGetNotification = payload => ({
+  type: RECEIVE_GET_NOTIFICATION,
+  payload
+})
+export const failureGetNotification = payload => ({
+  type: FAILURE_GET_NOTIFICATION,
+  payload
+})
+
+// faq
+export const requestGetFaq = () => ({
+  type: REQUEST_GET_FAQ
+})
+export const receiveGetFaq = payload => ({
+  type: RECEIVE_GET_FAQ,
+  payload
+})
+export const failureGetFaq = payload => ({
+  type: FAILURE_GET_FAQ,
+  payload
+})
+
+
+// post holiday
+export const requestGetHolidays = () => ({
+  type: REQUEST_GET_HOLIDAYS
+})
+export const receiveGetHolidays = payload => ({
+  type: RECEIVE_GET_HOLIDAYS,
+  payload
+})
+export const failureGetHolidays = payload => ({
+  type: FAILURE_GET_HOLIDAYS,
+  payload
+})
 
 // post blog
 export const requestBlogPost = () => ({
@@ -643,4 +692,3 @@ export const failureRegister = payload => ({
   type: FAILURE_POST_REGISTER,
   payload
 })
-

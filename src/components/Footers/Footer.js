@@ -76,12 +76,12 @@ export default () => {
                       </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://blog.creative-tim.com?ref=nr-footer"
+                        to="/welcome/holidays"
                       >
                         {FOOTER_LINK_2}
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a

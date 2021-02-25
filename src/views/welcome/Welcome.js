@@ -6,6 +6,7 @@ import InfoCard from "components/Cards/InfoCard";
 import WelcomeBanner from "components/Welcome/WelcomeBanner";
 import ExpolreBanner from "./ExpolreBanner";
 import ImageDescriptionBanner from "./ImageDescriptionBanner";
+import ImageOverlay from "components/Overlay/ImageOverlay";
 
 export default function Welcome() {
   return (
@@ -134,6 +135,7 @@ export default function Welcome() {
         <ExpolreBanner/>
       </section>
       <Birthday />
+      <ImageOverlay />
     </>
   )
 }
