@@ -1,5 +1,7 @@
 import React from 'react'
 import wallaper from "assets/img/wallpaper.jpg"
+import { Link } from 'react-router-dom'
+import Thought from './Thought'
 const WelcomeBanner = () =>{
     return(
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
@@ -17,7 +19,6 @@ const WelcomeBanner = () =>{
         <div className="container relative mx-auto">
           <div className="items-center flex flex-wrap">
             <div className="w-full lg:w-12/12 px-4 ml-auto mr-auto text-center">
-            <marquee className='text-blue-500 font-semibold' onmouseover="this.stop()" onmouseout="this.start()">sasd sdf asdf asdf asd asdf </marquee>
               <div className="pr-12">
                 <h1 className="text-white font-semibold text-5xl">
                   ADS Public School
@@ -26,6 +27,7 @@ const WelcomeBanner = () =>{
                   A.D.S. Public School is an independent co-education school offering quality education. Our school motto, “Real world ready” is based upon 6 core values: hard work, honesty, respect,
                   discipline, trust and enthusiasm.
                   </p>
+                  <Thought/>
               </div>
             </div>
           </div>

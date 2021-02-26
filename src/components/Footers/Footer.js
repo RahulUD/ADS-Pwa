@@ -84,20 +84,20 @@ export default () => {
                       </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://www.github.com/creativetimofficial?ref=nr-footer"
+                        to="/welcome/faq"
                       >
                         {FOOTER_LINK_3}
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=nr-footer"
+                        to="/welcome/alumini"
                       >
                         {FOOTER_LINK_4}
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

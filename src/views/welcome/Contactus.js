@@ -70,7 +70,6 @@ export default function Contactus() {
           </div>
         </section>
         <ContactUsForm />
-        <RegisterForm/>
         </>
   )
 }

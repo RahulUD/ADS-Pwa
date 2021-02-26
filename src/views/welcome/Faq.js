@@ -1,5 +1,13 @@
-import React from 'react'
-export default ()=>{
+import React, {useEffect} from 'react'
+import { connect } from 'react-redux';
+import { GetFaqAction } from 'redux/actionCreator/FaqAction';
+const Faq = ({GetFaqActionDispatch, Faqs})=>{
+  useEffect(() => {
+    GetFaqActionDispatch()
+  }, [])
+  useEffect(() => {
+    
+  }, [Faqs])
     return(
         <div className='justify-center'>
       <section className="text-gray-700">
@@ -15,39 +23,15 @@ export default ()=>{
           </div>
           <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
             <div className="w-full lg:w-1/2 px-4 py-2">
-              <details className="mb-4">
+              {Faqs&&Faqs.map(faq=>(<details className="mb-4">
                 <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  How Long is this site live?
+                 {faq?.question}
                 </summary>
 
                 <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
+                {faq?.answer}
                 </span>
-              </details>
-              <details className="mb-4">
-                <summary className="font-semibold bg-gray-200 rounded-md py-2 px-4">
-                  Can I install/upload anything I want on there?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details className="mb-4">
-                <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  How can I migrate to another site?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
+              </details>))}
             </div>
             </div>
         </div>
@@ -55,3 +39,21 @@ export default ()=>{
     </div>
     )
 }
+
+const mapStateToProps = (state) => {
+  const Faq = state.FaqReducer;
+  return {
+    Faqs: Faq.data
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    GetFaqActionDispatch: (state) => dispatch(GetFaqAction(state))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Faq)

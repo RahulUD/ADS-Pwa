@@ -1,28 +1,28 @@
 import {
-  REQUEST_GET_FAQ,
-  RECEIVE_GET_FAQ,
-  FAILURE_GET_FAQ,
+  REQUEST_GET_ALUMINI,
+  RECEIVE_GET_ALUMINI,
+  FAILURE_GET_ALUMINI,
 } from 'redux/ActionType'
 
 const initialState = {
   code: null,
   message: null,
-  data:null,
+  aluminis:null,
   error: null,
 }
 export default (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
-    case REQUEST_GET_FAQ:
+    case REQUEST_GET_ALUMINI:
       return {
         ...state,
       }
-    case RECEIVE_GET_FAQ:
+    case RECEIVE_GET_ALUMINI:
       return {
         ...state,
-        data: payload.data.data
+        aluminis: payload.data.data
       }
-    case FAILURE_GET_FAQ:
+    case FAILURE_GET_ALUMINI:
       return {
         ...state,
         error: payload.error

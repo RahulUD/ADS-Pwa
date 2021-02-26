@@ -1,10 +1,6 @@
 import {
-  REQUEST_PRESENT_TEACHER,
-  RECEIVE_PRESENT_TEACHER,
-  FAILURE_PRESENT_TEACHER,
-  REQUEST_FOOTER,
-  RECEIVE_FOOTER,
-  FAILURE_FOOTER,
+  REQUEST_PRESENT_TEACHER,RECEIVE_PRESENT_TEACHER,FAILURE_PRESENT_TEACHER,
+  REQUEST_FOOTER,RECEIVE_FOOTER,FAILURE_FOOTER,
   REQUEST_LOGIN,
   RECEIVE_LOGIN,
   FAILURE_LOGIN,
@@ -125,7 +121,39 @@ FAILURE_GET_FAQ,
 REQUEST_GET_NOTIFICATION,
 RECEIVE_GET_NOTIFICATION,
 FAILURE_GET_NOTIFICATION,
+REQUEST_GET_ALUMINI,
+  RECEIVE_GET_ALUMINI,
+  FAILURE_GET_ALUMINI,
+  REQUEST_GET_THOUGHT,
+RECEIVE_GET_THOUGHT,
+FAILURE_GET_THOUGHT,
 } from 'redux/ActionType'
+
+// thought
+export const requestGetThought = () => ({
+  type: REQUEST_GET_THOUGHT
+})
+export const receiveGetThought = payload => ({
+  type: RECEIVE_GET_THOUGHT,
+  payload
+})
+export const failureGetThought = payload => ({
+  type: FAILURE_GET_THOUGHT,
+  payload
+})
+
+// alumini
+export const requestGetAluminis = () => ({
+  type: REQUEST_GET_ALUMINI
+})
+export const receiveGetAluminis = payload => ({
+  type: RECEIVE_GET_ALUMINI,
+  payload
+})
+export const failureGetAluminis = payload => ({
+  type: FAILURE_GET_ALUMINI,
+  payload
+})
 
 // notification
 export const requestGetNotification = () => ({

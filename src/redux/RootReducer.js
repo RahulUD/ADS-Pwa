@@ -22,8 +22,14 @@ import ScholorReducer from 'redux/reducer/ScholorReducer'
 import TransportReducer from 'redux/reducer/TransportReducer'
 import HolidayReducer from 'redux/reducer/HolidayReducer'
 import NotificationReducer from 'redux/reducer/NotificationReducer'
+import FaqReducer from 'redux/reducer/FaqReducer'
+import AluminiReducer from 'redux/reducer/AluminiReducer'
+import ThoughtReducer from 'redux/reducer/ThoughtReducer'
 
 const RootReducer = combineReducers({
+    ThoughtReducer,
+    AluminiReducer,
+    FaqReducer,
     NotificationReducer,
     HolidayReducer,
     PresentTeachersReducer,
