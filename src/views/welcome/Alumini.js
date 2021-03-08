@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Pagination from 'react-laravel-paginex/dist/Pagination';
 import { connect } from 'react-redux';
 import { GetAluminisAction } from 'redux/actionCreator/AluminiAction';
+import { BASE_URL } from 'utility/constant/EndPoints';
 const Alumini = ({ GetAluminisActionDispatch, Aluminis }) => {
   useEffect(() => {
     GetAluminisActionDispatch()
@@ -17,7 +18,7 @@ const Alumini = ({ GetAluminisActionDispatch, Aluminis }) => {
             {Aluminis&&Aluminis.data.map(alumini=>(<div class="bg-white shadow-xl mb-2 rounded-lg overflow-hidden">
               <div class="px-4 pt-3 pb-4 border-t border-gray-300 bg-gray-100">
                 <div class="flex items-center pt-2">
-                  <div class="bg-cover bg-center w-16 h-16 rounded mr-3" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80)` }}>
+                  <div class="bg-cover bg-center w-16 h-16 rounded mr-3" style={{ backgroundImage: `url(http://ads.com/${alumini.avatar})` }}>
                   </div>
                   <div>
                     <p class="font-bold text-gray-900">{`${alumini.name} ${alumini.session}`}</p>

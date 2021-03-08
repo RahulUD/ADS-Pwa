@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import {FOOTER_CONTACT_TITLE,FOOTER_CONTACT_DESCRIPTION,FOOTER_LINK_TITLE,FOOTER_LINK_1,FOOTER_LINK_2,FOOTER_LINK_3,FOOTER_LINK_4,FOOTER_RESOURCES_TITLE,FOOTER_RESOURCES_1,FOOTER_RESOURCES_2,FOOTER_RESOURCES_3,FOOTER_RESOURCES_4,
-} from 'utility/constant/UiConstant'
+import { FooterAction } from "redux/actionCreator/KeyvalueAction";
 
-export default () => {
+const Footer = ({FooterActionDispatch, footer}) => {
+  useEffect(() => {
+    FooterActionDispatch()
+  }, [])
+  useEffect(() => {
+    
+  }, [footer])
   return (
     <>
       <footer className="relative bg-gray-300 pt-8 pb-6">
@@ -29,115 +35,52 @@ export default () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-3xl font-semibold">{FOOTER_CONTACT_TITLE}</h4>
+              <h4 className="text-3xl font-semibold">{footer?.footerTitle?.title}</h4>
               <h5 className="text-lg mt-0 mb-2 text-gray-700">
-              {FOOTER_CONTACT_DESCRIPTION}
+              {footer?.footerTitle?.descriptiom}
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
-                <button
-                  className="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+              {footer.socialMediaLink && footer.socialMediaLink.map(socialMedia =>(<button
+                  className={`bg-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 ${socialMedia.classes}`}
                   type="button"
                 >
-                  <i className="fab fa-twitter"></i>
-                </button>
-                <button
-                  className="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-facebook-square"></i>
-                </button>
-                <button
-                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-dribbble"></i>
-                </button>
-                <button
-                  className="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-github"></i>
-                </button>
+                  <i className={socialMedia.icon}></i>
+                </button>))}
+                
               </div>
             </div>
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
                   <span className="block uppercase text-gray-600 text-sm font-semibold mb-2">
-                  {FOOTER_LINK_TITLE}
+                  {footer?.footerLinkTitle?.title}
                   </span>
                   <ul className="list-unstyled">
-                    <li>
+                    {footer.footerLink && footer.footerLink.map(footerlink =>( <li>
                       <Link
+                        title={footerlink.description}
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        to="/welcome/register"
+                        to={footerlink.link}
                       >
-                        {FOOTER_LINK_1}
+                        {footerlink.title}
                       </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        to="/welcome/holidays"
-                      >
-                        {FOOTER_LINK_2}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        to="/welcome/faq"
-                      >
-                        {FOOTER_LINK_3}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        to="/welcome/alumini"
-                      >
-                        {FOOTER_LINK_4}
-                      </Link>
-                    </li>
+                    </li>))}
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4">
                   <span className="block uppercase text-gray-600 text-sm font-semibold mb-2">
-                    {FOOTER_RESOURCES_TITLE}
+                    {footer?.footerResourceTitle?.title}
                   </span>
                   <ul className="list-unstyled">
-                    <li>
+                    {footer.footerResource && footer?.footerResource.map(resource =>(<li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                         href="https://github.com/creativetimofficial/notus-react/blob/master/LICENSE.md?ref=nr-footer"
                       >
-                        {FOOTER_RESOURCES_1}
+                        {resource.title}
                       </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/terms?ref=nr-footer"
-                      >
-                        {FOOTER_RESOURCES_2}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/privacy?ref=nr-footer"
-                      >
-                        {FOOTER_RESOURCES_3}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/contact-us?ref=nr-footer"
-                      >
-                        {FOOTER_RESOURCES_4}
-                      </a>
-                    </li>
+                    </li>))}
+                    
                   </ul>
                 </div>
               </div>
@@ -162,3 +105,20 @@ export default () => {
     </>
   );
 }
+const mapStateToProps = (state) => {
+  const KeyValue = state.KeyValueReducer;
+    return {
+      footer: KeyValue.footer
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    FooterActionDispatch: (state) => dispatch(FooterAction(state)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer)

@@ -7,10 +7,10 @@ import {
   } from 'redux/Action';
   import Alumini from 'utility/api/Alumini'
   
-  export const GetAluminisAction = () => dispatch => {
+  export const GetAluminisAction = (data) => dispatch => {
     dispatch(requestLoading())
     dispatch(requestGetAluminis())
-    return Alumini.AluminiList()
+    return Alumini.AluminiList(data?.page)
       .then(response => {
         dispatch(receiveLoading())
         dispatch(receiveGetAluminis(response))

@@ -3,6 +3,7 @@ import React from "react";
 import ContactUsForm from "components/Form/ContactUsForm";
 import ImageDescriptionBanner from "./ImageDescriptionBanner";
 import InfoCard from "components/Cards/InfoCard";
+import Objective from "components/Aboutus/Objective";
 
 
 export default function Aboutus() {
@@ -19,22 +20,11 @@ export default function Aboutus() {
         </div>
         <ImageDescriptionBanner />
         <ImageDescriptionBanner />
-        <div className="lg:flex justify-center container py-3 py-3">
+        <div className="lg:flex justify-center container py-3">
           <PresentTeachers />
         </div>
         <div className="flex justify-between container  mx-auto mt-32">
-          <div className="lg:w-3/12 px-3">
-            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-red-400'><p>df sdfh sdfh sh</p></InfoCard>
-          </div>
-          <div className="lg:w-3/12 px-3">
-            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-black'><p>df sdfh sdfh sh</p></InfoCard>
-          </div>
-          <div className="lg:w-3/12 px-3">
-            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-green-400'><p>df sdfh sdfh sh</p></InfoCard>
-          </div>
-          <div className="lg:w-3/12 px-3">
-            <InfoCard title='Motto' icon='fas fa-fingerprint' iconColor='bg-blue-400'><p>df sdfh sdfh sh</p></InfoCard>
-          </div>
+          <Objective />
         </div>
       </div>
       <section className="pb-20 relative block bg-gray-900">

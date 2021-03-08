@@ -25,8 +25,10 @@ import NotificationReducer from 'redux/reducer/NotificationReducer'
 import FaqReducer from 'redux/reducer/FaqReducer'
 import AluminiReducer from 'redux/reducer/AluminiReducer'
 import ThoughtReducer from 'redux/reducer/ThoughtReducer'
+import KeyValueReducer from 'redux/reducer/KeyValueReducer'
 
 const RootReducer = combineReducers({
+    KeyValueReducer,
     ThoughtReducer,
     AluminiReducer,
     FaqReducer,
