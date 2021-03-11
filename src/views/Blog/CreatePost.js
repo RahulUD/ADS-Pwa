@@ -7,8 +7,10 @@ import Validation from 'utility/Validation'
 import {PostBlogAction} from 'redux/actionCreator/BlogAction'
 import RichEditor from './RichEditor'
 import { useHistory } from 'react-router'
-const Createpost = ({PostBlogActionDispatch, newBlog}) => {
+const Createpost = ({PostBlogActionDispatch, isAuthSuccessful}) => {
     const history=useHistory()
+    useEffect(() => {
+    }, [isAuthSuccessful])
     const [form, setForm] = useState({
         title: {
             value: '',
@@ -64,7 +66,7 @@ const Createpost = ({PostBlogActionDispatch, newBlog}) => {
     }
 
     return (
-        <div className="mt-4 p-4 shadow-lg border">
+        <div className="mt-4 p-4 shadow-lg border" hidden={!isAuthSuccessful}>
             <InputWithLevel type='text' value={form.title.value} placeholder='Blog title' isFocused={true} id='title' changeHandle={handleChange} errors={form.title.messages}>Create Post </InputWithLevel>
             <TextAreaWithLevel value={form.shortDescription.value} placeholder='Short Description' isFocused={true} id='shortDescription' changeHandle={handleChange} errors={form.shortDescription.messages}></TextAreaWithLevel>
             <RichEditor value={form.description.value} placeholder='Blog Description' isFocused={true} changeHandle={tichHandleChange} errors={form.description.messages}/>
@@ -77,10 +79,10 @@ const Createpost = ({PostBlogActionDispatch, newBlog}) => {
 }
 const mapStateToProps = (state) => {
     const Blog = state.BlogReducer;
-    console.log('blogs', Blog)
+    const Auth = state.AuthReducer
     return {
       blogs : Blog.blogs,
-      newBlog : Blog.blog,
+      isAuthSuccessful : Auth.isAuthSuccessful
     };
   };
   const mapDispatchToProps = (dispatch) => {

@@ -22,8 +22,8 @@ const Post = ({ blogs, newBlog }) => {
 
     }, [blog])
     return (
-        <div className="mt-6">
-            {<div className="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md px-6 py-8">
+        <div >
+            {<div className="max-w-4xl bg-white rounded-lg shadow-md">
                 <div className="mt-2">
                     <Link to="/blog/all/1"
                         className="text-2xl text-gray-700 font-bold hover:underline">{blog?.title}</Link>

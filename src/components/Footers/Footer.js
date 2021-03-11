@@ -1,14 +1,13 @@
-import React, {useEffect} from "react";
+import Unilink from "custom/Unilink";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FooterAction } from "redux/actionCreator/KeyvalueAction";
-
-const Footer = ({FooterActionDispatch, footer}) => {
+const Footer = ({ FooterActionDispatch, footer }) => {
   useEffect(() => {
     FooterActionDispatch()
   }, [])
   useEffect(() => {
-    
   }, [footer])
   return (
     <>
@@ -37,26 +36,26 @@ const Footer = ({FooterActionDispatch, footer}) => {
             <div className="w-full lg:w-6/12 px-4">
               <h4 className="text-3xl font-semibold">{footer?.footerTitle?.title}</h4>
               <h5 className="text-lg mt-0 mb-2 text-gray-700">
-              {footer?.footerTitle?.descriptiom}
+                {footer?.footerTitle?.descriptiom}
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
-              {footer.socialMediaLink && footer.socialMediaLink.map(socialMedia =>(<button
+                {footer.socialMediaLink && footer.socialMediaLink.map(socialMedia => (<button
                   className={`bg-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 ${socialMedia.classes}`}
                   type="button"
                 >
                   <i className={socialMedia.icon}></i>
                 </button>))}
-                
+
               </div>
             </div>
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
                   <span className="block uppercase text-gray-600 text-sm font-semibold mb-2">
-                  {footer?.footerLinkTitle?.title}
+                    {footer?.footerLinkTitle?.title}
                   </span>
                   <ul className="list-unstyled">
-                    {footer.footerLink && footer.footerLink.map(footerlink =>( <li>
+                    {footer.footerLink && footer.footerLink.map(footerlink => (<li>
                       <Link
                         title={footerlink.description}
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
@@ -72,15 +71,10 @@ const Footer = ({FooterActionDispatch, footer}) => {
                     {footer?.footerResourceTitle?.title}
                   </span>
                   <ul className="list-unstyled">
-                    {footer.footerResource && footer?.footerResource.map(resource =>(<li>
-                      <a
-                        className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://github.com/creativetimofficial/notus-react/blob/master/LICENSE.md?ref=nr-footer"
-                      >
-                        {resource.title}
-                      </a>
+                    {footer.footerResource && footer?.footerResource.map(resource => (<li>
+                      <Unilink {...resource}/>
                     </li>))}
-                    
+
                   </ul>
                 </div>
               </div>
@@ -107,9 +101,9 @@ const Footer = ({FooterActionDispatch, footer}) => {
 }
 const mapStateToProps = (state) => {
   const KeyValue = state.KeyValueReducer;
-    return {
-      footer: KeyValue.footer
-    };
+  return {
+    footer: KeyValue.footer
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

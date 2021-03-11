@@ -11,8 +11,8 @@ import { resetAllField } from 'utility/method/FormMethods';
 import InputWithLevel from '../InputType/InputWithLevel';
 import ActionButton from 'components/InputType/ActionButton';
 import TextAreaWithLevel from 'components/InputType/TextAreaWithLevel';
-const RegistrationForm = (props) => {
-    const { Genders } = props
+import { GetRegistrationFormAction } from 'redux/actionCreator/KeyvalueAction';
+const RegistrationForm = ({GetRegistrationFormActionDispatch, RegistrationForm, Genders, GetGenderActionDispatch, RegisterActionDispatch }) => {
 
     const [formRegister, setFormRegister] = useState({
         name: {
@@ -149,7 +149,8 @@ const RegistrationForm = (props) => {
         setFormValidity(handleValidation())
     }
     useEffect(() => {
-        props.GetGenderActionDispatch()
+        GetGenderActionDispatch()
+        GetRegistrationFormActionDispatch()
     }, [])
 
     useEffect(() => {
@@ -172,7 +173,7 @@ const RegistrationForm = (props) => {
                 adhar: formRegister.adhar.value,
                 dob: formRegister.dob.value
             }
-            props.RegisterActionDispatch(register);
+            RegisterActionDispatch(register);
         }
     }
 
@@ -183,11 +184,10 @@ const RegistrationForm = (props) => {
                     <div className="w-full lg:w-8/12 px-4">
                         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                             <div className="p-5 lg:p-10">
-                                <h4 className="text-2xl font-semibold"> to work with us?</h4>
-                                <p className="leading-relaxed mt-1 mb-4 text-gray-600">
-                                    Complete this form and we will get back to you in 24
-                                    hours.
-                                    </p>
+                                {RegistrationForm && <><h4 className="text-2xl font-semibold"> {RegistrationForm.title}</h4>
+                                    <p className="leading-relaxed mt-1 mb-4 text-gray-600">
+                                       {RegistrationForm.description}
+                                    </p></>}
                                 <div className='lg:flex'>
                                     <InputWithLevel width='lg:w-6/12 md:w-12/12 px-2' type='text' value={formRegister.name.value} placeholder='Enter Name' isFocused={true} id='name' changeHandle={handleChange} errors={formRegister.name.messages}>Name</InputWithLevel>
                                     <InputWithLevel width='lg:w-6/12   md:w-12/12 px-2' type='number' value={formRegister.number.value} placeholder='Enter mobile Number' isFocused={true} id='number' changeHandle={handleChange} errors={formRegister.number.messages}>Number</InputWithLevel>
@@ -221,8 +221,10 @@ const RegistrationForm = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    const Genders = state.GenderReducer;
+    const KeyValue = state.KeyValueReducer
+    const Genders = state.GenderReducer
     return {
+        RegistrationForm: KeyValue.registrationForm,
         Genders: Genders.data
     };
 };
@@ -230,8 +232,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         GetGenderActionDispatch: (state) => dispatch(GetGenderAction(state)),
-
-        RegisterActionDispatch: (state) => dispatch(RegisterAction(state))
+        RegisterActionDispatch: (state) => dispatch(RegisterAction(state)),
+        GetRegistrationFormActionDispatch: (state) => dispatch(GetRegistrationFormAction(state))
     };
 };
 export default connect(

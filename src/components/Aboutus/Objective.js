@@ -11,6 +11,7 @@ const Objective = ({ ObjectiveActionDispatch, objectives }) => {
     return (
         <>
             {objectives.map(objective => (<div className=" px-3">
+                
                 <InfoCard title={objective.title} icon={objective.icon} iconColor={objective.classes}><p>{objective.description}</p></InfoCard>
             </div>))}
         </>

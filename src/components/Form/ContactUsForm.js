@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Validation from "../../utility/Validation";
 import { connect } from 'react-redux';
 import { ContactUsPostAction } from "redux/actionCreator/ContactUsAction"
@@ -6,7 +6,13 @@ import InputWithLevel from '../InputType/InputWithLevel';
 import TextAreaWithLevel from '../InputType/TextAreaWithLevel';
 import ActionButton from 'components/InputType/ActionButton';
 import { validateAllField } from 'utility/method/FormMethods';
-const ContactUs = (props) => {
+import { GetEnqueryFormAction } from 'redux/actionCreator/KeyvalueAction';
+const ContactUs = ({ GetEnqueryFormActionDispatch, ContactUsActionDispatch, enqueryForm }) => {
+    useEffect(() => {
+        GetEnqueryFormActionDispatch()
+    }, [])
+    useEffect(() => {
+    }, [enqueryForm])
     const [formContact, setFormContact] = useState({
         name: {
             value: '',
@@ -68,16 +74,14 @@ const ContactUs = (props) => {
         setFormContact({ ...formContact, [identifier]: element })
         setFormValidity(handleValidation())
     }
-
     const handleValidation = () => {
         return formContact.email.valid & formContact.name.valid & formContact.number.valid
     }
-
     const handleSubmit = () => {
         setFormContact(validateAllField(formContact))
         if (formValidity) {
             let contact = { email: formContact.email.value, name: formContact.name.value, phone: formContact.number.value, message: formContact.message.value }
-            props.ContactUsActionDispatch(contact);
+            ContactUsActionDispatch(contact);
         }
     }
     return (
@@ -88,11 +92,14 @@ const ContactUs = (props) => {
                         <div className="w-full lg:w-6/12 px-4">
                             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                                 <div className="flex-auto p-5 lg:p-10">
-                                    <h4 className="text-2xl font-semibold"> to work with us?</h4>
-                                    <p className="leading-relaxed mt-1 mb-4 text-gray-600">
-                                        Complete this form and we will get back to you in 24
-                                        hours.
-                                    </p>
+                                    {enqueryForm &&
+                                        <>
+                                            <h4 className="text-2xl font-semibold"> {enqueryForm.title}</h4>
+                                            <p className="leading-relaxed mt-1 mb-4 text-gray-600">
+                                                {enqueryForm.description}
+                                            </p>
+                                        </>
+                                    }
                                     <InputWithLevel width='lg:w-12/12' type='text' value={formContact.name.value} placeholder='Enter Name' isFocused={true} id='name' changeHandle={handleChange} errors={formContact.name.messages}>Name</InputWithLevel>
                                     <InputWithLevel width='lg:w-12/12' type='text' value={formContact.email.value} placeholder='Enter Email' isFocused={true} id='email' changeHandle={handleChange} errors={formContact.email.messages}>Email</InputWithLevel>
                                     <InputWithLevel width='lg:w-12/12' type='text' value={formContact.number.value} placeholder='Enter mobile Number' isFocused={true} id='number' changeHandle={handleChange} errors={formContact.number.messages}>Number</InputWithLevel>
@@ -112,13 +119,16 @@ const ContactUs = (props) => {
 
 const mapStateToProps = (state) => {
     const ContactUs = state.ContactUsReducer;
+    const KeyValue = state.KeyValueReducer;
     return {
-        message: ContactUs
+        message: ContactUs,
+        enqueryForm: KeyValue.enqueryForm
     };
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        ContactUsActionDispatch: (state) => dispatch(ContactUsPostAction(state))
+        ContactUsActionDispatch: (state) => dispatch(ContactUsPostAction(state)),
+        GetEnqueryFormActionDispatch: (state) => dispatch(GetEnqueryFormAction(state))
     };
 };
 export default connect(
